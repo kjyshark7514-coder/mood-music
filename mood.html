@@ -2,15 +2,15 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
+
   <meta
-    name="viwport"
+    name="viewport"
     content="width=device-width, initial-scale=1.0"
   >
 
   <title>SHARK - Mood</title>
 
   <style>
-
     * {
       box-sizing: border-box;
       -webkit-tap-highlight-color: transparent;
@@ -20,7 +20,6 @@
     body {
       margin: 0;
       padding: 0;
-
       width: 100%;
       min-height: 100%;
     }
@@ -45,6 +44,7 @@
 
     .page {
       width: 100%;
+
       min-height: 100vh;
       min-height: 100dvh;
 
@@ -59,7 +59,9 @@
       background: #dff4f6;
     }
 
-    /* 제목 */
+    /* =========================================
+       제목
+    ========================================= */
 
     .mood-title {
       width: 100%;
@@ -77,7 +79,9 @@
       letter-spacing: -1.5px;
     }
 
-    /* 기분 버튼 */
+    /* =========================================
+       기분 버튼 영역
+    ========================================= */
 
     .mood-grid {
       width: 100%;
@@ -93,8 +97,18 @@
       gap: 14px;
     }
 
+    /* =========================================
+       기분 버튼
+    ========================================= */
+
     .mood-button {
       aspect-ratio: 1 / 1;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      padding: 0;
 
       border: none;
       border-radius: 22px;
@@ -103,6 +117,7 @@
         rgba(255, 255, 255, 0.75);
 
       font-size: 30px;
+      line-height: 1;
 
       cursor: pointer;
 
@@ -111,8 +126,6 @@
         background 0.2s ease,
         box-shadow 0.2s ease;
     }
-
-    /* 선택된 기분 */
 
     .mood-button.selected {
       background: #ffffff;
@@ -128,7 +141,14 @@
       transform: scale(0.92);
     }
 
-    /* 추천 버튼 */
+    .mood-button:focus-visible {
+      outline: 2px solid #10202a;
+      outline-offset: 3px;
+    }
+
+    /* =========================================
+       추천 버튼
+    ========================================= */
 
     .recommend-button {
       width: 100%;
@@ -156,6 +176,8 @@
 
       transform: translateY(10px);
 
+      pointer-events: none;
+
       transition:
         opacity 0.25s ease,
         transform 0.25s ease;
@@ -166,12 +188,24 @@
       visibility: visible;
 
       transform: translateY(0);
+
+      pointer-events: auto;
     }
 
-    /* 작은 화면 */
+    .recommend-button:active {
+      transform: scale(0.98);
+    }
+
+    .recommend-button:focus-visible {
+      outline: 2px solid #10202a;
+      outline-offset: 3px;
+    }
+
+    /* =========================================
+       작은 화면
+    ========================================= */
 
     @media (max-width: 380px) {
-
       .page {
         padding-left: 18px;
         padding-right: 18px;
@@ -193,23 +227,16 @@
         border-radius: 18px;
       }
     }
-
   </style>
 </head>
-
 
 <body>
 
   <main class="page">
 
-    <!-- 제목 -->
-
     <h1 class="mood-title">
       하나 골라봐
     </h1>
-
-
-    <!-- 기분 선택 -->
 
     <div class="mood-grid">
 
@@ -217,6 +244,8 @@
         class="mood-button"
         type="button"
         data-mood="행복"
+        aria-label="행복"
+        aria-pressed="false"
       >
         😊
       </button>
@@ -225,6 +254,8 @@
         class="mood-button"
         type="button"
         data-mood="사랑"
+        aria-label="사랑"
+        aria-pressed="false"
       >
         💗
       </button>
@@ -233,6 +264,8 @@
         class="mood-button"
         type="button"
         data-mood="슬픔"
+        aria-label="슬픔"
+        aria-pressed="false"
       >
         😢
       </button>
@@ -241,6 +274,8 @@
         class="mood-button"
         type="button"
         data-mood="화남"
+        aria-label="화남"
+        aria-pressed="false"
       >
         😡
       </button>
@@ -249,6 +284,8 @@
         class="mood-button"
         type="button"
         data-mood="피곤"
+        aria-label="피곤"
+        aria-pressed="false"
       >
         😴
       </button>
@@ -257,6 +294,8 @@
         class="mood-button"
         type="button"
         data-mood="위로"
+        aria-label="위로"
+        aria-pressed="false"
       >
         🥺
       </button>
@@ -265,6 +304,8 @@
         class="mood-button"
         type="button"
         data-mood="신남"
+        aria-label="신남"
+        aria-pressed="false"
       >
         🤩
       </button>
@@ -273,14 +314,13 @@
         class="mood-button"
         type="button"
         data-mood="SHARK"
+        aria-label="SHARK"
+        aria-pressed="false"
       >
         🦈
       </button>
 
     </div>
-
-
-    <!-- 추천 버튼 -->
 
     <button
       class="recommend-button"
@@ -292,11 +332,7 @@
 
   </main>
 
-
   <script>
-
-    /* 선택한 기분 */
-
     const moodButtons =
       document.querySelectorAll(
         ".mood-button"
@@ -309,51 +345,39 @@
 
     let selectedMood = null;
 
-
-    /* 이모지 클릭 */
-
     moodButtons.forEach(
-      function (button) {
+      function(button) {
 
         button.addEventListener(
           "click",
-          function () {
-
-            /*
-              기존 선택 제거
-            */
+          function() {
 
             moodButtons.forEach(
-              function (item) {
+              function(item) {
 
                 item.classList.remove(
                   "selected"
                 );
 
+                item.setAttribute(
+                  "aria-pressed",
+                  "false"
+                );
+
               }
             );
-
-
-            /*
-              현재 선택
-            */
 
             button.classList.add(
               "selected"
             );
 
-
-            /*
-              기분 저장
-            */
+            button.setAttribute(
+              "aria-pressed",
+              "true"
+            );
 
             selectedMood =
               button.dataset.mood;
-
-
-            /*
-              추천 버튼 표시
-            */
 
             recommendButton.classList.add(
               "visible"
@@ -365,22 +389,13 @@
       }
     );
 
-
-    /* 추천 버튼 */
-
     recommendButton.addEventListener(
       "click",
-      function () {
+      function() {
 
         if (!selectedMood) {
           return;
         }
-
-
-        /*
-          선택한 기분을
-          result.html로 전달
-        */
 
         window.location.href =
           "./result.html?mood=" +
@@ -390,7 +405,6 @@
 
       }
     );
-
   </script>
 
 </body>
