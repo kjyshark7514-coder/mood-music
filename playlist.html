@@ -34,8 +34,8 @@
         "Noto Sans KR",
         sans-serif;
 
-      background: #dff4f6;
-      color: #10202a;
+      background: #031118;
+      color: #ffffff;
     }
 
     button {
@@ -43,85 +43,162 @@
     }
 
     .page {
-      width: 100%;
+      position: relative;
 
+      width: 100%;
       min-height: 100vh;
       min-height: 100dvh;
 
       padding:
-        calc(45px + env(safe-area-inset-top))
-        24px
-        calc(35px + env(safe-area-inset-bottom));
+        calc(30px + env(safe-area-inset-top))
+        20px
+        calc(40px + env(safe-area-inset-bottom));
 
       display: flex;
       flex-direction: column;
       align-items: center;
 
-      background: #dff4f6;
+      overflow-x: hidden;
+      overflow-y: auto;
+
+      background-image:
+        linear-gradient(
+          180deg,
+          rgba(2, 13, 19, 0.78) 0%,
+          rgba(2, 15, 22, 0.88) 45%,
+          rgba(2, 11, 16, 0.97) 100%
+        ),
+        url("./main.jpeg");
+
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    .page::before {
+      content: "";
+
+      position: absolute;
+
+      width: 300px;
+      height: 300px;
+
+      top: 420px;
+      right: -170px;
+
+      border-radius: 50%;
+
+      background:
+        rgba(61, 212, 226, 0.11);
+
+      filter: blur(65px);
+
+      pointer-events: none;
+    }
+
+    .top {
+      position: relative;
+      z-index: 2;
+
+      width: 100%;
+      max-width: 440px;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .top-spacer {
+      width: 38px;
+      height: 38px;
     }
 
     .logo {
-      margin-bottom: 55px;
+      color: #ffffff;
 
-      color: #10202a;
+      font-size: 15px;
+      font-weight: 700;
 
-      font-size: 20px;
-      font-weight: 600;
+      letter-spacing: 5px;
+    }
 
-      letter-spacing: 3px;
+    .logo-dot {
+      width: 7px;
+      height: 7px;
+
+      border-radius: 50%;
+
+      background: #6ce8ee;
+
+      box-shadow:
+        0 0 14px
+        rgba(108, 232, 238, 0.9);
+    }
+
+    .playlist-head {
+      position: relative;
+      z-index: 2;
+
+      width: 100%;
+      max-width: 440px;
+
+      margin-top: 44px;
     }
 
     .playlist-title {
       margin: 0;
 
-      text-align: center;
-
-      color: #10202a;
+      color: #ffffff;
 
       font-size:
-        clamp(30px, 8vw, 42px);
+        clamp(32px, 8vw, 44px);
 
-      line-height: 1.3;
+      line-height: 1.12;
 
-      font-weight: 600;
+      font-weight: 670;
 
-      letter-spacing: -1.5px;
+      letter-spacing: -2px;
     }
 
     .playlist-subtitle {
-      margin: 15px 0 0;
+      margin: 11px 0 0;
 
-      text-align: center;
+      color:
+        rgba(203, 230, 234, 0.58);
 
-      color: #607781;
-
-      font-size: 16px;
-
-      line-height: 1.5;
+      font-size: 14px;
+      line-height: 1.6;
     }
 
     .play-all-button {
+      position: relative;
+      z-index: 2;
+
       width: 100%;
-      max-width: 420px;
+      max-width: 440px;
 
       margin-top: 28px;
-
       padding: 16px 20px;
 
       border: none;
       border-radius: 18px;
 
-      background: #10202a;
-      color: #ffffff;
+      background:
+        linear-gradient(
+          135deg,
+          #dffbfb 0%,
+          #a8eef2 100%
+        );
 
-      font-size: 15px;
-      font-weight: 600;
+      color: #06202a;
+
+      font-size: 14px;
+      font-weight: 700;
 
       cursor: pointer;
 
       transition:
-        transform 0.15s ease,
-        opacity 0.2s ease;
+        transform 0.15s ease;
     }
 
     .play-all-button:active {
@@ -129,227 +206,271 @@
     }
 
     .now-playing {
+      position: relative;
+      z-index: 2;
+
       width: 100%;
-      max-width: 420px;
+      max-width: 440px;
 
-      margin-top: 14px;
-
+      margin-top: 12px;
       padding: 13px 16px;
+
+      border:
+        1px solid
+        rgba(108, 232, 238, 0.15);
 
       border-radius: 15px;
 
       background:
-        rgba(
-          255,
-          255,
-          255,
-          0.65
-        );
+        rgba(108, 232, 238, 0.07);
 
-      color: #526b74;
+      color: #bcebef;
 
       text-align: center;
 
-      font-size: 13px;
-
+      font-size: 12px;
       line-height: 1.5;
     }
 
     .music-list {
-      width: 100%;
-      max-width: 420px;
+      position: relative;
+      z-index: 2;
 
-      margin-top: 40px;
+      width: 100%;
+      max-width: 440px;
+
+      margin-top: 24px;
 
       display: flex;
       flex-direction: column;
 
-      gap: 14px;
+      gap: 11px;
     }
 
     .music-item {
       width: 100%;
 
-      padding: 20px;
+      padding: 17px;
 
       border-radius: 22px;
 
       background:
-        rgba(
-          255,
-          255,
-          255,
-          0.82
-        );
-
-      box-shadow:
-        0 8px 25px
-        rgba(
-          16,
-          32,
-          42,
-          0.06
+        linear-gradient(
+          145deg,
+          rgba(255, 255, 255, 0.085),
+          rgba(255, 255, 255, 0.035)
         );
 
       border:
-        2px solid transparent;
+        1px solid
+        rgba(255, 255, 255, 0.09);
+
+      box-shadow:
+        0 10px 30px
+        rgba(0, 0, 0, 0.16);
+
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
 
       transition:
         border 0.2s ease,
-        transform 0.2s ease;
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
     }
 
     .music-item.selected {
-      border-color: #10202a;
+      border-color:
+        rgba(108, 232, 238, 0.55);
 
       transform:
         translateY(-2px);
+
+      box-shadow:
+        0 0 18px
+        rgba(108, 232, 238, 0.10);
     }
 
     .music-info {
       width: 100%;
 
-      margin-bottom: 16px;
+      margin-bottom: 15px;
     }
 
     .music-name {
       margin: 0;
 
-      color: #10202a;
+      color: #f5fcfd;
 
-      font-size: 19px;
+      font-size: 17px;
       font-weight: 600;
 
       line-height: 1.4;
     }
 
     .music-artist {
-      margin: 6px 0 0;
+      margin: 5px 0 0;
 
-      color: #607781;
+      color: #7f9ca5;
 
-      font-size: 14px;
-
+      font-size: 13px;
       line-height: 1.4;
     }
 
     .music-actions {
+      width: 100%;
+
       display: flex;
 
-      gap: 10px;
-
-      width: 100%;
+      gap: 8px;
     }
 
     .play-button {
       flex: 1;
 
+      min-height: 43px;
+
+      padding: 10px;
+
       display: flex;
       align-items: center;
       justify-content: center;
 
-      min-height: 48px;
+      border-radius: 13px;
 
-      padding: 12px;
+      background:
+        linear-gradient(
+          135deg,
+          #dffbfb 0%,
+          #a8eef2 100%
+        );
 
-      border-radius: 16px;
-
-      background: #10202a;
-      color: #ffffff;
+      color: #06202a;
 
       text-decoration: none;
+      text-align: center;
 
-      font-size: 14px;
-      font-weight: 500;
+      font-size: 13px;
+      font-weight: 650;
     }
 
     .remove-button {
-      width: 54px;
-      min-width: 54px;
-      min-height: 48px;
+      width: 48px;
+      min-width: 48px;
+      min-height: 43px;
 
-      border: none;
-      border-radius: 16px;
+      border:
+        1px solid
+        rgba(108, 232, 238, 0.25);
 
-      background: #edf7f8;
-      color: #10202a;
+      border-radius: 13px;
 
-      font-size: 22px;
+      background:
+        rgba(108, 232, 238, 0.12);
+
+      color: #6ce8ee;
+
+      font-size: 20px;
 
       cursor: pointer;
+
+      box-shadow:
+        0 0 14px
+        rgba(108, 232, 238, 0.10);
     }
 
     .remove-button:active {
-      transform: scale(0.88);
+      transform: scale(0.9);
     }
 
     .empty-message {
+      position: relative;
+      z-index: 2;
+
       width: 100%;
-      max-width: 420px;
+      max-width: 440px;
 
-      margin-top: 55px;
+      margin-top: 32px;
 
-      padding: 40px 24px;
+      padding: 38px 24px;
+
+      border:
+        1px solid
+        rgba(255, 255, 255, 0.09);
 
       border-radius: 24px;
 
       background:
-        rgba(
-          255,
-          255,
-          255,
-          0.7
+        linear-gradient(
+          145deg,
+          rgba(255, 255, 255, 0.08),
+          rgba(255, 255, 255, 0.035)
         );
+
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
 
       text-align: center;
 
-      color: #607781;
+      color:
+        rgba(203, 230, 234, 0.58);
 
-      font-size: 16px;
-
-      line-height: 1.6;
+      font-size: 14px;
+      line-height: 1.7;
     }
 
     .empty-heart {
       display: block;
 
-      margin-bottom: 15px;
+      margin-bottom: 14px;
 
-      font-size: 42px;
+      color: #6ce8ee;
+
+      font-size: 40px;
     }
 
     .back-button {
-      margin-top: 30px;
+      position: relative;
+      z-index: 2;
 
+      width: 100%;
+      max-width: 440px;
+
+      margin-top: 18px;
       padding: 12px 20px;
 
       border: none;
 
       background: transparent;
 
-      color: #526b74;
+      color: #708b93;
 
-      font-size: 15px;
+      font-size: 13px;
 
       cursor: pointer;
     }
 
+    @media (min-width: 700px) {
+      .page {
+        padding-left:
+          max(40px, calc((100vw - 520px) / 2));
+
+        padding-right:
+          max(40px, calc((100vw - 520px) / 2));
+      }
+    }
+
     @media (max-width: 380px) {
       .page {
-        padding-left: 18px;
-        padding-right: 18px;
+        padding-left: 16px;
+        padding-right: 16px;
       }
 
-      .logo {
-        margin-bottom: 45px;
+      .playlist-head {
+        margin-top: 36px;
       }
 
       .music-item {
-        padding: 18px;
-      }
-
-      .music-name {
-        font-size: 18px;
+        padding: 15px;
       }
     }
   </style>
@@ -359,17 +480,29 @@
 
   <main class="page">
 
-    <div class="logo">
-      SHARK
-    </div>
+    <header class="top">
 
-    <h1 class="playlist-title">
-      MY MUSIC
-    </h1>
+      <div class="top-spacer"></div>
 
-    <p class="playlist-subtitle">
-      내가 좋아하는 노래만 모아봤어.
-    </p>
+      <div class="logo">
+        SHARK
+      </div>
+
+      <div class="logo-dot"></div>
+
+    </header>
+
+    <section class="playlist-head">
+
+      <h1 class="playlist-title">
+        MY MUSIC
+      </h1>
+
+      <p class="playlist-subtitle">
+        내가 좋아하는 노래만 모아봤어.
+      </p>
+
+    </section>
 
     <button
       class="play-all-button"
@@ -396,11 +529,10 @@
       style="display: none;"
     >
       <span class="empty-heart">
-        🤍
+        ♡
       </span>
 
       아직 저장한 노래가 없어.<br>
-
       마음에 드는 노래에<br>
       ♥를 눌러 저장해봐.
     </div>
