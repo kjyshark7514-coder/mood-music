@@ -43,6 +43,9 @@
       font-family: inherit;
     }
 
+
+    /* 전체 페이지 */
+
     .page {
 
       width: 100%;
@@ -307,11 +310,65 @@
     }
 
 
+    /* MY MUSIC 버튼 */
+
+    .playlist-button {
+
+      width: 100%;
+
+      max-width: 420px;
+
+      margin-top: 22px;
+
+      padding: 15px 20px;
+
+      border: 1px solid
+        rgba(
+          16,
+          32,
+          42,
+          0.12
+        );
+
+      border-radius: 18px;
+
+      background: rgba(
+        255,
+        255,
+        255,
+        0.55
+      );
+
+      color: #10202a;
+
+      font-size: 15px;
+
+      font-weight: 500;
+
+      letter-spacing: 0.3px;
+
+      cursor: pointer;
+
+      transition:
+        background 0.2s ease,
+        transform 0.15s ease;
+
+    }
+
+
+    .playlist-button:active {
+
+      transform:
+        scale(0.97);
+
+    }
+
+
     /* 다시 고르기 */
 
     .back-button {
 
-      margin-top: 25px;
+      margin-top: 20px;
 
       padding: 12px 20px;
 
@@ -387,7 +444,7 @@
     </h1>
 
 
-    <!-- 선택한 이모지 -->
+    <!-- 선택한 기분 -->
 
     <div
       class="selected-mood"
@@ -433,11 +490,9 @@
       </p>
 
 
-      <!-- 버튼 -->
+      <!-- 음악 버튼 -->
 
       <div class="button-row">
-
-        <!-- YouTube Music -->
 
         <a
           href="#"
@@ -449,8 +504,6 @@
           ▶ YouTube Music
         </a>
 
-
-        <!-- 하트 -->
 
         <button
           class="heart-button"
@@ -464,6 +517,17 @@
       </div>
 
     </section>
+
+
+    <!-- MY MUSIC -->
+
+    <button
+      class="playlist-button"
+      id="playlistButton"
+      type="button"
+    >
+      ♡ MY MUSIC
+    </button>
 
 
     <!-- 다시 고르기 -->
@@ -544,19 +608,12 @@
     const moodEmoji = {
 
       "행복": "😊",
-
       "사랑": "💗",
-
       "슬픔": "😢",
-
       "화남": "😡",
-
       "피곤": "😴",
-
       "위로": "🥺",
-
       "신남": "🤩",
-
       "SHARK": "🦈"
 
     };
@@ -596,13 +653,10 @@
 
 
     /* =========================================
-       기분별 추천곡 5개
-       
-       여기서 랜덤으로 하나가 선택됨
+       기분별 추천곡
     ========================================= */
 
     const musicData = {
-
 
       "행복": [
 
@@ -847,10 +901,7 @@
 
 
     /* =========================================
-       저장된 음악 가져오기
-       
-       localStorage에
-       sharkPlaylist라는 이름으로 저장
+       저장된 음악
     ========================================= */
 
     let savedSongs =
@@ -861,24 +912,25 @@
       );
 
 
-    /* =========================================
-       현재 추천곡
-    ========================================= */
-
     let currentMusic = null;
 
 
     /* =========================================
-       랜덤 추천곡 선택
+       랜덤 음악
     ========================================= */
 
-    function getRandomMusic(moodName) {
+    function getRandomMusic(
+      moodName
+    ) {
 
       const list =
         musicData[moodName];
 
 
-      if (!list || list.length === 0) {
+      if (
+        !list ||
+        list.length === 0
+      ) {
 
         return {
           title: "Ocean",
@@ -890,7 +942,8 @@
 
       const randomIndex =
         Math.floor(
-          Math.random() * list.length
+          Math.random() *
+          list.length
         );
 
 
@@ -900,7 +953,7 @@
 
 
     /* =========================================
-       YouTube Music 검색 주소 만들기
+       YouTube Music 검색
     ========================================= */
 
     function getYouTubeMusicURL(
@@ -924,7 +977,7 @@
 
 
     /* =========================================
-       하트 상태 확인
+       하트 상태
     ========================================= */
 
     function updateHeart() {
@@ -936,7 +989,7 @@
 
       const isSaved =
         savedSongs.some(
-          function (song) {
+          function(song) {
 
             return (
               song.title ===
@@ -974,12 +1027,15 @@
 
 
     /* =========================================
-       음악 화면에 표시
+       음악 표시
     ========================================= */
 
-    function showMusic(music) {
+    function showMusic(
+      music
+    ) {
 
-      currentMusic = music;
+      currentMusic =
+        music;
 
 
       musicTitle.textContent =
@@ -1002,13 +1058,14 @@
 
 
     /* =========================================
-       현재 기분 처리
+       현재 기분 적용
     ========================================= */
 
     if (mood) {
 
       selectedMood.textContent =
-        moodEmoji[mood] || "😊";
+        moodEmoji[mood] ||
+        "😊";
 
 
       moodText.textContent =
@@ -1017,25 +1074,29 @@
 
 
       showMusic(
-        getRandomMusic(mood)
+        getRandomMusic(
+          mood
+        )
       );
 
     } else {
 
       showMusic(
-        getRandomMusic("행복")
+        getRandomMusic(
+          "행복"
+        )
       );
 
     }
 
 
     /* =========================================
-       ❤️ 하트 저장 / 삭제
+       ❤️ 저장 / 삭제
     ========================================= */
 
     heartButton.addEventListener(
       "click",
-      function () {
+      function() {
 
         if (!currentMusic) {
           return;
@@ -1044,7 +1105,7 @@
 
         const existingIndex =
           savedSongs.findIndex(
-            function (song) {
+            function(song) {
 
               return (
                 song.title ===
@@ -1058,29 +1119,16 @@
           );
 
 
-        /* 이미 저장되어 있다면 삭제 */
-
-        if (existingIndex !== -1) {
+        if (
+          existingIndex !== -1
+        ) {
 
           savedSongs.splice(
             existingIndex,
             1
           );
 
-
-          heartButton.textContent =
-            "🤍";
-
-          heartButton.classList.remove(
-            "saved"
-          );
-
-        }
-
-
-        /* 저장되어 있지 않다면 추가 */
-
-        else {
+        } else {
 
           savedSongs.push({
 
@@ -1097,18 +1145,8 @@
 
           });
 
-
-          heartButton.textContent =
-            "❤️";
-
-          heartButton.classList.add(
-            "saved"
-          );
-
         }
 
-
-        /* 브라우저에 저장 */
 
         localStorage.setItem(
           "sharkPlaylist",
@@ -1117,8 +1155,30 @@
           )
         );
 
+
+        updateHeart();
+
       }
     );
+
+
+    /* =========================================
+       MY MUSIC
+    ========================================= */
+
+    document
+      .getElementById(
+        "playlistButton"
+      )
+      .addEventListener(
+        "click",
+        function() {
+
+          window.location.href =
+            "./playlist.html";
+
+        }
+      );
 
 
     /* =========================================
@@ -1131,7 +1191,7 @@
       )
       .addEventListener(
         "click",
-        function () {
+        function() {
 
           window.location.href =
             "./mood.html";
