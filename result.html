@@ -64,7 +64,7 @@
     /* 로고 */
 
     .logo {
-      margin-bottom: 55px;
+      margin-bottom: 45px;
 
       color: #10202a;
 
@@ -89,48 +89,51 @@
       line-height: 1.3;
 
       font-weight: 600;
+
       letter-spacing: -1.5px;
     }
 
 
-    /* 선택한 기분 */
+    /* 기분 */
 
     .selected-mood {
-      margin-top: 25px;
+      margin-top: 24px;
 
-      font-size: 64px;
+      font-size: 60px;
+
       line-height: 1;
     }
 
 
-    /* 설명 */
-
     .mood-text {
-      margin-top: 20px;
+      margin-top: 18px;
 
       text-align: center;
 
-      font-size: 17px;
+      font-size: 16px;
+
       line-height: 1.5;
 
       color: #4b626b;
     }
 
 
-    /* 음악 스타일 선택 */
+    /* 장르 */
 
     .genre-title {
       width: 100%;
       max-width: 420px;
 
-      margin: 35px 0 14px;
+      margin-top: 30px;
+      margin-bottom: 12px;
 
       text-align: center;
 
-      font-size: 16px;
+      font-size: 15px;
+
       font-weight: 600;
 
-      color: #526b74;
+      color: #607781;
     }
 
 
@@ -139,6 +142,7 @@
       max-width: 420px;
 
       display: grid;
+
       grid-template-columns: 1fr 1fr;
 
       gap: 12px;
@@ -149,22 +153,26 @@
       padding: 15px 10px;
 
       border: none;
+
       border-radius: 18px;
 
-      background: rgba(255, 255, 255, 0.7);
+      background:
+        rgba(
+          255,
+          255,
+          255,
+          0.72
+        );
 
       color: #526b74;
 
       font-size: 16px;
+
       font-weight: 500;
 
       cursor: pointer;
 
-      transition:
-        transform 0.2s ease,
-        background 0.2s ease,
-        color 0.2s ease,
-        box-shadow 0.2s ease;
+      transition: 0.2s ease;
     }
 
 
@@ -175,12 +183,88 @@
 
       box-shadow:
         0 8px 20px
-        rgba(16, 32, 42, 0.12);
+        rgba(
+          16,
+          32,
+          42,
+          0.12
+        );
     }
 
 
     .genre-button:active {
       transform: scale(0.95);
+    }
+
+
+    /* 플레이리스트 헤더 */
+
+    .playlist-header {
+      width: 100%;
+      max-width: 420px;
+
+      margin-top: 35px;
+    }
+
+
+    .playlist-name {
+      margin: 0;
+
+      font-size: 21px;
+
+      font-weight: 600;
+
+      color: #10202a;
+    }
+
+
+    .playlist-description {
+      margin: 6px 0 0;
+
+      font-size: 14px;
+
+      color: #71868e;
+    }
+
+
+    /* 다른 곡 */
+
+    .shuffle-button {
+      width: 100%;
+      max-width: 420px;
+
+      margin-top: 16px;
+
+      padding: 14px;
+
+      border: none;
+
+      border-radius: 17px;
+
+      background:
+        rgba(
+          255,
+          255,
+          255,
+          0.72
+        );
+
+      color: #10202a;
+
+      font-size: 15px;
+
+      font-weight: 500;
+
+      cursor: pointer;
+
+      transition:
+        transform 0.2s ease,
+        background 0.2s ease;
+    }
+
+
+    .shuffle-button:active {
+      transform: scale(0.97);
     }
 
 
@@ -190,23 +274,28 @@
       width: 100%;
       max-width: 420px;
 
-      margin-top: 28px;
+      margin-top: 16px;
 
       display: flex;
+
       flex-direction: column;
 
-      gap: 14px;
+      gap: 12px;
     }
 
 
     /* 음악 카드 */
 
     .music-card {
+      position: relative;
+
       width: 100%;
 
-      padding: 20px;
+      padding: 18px;
 
-      border-radius: 24px;
+      padding-right: 62px;
+
+      border-radius: 22px;
 
       background:
         rgba(
@@ -217,16 +306,17 @@
         );
 
       box-shadow:
-        0 10px 30px
+        0 8px 25px
         rgba(
           16,
           32,
           42,
-          0.08
+          0.06
         );
 
       animation:
-        cardAppear 0.3s ease;
+        cardAppear
+        0.3s ease;
     }
 
 
@@ -245,21 +335,21 @@
     }
 
 
-    .music-label {
+    .music-number {
       font-size: 11px;
 
       font-weight: 600;
 
-      letter-spacing: 1px;
+      color: #91a4aa;
 
-      color: #78909a;
+      letter-spacing: 1px;
     }
 
 
     .music-title {
-      margin: 8px 0 5px;
+      margin: 7px 0 4px;
 
-      font-size: 21px;
+      font-size: 18px;
 
       font-weight: 600;
 
@@ -276,18 +366,64 @@
     }
 
 
-    /* 듣기 버튼 */
+    /* 하트 */
+
+    .heart-button {
+      position: absolute;
+
+      top: 18px;
+      right: 16px;
+
+      width: 38px;
+      height: 38px;
+
+      border: none;
+
+      border-radius: 50%;
+
+      background:
+        rgba(
+          223,
+          244,
+          246,
+          0.8
+        );
+
+      color: #526b74;
+
+      font-size: 18px;
+
+      cursor: pointer;
+
+      transition:
+        transform 0.2s ease;
+    }
+
+
+    .heart-button.saved {
+      background: #10202a;
+
+      color: #ffffff;
+    }
+
+
+    .heart-button:active {
+      transform: scale(0.85);
+    }
+
+
+    /* 듣기 */
 
     .music-button {
       display: block;
 
       width: 100%;
 
-      margin-top: 16px;
+      margin-top: 14px;
 
-      padding: 14px 18px;
+      padding: 12px;
 
-      border-radius: 16px;
+      border-radius: 15px;
 
       background: #10202a;
 
@@ -297,17 +433,132 @@
 
       text-decoration: none;
 
-      font-size: 15px;
+      font-size: 14px;
 
       font-weight: 500;
+    }
 
-      letter-spacing: 0.3px;
+
+    /* 내 플레이리스트 */
+
+    .my-playlist {
+      width: 100%;
+      max-width: 420px;
+
+      margin-top: 35px;
+
+      padding: 22px;
+
+      border-radius: 24px;
+
+      background:
+        rgba(
+          255,
+          255,
+          255,
+          0.65
+        );
+    }
+
+
+    .my-playlist-title {
+      margin: 0;
+
+      font-size: 19px;
+
+      font-weight: 600;
+    }
+
+
+    .saved-count {
+      margin-top: 5px;
+
+      font-size: 13px;
+
+      color: #78909a;
+    }
+
+
+    .saved-list {
+      margin-top: 15px;
+    }
+
+
+    .saved-item {
+      display: flex;
+
+      align-items: center;
+
+      justify-content: space-between;
+
+      gap: 10px;
+
+      padding: 10px 0;
+
+      border-bottom:
+        1px solid
+        rgba(
+          16,
+          32,
+          42,
+          0.07
+        );
+    }
+
+
+    .saved-item:last-child {
+      border-bottom: none;
+    }
+
+
+    .saved-info {
+      min-width: 0;
+    }
+
+
+    .saved-title {
+      font-size: 14px;
+
+      font-weight: 600;
+    }
+
+
+    .saved-artist {
+      margin-top: 3px;
+
+      font-size: 12px;
+
+      color: #78909a;
+    }
+
+
+    .remove-button {
+      flex-shrink: 0;
+
+      border: none;
+
+      background: transparent;
+
+      color: #78909a;
+
+      font-size: 13px;
 
       cursor: pointer;
     }
 
 
-    /* 다시 고르기 */
+    .empty-message {
+      margin: 15px 0 0;
+
+      font-size: 13px;
+
+      line-height: 1.5;
+
+      color: #78909a;
+    }
+
+
+    /* 다시 선택 */
 
     .back-button {
       margin-top: 25px;
@@ -333,16 +584,12 @@
         padding-right: 18px;
       }
 
-      .logo {
-        margin-bottom: 45px;
-      }
-
       .selected-mood {
-        font-size: 56px;
+        font-size: 54px;
       }
 
       .music-title {
-        font-size: 19px;
+        font-size: 17px;
       }
 
     }
@@ -356,21 +603,15 @@
   <main class="page">
 
 
-    <!-- 로고 -->
-
     <div class="logo">
       SHARK
     </div>
 
 
-    <!-- 제목 -->
-
     <h1 class="result-title">
       오늘은 이런 노래 어때?
     </h1>
 
-
-    <!-- 선택한 기분 -->
 
     <div
       class="selected-mood"
@@ -380,8 +621,6 @@
     </div>
 
 
-    <!-- 기분 설명 -->
-
     <p
       class="mood-text"
       id="moodText"
@@ -389,8 +628,6 @@
       행복한 기분에 어울리는 노래를 골라봤어.
     </p>
 
-
-    <!-- 장르 선택 -->
 
     <div class="genre-title">
       어떤 음악을 들을래?
@@ -419,7 +656,34 @@
     </div>
 
 
-    <!-- 음악 목록 -->
+    <section class="playlist-header">
+
+      <h2
+        class="playlist-name"
+        id="playlistName"
+      >
+        SHARK PLAYLIST
+      </h2>
+
+
+      <p
+        class="playlist-description"
+        id="playlistDescription"
+      >
+        오늘의 기분에 맞춰 골라봤어.
+      </p>
+
+    </section>
+
+
+    <button
+      class="shuffle-button"
+      id="shuffleButton"
+      type="button"
+    >
+      🔄 다른 곡 추천
+    </button>
+
 
     <section
       class="music-list"
@@ -427,7 +691,28 @@
     ></section>
 
 
-    <!-- 다시 고르기 -->
+    <section class="my-playlist">
+
+      <h2 class="my-playlist-title">
+        ❤️ MY SHARK PLAYLIST
+      </h2>
+
+
+      <p
+        class="saved-count"
+        id="savedCount"
+      >
+        저장된 곡 0개
+      </p>
+
+
+      <div
+        class="saved-list"
+        id="savedList"
+      ></div>
+
+    </section>
+
 
     <button
       class="back-button"
@@ -443,9 +728,8 @@
 
   <script>
 
-
     /*
-      mood.html에서 선택한 기분 받기
+      기분
     */
 
     const params =
@@ -453,13 +737,12 @@
         window.location.search
       );
 
-
     const mood =
       params.get("mood");
 
 
     /*
-      HTML 요소
+      요소
     */
 
     const selectedMood =
@@ -467,58 +750,72 @@
         "selectedMood"
       );
 
-
     const moodText =
       document.getElementById(
         "moodText"
       );
-
 
     const musicList =
       document.getElementById(
         "musicList"
       );
 
-
     const kpopButton =
       document.getElementById(
         "kpopButton"
       );
-
 
     const popButton =
       document.getElementById(
         "popButton"
       );
 
+    const playlistName =
+      document.getElementById(
+        "playlistName"
+      );
+
+    const playlistDescription =
+      document.getElementById(
+        "playlistDescription"
+      );
+
+    const shuffleButton =
+      document.getElementById(
+        "shuffleButton"
+      );
+
+    const savedList =
+      document.getElementById(
+        "savedList"
+      );
+
+    const savedCount =
+      document.getElementById(
+        "savedCount"
+      );
+
 
     /*
-      기분별 이모지
+      이모지
     */
 
     const moodEmoji = {
 
       "행복": "😊",
-
       "사랑": "💗",
-
       "슬픔": "😢",
-
       "화남": "😡",
-
       "피곤": "😴",
-
       "위로": "🥺",
-
       "신남": "🤩",
-
       "SHARK": "🦈"
 
     };
 
 
     /*
-      기분별 설명
+      설명
     */
 
     const moodMessage = {
@@ -551,250 +848,217 @@
 
 
     /*
-      ==========================
-      K-POP 추천
-      ==========================
+      =========================
+      K-POP 후보곡
+      =========================
     */
 
     const kpopMusic = {
 
-
       "행복": [
 
-        {
-          title: "Dynamite",
-          artist: "BTS"
-        },
-
-        {
-          title: "After LIKE",
-          artist: "IVE"
-        },
-
-        {
-          title: "Supernova",
-          artist: "aespa"
-        },
-
-        {
-          title: "Queencard",
-          artist: "(G)I-DLE"
-        },
-
-        {
-          title: "Feel Special",
-          artist: "TWICE"
-        }
+        ["Dynamite", "BTS"],
+        ["After LIKE", "IVE"],
+        ["Supernova", "aespa"],
+        ["Queencard", "(G)I-DLE"],
+        ["Feel Special", "TWICE"],
+        ["I AM", "IVE"],
+        ["Fancy", "TWICE"],
+        ["Cheer Up", "TWICE"],
+        ["Red Flavor", "Red Velvet"],
+        ["Weekend", "TAEYEON"],
+        ["Blueming", "IU"],
+        ["BBIBBI", "IU"],
+        ["Permission to Dance", "BTS"],
+        ["Butter", "BTS"],
+        ["Cupid", "FIFTY FIFTY"],
+        ["ASAP", "STAYC"],
+        ["DM", "fromis_9"],
+        ["Hype Boy", "NewJeans"],
+        ["Attention", "NewJeans"],
+        ["Love Dive", "IVE"]
 
       ],
 
 
       "사랑": [
 
-        {
-          title: "Love Lee",
-          artist: "AKMU"
-        },
-
-        {
-          title: "LOVE DIVE",
-          artist: "IVE"
-        },
-
-        {
-          title: "Ditto",
-          artist: "NewJeans"
-        },
-
-        {
-          title: "Seven",
-          artist: "Jung Kook feat. Latto"
-        },
-
-        {
-          title: "밤편지",
-          artist: "IU"
-        }
+        ["Love Lee", "AKMU"],
+        ["LOVE DIVE", "IVE"],
+        ["Ditto", "NewJeans"],
+        ["Seven", "Jung Kook"],
+        ["밤편지", "IU"],
+        ["Through the Night", "IU"],
+        ["Darling", "SEVENTEEN"],
+        ["Only", "LEE HI"],
+        ["Everyday With You", "IU"],
+        ["Love Story", "IU"],
+        ["Some", "BOL4"],
+        ["Me After You", "Paul Kim"],
+        ["Instagram", "DEAN"],
+        ["11:11", "TAEYEON"],
+        ["I Love You", "2NE1"],
+        ["My Destiny", "LIM JAE HYUN"],
+        ["Polaroid Love", "ENHYPEN"],
+        ["LILAC", "IU"],
+        ["Ditto", "NewJeans"],
+        ["Beautiful", "Crush"]
 
       ],
 
 
       "슬픔": [
 
-        {
-          title: "어떻게 이별까지 사랑하겠어, 널 사랑하는 거지",
-          artist: "AKMU"
-        },
-
-        {
-          title: "Love Poem",
-          artist: "IU"
-        },
-
-        {
-          title: "한숨",
-          artist: "LEE HI"
-        },
-
-        {
-          title: "Spring Day",
-          artist: "BTS"
-        },
-
-        {
-          title: "소나기",
-          artist: "ECLIPSE"
-        }
+        ["어떻게 이별까지 사랑하겠어, 널 사랑하는 거지", "AKMU"],
+        ["Love Poem", "IU"],
+        ["한숨", "LEE HI"],
+        ["Spring Day", "BTS"],
+        ["소나기", "ECLIPSE"],
+        ["밤편지", "IU"],
+        ["Through the Night", "IU"],
+        ["Ending Scene", "IU"],
+        ["My Sea", "IU"],
+        ["Dear Name", "IU"],
+        ["Breathe", "LEE HI"],
+        ["You Were Beautiful", "DAY6"],
+        ["I Need Somebody", "DAY6"],
+        ["Beautiful Pain", "BTOB"],
+        ["Lonely", "2NE1"],
+        ["Missing You", "BTOB"],
+        ["Loser", "BIGBANG"],
+        ["11:11", "TAEYEON"],
+        ["Fine", "TAEYEON"],
+        ["Eight", "IU"]
 
       ],
 
 
       "화남": [
 
-        {
-          title: "MIC Drop",
-          artist: "BTS"
-        },
-
-        {
-          title: "ANTIFRAGILE",
-          artist: "LE SSERAFIM"
-        },
-
-        {
-          title: "Baddie",
-          artist: "IVE"
-        },
-
-        {
-          title: "MANIAC",
-          artist: "Stray Kids"
-        },
-
-        {
-          title: "God's Menu",
-          artist: "Stray Kids"
-        }
+        ["MIC Drop", "BTS"],
+        ["ANTIFRAGILE", "LE SSERAFIM"],
+        ["Baddie", "IVE"],
+        ["MANIAC", "Stray Kids"],
+        ["God's Menu", "Stray Kids"],
+        ["Thunderous", "Stray Kids"],
+        ["S-Class", "Stray Kids"],
+        ["Guerrilla", "ATEEZ"],
+        ["Wonderland", "ATEEZ"],
+        ["Crazy", "LE SSERAFIM"],
+        ["Spicy", "aespa"],
+        ["Drama", "aespa"],
+        ["Savage", "aespa"],
+        ["I AM", "IVE"],
+        ["TOMBOY", "(G)I-DLE"],
+        ["Super Lady", "(G)I-DLE"],
+        ["LALALALA", "Stray Kids"],
+        ["HOT", "SEVENTEEN"],
+        ["Fire", "BTS"],
+        ["Kill This Love", "BLACKPINK"]
 
       ],
 
 
       "피곤": [
 
-        {
-          title: "Ditto",
-          artist: "NewJeans"
-        },
-
-        {
-          title: "밤편지",
-          artist: "IU"
-        },
-
-        {
-          title: "Through the Night",
-          artist: "IU"
-        },
-
-        {
-          title: "11:11",
-          artist: "TAEYEON"
-        },
-
-        {
-          title: "Instagram",
-          artist: "DEAN"
-        }
+        ["Ditto", "NewJeans"],
+        ["밤편지", "IU"],
+        ["Through the Night", "IU"],
+        ["11:11", "TAEYEON"],
+        ["Instagram", "DEAN"],
+        ["Love Poem", "IU"],
+        ["My Sea", "IU"],
+        ["Holo", "LEE HI"],
+        ["Only", "LEE HI"],
+        ["Rest", "LEE HI"],
+        ["Fairy of Shampoo", "TXT"],
+        ["Nap of a star", "TXT"],
+        ["Magic Island", "TXT"],
+        ["20cm", "TXT"],
+        ["Butterfly", "BTS"],
+        ["Blue & Grey", "BTS"],
+        ["Impurities", "LE SSERAFIM"],
+        ["Cool With You", "NewJeans"],
+        ["Get Up", "NewJeans"],
+        ["Automatic", "Red Velvet"]
 
       ],
 
 
       "위로": [
 
-        {
-          title: "Love Poem",
-          artist: "IU"
-        },
-
-        {
-          title: "한숨",
-          artist: "LEE HI"
-        },
-
-        {
-          title: "My Sea",
-          artist: "IU"
-        },
-
-        {
-          title: "Spring Day",
-          artist: "BTS"
-        },
-
-        {
-          title: "Eight",
-          artist: "IU feat. SUGA"
-        }
+        ["Love Poem", "IU"],
+        ["한숨", "LEE HI"],
+        ["My Sea", "IU"],
+        ["Spring Day", "BTS"],
+        ["Eight", "IU"],
+        ["Holo", "LEE HI"],
+        ["Only", "LEE HI"],
+        ["You Never Know", "BLACKPINK"],
+        ["Paradise", "BTS"],
+        ["Magic Shop", "BTS"],
+        ["Answer: Love Myself", "BTS"],
+        ["Zero O'Clock", "BTS"],
+        ["Life Goes On", "BTS"],
+        ["Dear Name", "IU"],
+        ["Palette", "IU"],
+        ["Breathe", "LEE HI"],
+        ["Beautiful", "Crush"],
+        ["For Lovers Who Hesitate", "JANNABI"],
+        ["I Need Somebody", "DAY6"],
+        ["You Were Beautiful", "DAY6"]
 
       ],
 
 
       "신남": [
 
-        {
-          title: "Supernova",
-          artist: "aespa"
-        },
-
-        {
-          title: "Dynamite",
-          artist: "BTS"
-        },
-
-        {
-          title: "I AM",
-          artist: "IVE"
-        },
-
-        {
-          title: "Feel Special",
-          artist: "TWICE"
-        },
-
-        {
-          title: "Permission to Dance",
-          artist: "BTS"
-        }
+        ["Supernova", "aespa"],
+        ["Dynamite", "BTS"],
+        ["I AM", "IVE"],
+        ["Feel Special", "TWICE"],
+        ["Permission to Dance", "BTS"],
+        ["After LIKE", "IVE"],
+        ["LOVE DIVE", "IVE"],
+        ["Fancy", "TWICE"],
+        ["Cheer Up", "TWICE"],
+        ["Red Flavor", "Red Velvet"],
+        ["Queencard", "(G)I-DLE"],
+        ["Super Lady", "(G)I-DLE"],
+        ["Spicy", "aespa"],
+        ["Drama", "aespa"],
+        ["God's Menu", "Stray Kids"],
+        ["MANIAC", "Stray Kids"],
+        ["HOT", "SEVENTEEN"],
+        ["Very Nice", "SEVENTEEN"],
+        ["Bouncy", "ATEEZ"],
+        ["Fire", "BTS"]
 
       ],
 
 
       "SHARK": [
 
-        {
-          title: "Wave",
-          artist: "ATEEZ"
-        },
-
-        {
-          title: "Dive",
-          artist: "NCT 127"
-        },
-
-        {
-          title: "Blue",
-          artist: "TAEYONG"
-        },
-
-        {
-          title: "Cool With You",
-          artist: "NewJeans"
-        },
-
-        {
-          title: "Ocean View",
-          artist: "RAVI"
-        }
+        ["Wave", "ATEEZ"],
+        ["Dive", "NCT 127"],
+        ["Blue", "TAEYONG"],
+        ["Cool With You", "NewJeans"],
+        ["Ocean View", "RAVI"],
+        ["Get Up", "NewJeans"],
+        ["Ditto", "NewJeans"],
+        ["Attention", "NewJeans"],
+        ["OMG", "NewJeans"],
+        ["Hype Boy", "NewJeans"],
+        ["Blue Hour", "TXT"],
+        ["Fairy of Shampoo", "TXT"],
+        ["Magic Island", "TXT"],
+        ["Island", "WINNER"],
+        ["Watermelon Sugar", "NewJeans"],
+        ["Summer Hate", "ZICO"],
+        ["Alcohol-Free", "TWICE"],
+        ["Wave", "CLC"],
+        ["Blue", "BIGBANG"],
+        ["Ocean", "NCT"]
 
       ]
 
@@ -802,220 +1066,191 @@
 
 
     /*
-      ==========================
-      POP 추천
-      ==========================
+      =========================
+      POP 후보곡
+      =========================
     */
 
     const popMusic = {
 
-
       "행복": [
 
-        {
-          title: "Happy",
-          artist: "Pharrell Williams"
-        },
-
-        {
-          title: "Levitating",
-          artist: "Dua Lipa"
-        },
-
-        {
-          title: "Can't Stop the Feeling!",
-          artist: "Justin Timberlake"
-        },
-
-        {
-          title: "Uptown Funk",
-          artist: "Mark Ronson feat. Bruno Mars"
-        },
-
-        {
-          title: "Good as Hell",
-          artist: "Lizzo"
-        }
+        ["Happy", "Pharrell Williams"],
+        ["Levitating", "Dua Lipa"],
+        ["Can't Stop the Feeling!", "Justin Timberlake"],
+        ["Uptown Funk", "Mark Ronson"],
+        ["Good as Hell", "Lizzo"],
+        ["Walking on Sunshine", "Katrina & The Waves"],
+        ["Shake It Off", "Taylor Swift"],
+        ["Treasure", "Bruno Mars"],
+        ["24K Magic", "Bruno Mars"],
+        ["Best Day of My Life", "American Authors"],
+        ["On Top of the World", "Imagine Dragons"],
+        ["Sunday Best", "Surfaces"],
+        ["I Really Like You", "Carly Rae Jepsen"],
+        ["Rather Be", "Clean Bandit"],
+        ["Don't Start Now", "Dua Lipa"],
+        ["Watermelon Sugar", "Harry Styles"],
+        ["Good Time", "Owl City"],
+        ["Beautiful Soul", "Jesse McCartney"],
+        ["Dancing Queen", "ABBA"],
+        ["Valerie", "Amy Winehouse"]
 
       ],
 
 
       "사랑": [
 
-        {
-          title: "Lover",
-          artist: "Taylor Swift"
-        },
-
-        {
-          title: "Perfect",
-          artist: "Ed Sheeran"
-        },
-
-        {
-          title: "All of Me",
-          artist: "John Legend"
-        },
-
-        {
-          title: "Adore You",
-          artist: "Harry Styles"
-        },
-
-        {
-          title: "Until I Found You",
-          artist: "Stephen Sanchez"
-        }
+        ["Lover", "Taylor Swift"],
+        ["Perfect", "Ed Sheeran"],
+        ["All of Me", "John Legend"],
+        ["Adore You", "Harry Styles"],
+        ["Until I Found You", "Stephen Sanchez"],
+        ["A Thousand Years", "Christina Perri"],
+        ["Just the Way You Are", "Bruno Mars"],
+        ["Love Story", "Taylor Swift"],
+        ["Kiss Me", "Sixpence None the Richer"],
+        ["Yellow", "Coldplay"],
+        ["Something", "The Beatles"],
+        ["Can't Help Falling in Love", "Elvis Presley"],
+        ["Die With A Smile", "Lady Gaga & Bruno Mars"],
+        ["I Like Me Better", "Lauv"],
+        ["Every Summertime", "NIKI"],
+        ["Until I Found You", "Stephen Sanchez"],
+        ["Best Part", "Daniel Caesar"],
+        ["Those Eyes", "New West"],
+        ["Day 1", "HONNE"],
+        ["Glue Song", "beabadoobee"]
 
       ],
 
 
       "슬픔": [
 
-        {
-          title: "drivers license",
-          artist: "Olivia Rodrigo"
-        },
-
-        {
-          title: "Someone You Loved",
-          artist: "Lewis Capaldi"
-        },
-
-        {
-          title: "The Night We Met",
-          artist: "Lord Huron"
-        },
-
-        {
-          title: "What Was I Made For?",
-          artist: "Billie Eilish"
-        },
-
-        {
-          title: "Another Love",
-          artist: "Tom Odell"
-        }
+        ["drivers license", "Olivia Rodrigo"],
+        ["Someone You Loved", "Lewis Capaldi"],
+        ["The Night We Met", "Lord Huron"],
+        ["What Was I Made For?", "Billie Eilish"],
+        ["Another Love", "Tom Odell"],
+        ["Lovely", "Billie Eilish & Khalid"],
+        ["when the party's over", "Billie Eilish"],
+        ["Happier", "Olivia Rodrigo"],
+        ["traitor", "Olivia Rodrigo"],
+        ["Cardigan", "Taylor Swift"],
+        ["Exile", "Taylor Swift"],
+        ["All I Want", "Kodaline"],
+        ["Let Her Go", "Passenger"],
+        ["Dancing With Your Ghost", "Sasha Alex Sloan"],
+        ["Arcade", "Duncan Laurence"],
+        ["Before You Go", "Lewis Capaldi"],
+        ["Jealous", "Labrinth"],
+        ["Skinny Love", "Bon Iver"],
+        ["The Scientist", "Coldplay"],
+        ["Fix You", "Coldplay"]
 
       ],
 
 
       "화남": [
 
-        {
-          title: "Numb",
-          artist: "Linkin Park"
-        },
-
-        {
-          title: "Uprising",
-          artist: "Muse"
-        },
-
-        {
-          title: "Misery Business",
-          artist: "Paramore"
-        },
-
-        {
-          title: "American Idiot",
-          artist: "Green Day"
-        },
-
-        {
-          title: "Believer",
-          artist: "Imagine Dragons"
-        }
+        ["Numb", "Linkin Park"],
+        ["Uprising", "Muse"],
+        ["Misery Business", "Paramore"],
+        ["American Idiot", "Green Day"],
+        ["Believer", "Imagine Dragons"],
+        ["Centuries", "Fall Out Boy"],
+        ["Monster", "Skillet"],
+        ["The Pretender", "Foo Fighters"],
+        ["Smells Like Teen Spirit", "Nirvana"],
+        ["Bring Me to Life", "Evanescence"],
+        ["In the End", "Linkin Park"],
+        ["Breaking the Habit", "Linkin Park"],
+        ["Given Up", "Linkin Park"],
+        ["Throne", "Bring Me the Horizon"],
+        ["Warriors", "Imagine Dragons"],
+        ["Natural", "Imagine Dragons"],
+        ["Radioactive", "Imagine Dragons"],
+        ["Whatever It Takes", "Imagine Dragons"],
+        ["My Songs Know What You Did in the Dark", "Fall Out Boy"],
+        ["The Phoenix", "Fall Out Boy"]
 
       ],
 
 
       "피곤": [
 
-        {
-          title: "ocean eyes",
-          artist: "Billie Eilish"
-        },
-
-        {
-          title: "Apocalypse",
-          artist: "Cigarettes After Sex"
-        },
-
-        {
-          title: "Space Song",
-          artist: "Beach House"
-        },
-
-        {
-          title: "Anchor",
-          artist: "Novo Amor"
-        },
-
-        {
-          title: "Until I Found You",
-          artist: "Stephen Sanchez"
-        }
+        ["ocean eyes", "Billie Eilish"],
+        ["Apocalypse", "Cigarettes After Sex"],
+        ["Space Song", "Beach House"],
+        ["Anchor", "Novo Amor"],
+        ["Until I Found You", "Stephen Sanchez"],
+        ["Bloom", "The Paper Kites"],
+        ["Sparks", "Coldplay"],
+        ["Moon River", "Frank Ocean"],
+        ["Mystery of Love", "Sufjan Stevens"],
+        ["Cherry Wine", "Hozier"],
+        ["Fallingforyou", "The 1975"],
+        ["I Like Me Better", "Lauv"],
+        ["Every Summertime", "NIKI"],
+        ["Best Part", "Daniel Caesar"],
+        ["Nothing", "Bruno Major"],
+        ["Easily", "Bruno Major"],
+        ["Like I Need U", "Keshi"],
+        ["Limbo", "Keshi"],
+        ["Get You", "Daniel Caesar"],
+        ["Location Unknown", "HONNE"]
 
       ],
 
 
       "위로": [
 
-        {
-          title: "Fix You",
-          artist: "Coldplay"
-        },
-
-        {
-          title: "Count on Me",
-          artist: "Bruno Mars"
-        },
-
-        {
-          title: "Vienna",
-          artist: "Billy Joel"
-        },
-
-        {
-          title: "You Say",
-          artist: "Lauren Daigle"
-        },
-
-        {
-          title: "Breathe Me",
-          artist: "Sia"
-        }
+        ["Fix You", "Coldplay"],
+        ["Count on Me", "Bruno Mars"],
+        ["Vienna", "Billy Joel"],
+        ["You Say", "Lauren Daigle"],
+        ["Breathe Me", "Sia"],
+        ["Yellow", "Coldplay"],
+        ["The Scientist", "Coldplay"],
+        ["Photograph", "Ed Sheeran"],
+        ["Castle on the Hill", "Ed Sheeran"],
+        ["Beautiful", "Christina Aguilera"],
+        ["Rise Up", "Andra Day"],
+        ["Fight Song", "Rachel Platten"],
+        ["Brave", "Sara Bareilles"],
+        ["A Sky Full of Stars", "Coldplay"],
+        ["Home", "Phillip Phillips"],
+        ["Keep Your Head Up", "Andy Grammer"],
+        ["Better Days", "OneRepublic"],
+        ["I Lived", "OneRepublic"],
+        ["Unwritten", "Natasha Bedingfield"],
+        ["Hall of Fame", "The Script"]
 
       ],
 
 
       "신남": [
 
-        {
-          title: "Wake Me Up",
-          artist: "Avicii"
-        },
-
-        {
-          title: "I Gotta Feeling",
-          artist: "The Black Eyed Peas"
-        },
-
-        {
-          title: "Don't Start Now",
-          artist: "Dua Lipa"
-        },
-
-        {
-          title: "On Top of the World",
-          artist: "Imagine Dragons"
-        },
-
-        {
-          title: "Dance The Night",
-          artist: "Dua Lipa"
-        }
+        ["Wake Me Up", "Avicii"],
+        ["I Gotta Feeling", "The Black Eyed Peas"],
+        ["Don't Start Now", "Dua Lipa"],
+        ["On Top of the World", "Imagine Dragons"],
+        ["Dance The Night", "Dua Lipa"],
+        ["Uptown Funk", "Mark Ronson"],
+        ["24K Magic", "Bruno Mars"],
+        ["Treasure", "Bruno Mars"],
+        ["Party Rock Anthem", "LMFAO"],
+        ["Dynamite", "Taio Cruz"],
+        ["Rather Be", "Clean Bandit"],
+        ["Titanium", "David Guetta"],
+        ["Levels", "Avicii"],
+        ["The Nights", "Avicii"],
+        ["Sugar", "Maroon 5"],
+        ["Moves Like Jagger", "Maroon 5"],
+        ["Cake by the Ocean", "DNCE"],
+        ["Good Time", "Owl City"],
+        ["Firework", "Katy Perry"],
+        ["Teenage Dream", "Katy Perry"]
 
       ],
 
@@ -1026,30 +1261,26 @@
 
       "SHARK": [
 
-        {
-          title: "Ocean",
-          artist: "Martin Garrix feat. Khalid"
-        },
-
-        {
-          title: "Ocean Eyes",
-          artist: "Billie Eilish"
-        },
-
-        {
-          title: "Waves",
-          artist: "Mr. Probz"
-        },
-
-        {
-          title: "Riptide",
-          artist: "Vance Joy"
-        },
-
-        {
-          title: "Sunset Lover",
-          artist: "Petit Biscuit"
-        }
+        ["Ocean", "Martin Garrix"],
+        ["Ocean Eyes", "Billie Eilish"],
+        ["Waves", "Mr. Probz"],
+        ["Riptide", "Vance Joy"],
+        ["Sunset Lover", "Petit Biscuit"],
+        ["Watermelon Sugar", "Harry Styles"],
+        ["Ocean Drive", "Duke Dumont"],
+        ["A Sky Full of Stars", "Coldplay"],
+        ["Paradise", "Coldplay"],
+        ["Sweet Disposition", "The Temper Trap"],
+        ["Space Song", "Beach House"],
+        ["Apocalypse", "Cigarettes After Sex"],
+        ["Anchor", "Novo Amor"],
+        ["Bloom", "The Paper Kites"],
+        ["Coastline", "Hollow Coves"],
+        ["Sunkissed", "khai dreams"],
+        ["Waves", "Dean Lewis"],
+        ["The Ocean", "Mike Perry"],
+        ["Sea of Love", "Cat Power"],
+        ["Island in the Sun", "Weezer"]
 
       ]
 
@@ -1064,7 +1295,26 @@
 
 
     /*
-      초기 화면
+      현재 보여지는 곡
+    */
+
+    let currentSongs = [];
+
+
+    /*
+      저장된 곡
+    */
+
+    let savedSongs =
+      JSON.parse(
+        localStorage.getItem(
+          "sharkPlaylist"
+        )
+      ) || [];
+
+
+    /*
+      화면 기본값
     */
 
     selectedMood.textContent =
@@ -1077,7 +1327,53 @@
 
 
     /*
-      음악 표시 함수
+      랜덤 5곡
+    */
+
+    function getRandomSongs(
+      songs
+    ) {
+
+      const shuffled =
+        [...songs];
+
+
+      for (
+        let i =
+          shuffled.length - 1;
+        i > 0;
+        i--
+      ) {
+
+        const j =
+          Math.floor(
+            Math.random() *
+            (i + 1)
+          );
+
+
+        [
+          shuffled[i],
+          shuffled[j]
+        ] =
+        [
+          shuffled[j],
+          shuffled[i]
+        ];
+
+      }
+
+
+      return shuffled.slice(
+        0,
+        5
+      );
+
+    }
+
+
+    /*
+      랜덤 추천
     */
 
     function showMusic() {
@@ -1085,26 +1381,114 @@
       musicList.innerHTML = "";
 
 
-      let recommendations;
+      let candidates;
 
 
-      if (currentGenre === "KPOP") {
+      if (
+        currentGenre === "KPOP"
+      ) {
 
-        recommendations =
+        candidates =
           kpopMusic[mood] ||
           kpopMusic["행복"];
 
+
+        playlistName.textContent =
+          mood === "SHARK"
+            ? "🦈 OCEAN — K-POP"
+            : "SHARK PLAYLIST — K-POP";
+
       } else {
 
-        recommendations =
+        candidates =
           popMusic[mood] ||
           popMusic["행복"];
+
+
+        playlistName.textContent =
+          mood === "SHARK"
+            ? "🦈 OCEAN — POP"
+            : "SHARK PLAYLIST — POP";
 
       }
 
 
-      recommendations.forEach(
+      playlistDescription.textContent =
+        mood === "SHARK"
+          ? "바다와 물결을 떠올리게 하는 음악을 골라봤어."
+          : "오늘의 기분에 맞춰 SHARK가 골라봤어.";
+
+
+      /*
+        이전 추천과 겹치지 않게
+      */
+
+      let available =
+        candidates.filter(
+          function (song) {
+
+            return !currentSongs.some(
+              function (oldSong) {
+
+                return (
+                  oldSong[0] === song[0] &&
+                  oldSong[1] === song[1]
+                );
+
+              }
+            );
+
+          }
+        );
+
+
+      /*
+        후보가 5곡보다 적으면
+        다시 전체 후보 사용
+      */
+
+      if (
+        available.length < 5
+      ) {
+
+        available =
+          candidates;
+
+      }
+
+
+      currentSongs =
+        getRandomSongs(
+          available
+        );
+
+
+      /*
+        카드 생성
+      */
+
+      currentSongs.forEach(
         function (music, index) {
+
+          const title =
+            music[0];
+
+          const artist =
+            music[1];
+
+
+          const saved =
+            savedSongs.some(
+              function (song) {
+
+                return (
+                  song.title === title &&
+                  song.artist === artist
+                );
+
+              }
+            );
+
 
           const card =
             document.createElement(
@@ -1118,32 +1502,44 @@
 
           card.innerHTML = `
 
-            <div class="music-label">
-
-              ${
-                index === 0
-                  ? "TODAY'S PICK"
-                  : "RECOMMENDED"
-              }
-
+            <div class="music-number">
+              ${String(index + 1).padStart(2, "0")}
             </div>
 
 
             <h2 class="music-title">
-              ${music.title}
+              ${title}
             </h2>
 
 
             <p class="music-artist">
-              ${music.artist}
+              ${artist}
             </p>
+
+
+            <button
+              class="heart-button ${
+                saved
+                  ? "saved"
+                  : ""
+              }"
+              type="button"
+              data-title="${title}"
+              data-artist="${artist}"
+            >
+              ${
+                saved
+                  ? "♥"
+                  : "♡"
+              }
+            </button>
 
 
             <a
               href="#"
               class="music-button"
-              data-title="${music.title}"
-              data-artist="${music.artist}"
+              data-title="${title}"
+              data-artist="${artist}"
             >
               ▶ 노래 듣기
             </a>
@@ -1162,66 +1558,110 @@
 
 
     /*
-      처음에는 K-POP
+      다른 곡 추천
     */
 
-    showMusic();
-
-
-    /*
-      K-POP 버튼
-    */
-
-    kpopButton.addEventListener(
+    shuffleButton.addEventListener(
       "click",
       function () {
 
-        currentGenre = "KPOP";
-
-
-        kpopButton.classList.add(
-          "selected"
-        );
-
-        popButton.classList.remove(
-          "selected"
-        );
-
-
         showMusic();
+
+        window.scrollTo({
+          top:
+            musicList.offsetTop -
+            20,
+
+          behavior:
+            "smooth"
+        });
 
       }
     );
 
 
     /*
-      POP 버튼
+      하트 저장
     */
 
-    popButton.addEventListener(
+    musicList.addEventListener(
       "click",
-      function () {
+      function (event) {
 
-        currentGenre = "POP";
+        const heart =
+          event.target.closest(
+            ".heart-button"
+          );
 
 
-        popButton.classList.add(
-          "selected"
-        );
+        if (!heart) {
+          return;
+        }
 
-        kpopButton.classList.remove(
-          "selected"
+
+        const title =
+          heart.dataset.title;
+
+
+        const artist =
+          heart.dataset.artist;
+
+
+        const index =
+          savedSongs.findIndex(
+            function (song) {
+
+              return (
+                song.title === title &&
+                song.artist === artist
+              );
+
+            }
+          );
+
+
+        if (
+          index === -1
+        ) {
+
+          savedSongs.push({
+
+            title:
+              title,
+
+            artist:
+              artist
+
+          });
+
+        } else {
+
+          savedSongs.splice(
+            index,
+            1
+          );
+
+        }
+
+
+        localStorage.setItem(
+          "sharkPlaylist",
+          JSON.stringify(
+            savedSongs
+          )
         );
 
 
         showMusic();
+
+        showSavedPlaylist();
 
       }
     );
 
 
     /*
-      YouTube Music 연결
+      YouTube Music
     */
 
     musicList.addEventListener(
@@ -1273,11 +1713,212 @@
 
 
     /*
+      내 플레이리스트
+    */
+
+    function showSavedPlaylist() {
+
+      savedList.innerHTML = "";
+
+
+      savedCount.textContent =
+        "저장된 곡 " +
+        savedSongs.length +
+        "개";
+
+
+      if (
+        savedSongs.length === 0
+      ) {
+
+        savedList.innerHTML = `
+
+          <p class="empty-message">
+            마음에 드는 곡의 ♡를 눌러봐.<br>
+            여기에 나만의 SHARK PLAYLIST가 만들어져.
+          </p>
+
+        `;
+
+        return;
+
+      }
+
+
+      savedSongs.forEach(
+        function (song, index) {
+
+          const item =
+            document.createElement(
+              "div"
+            );
+
+
+          item.className =
+            "saved-item";
+
+
+          item.innerHTML = `
+
+            <div class="saved-info">
+
+              <div class="saved-title">
+                ${index + 1}. ${song.title}
+              </div>
+
+              <div class="saved-artist">
+                ${song.artist}
+              </div>
+
+            </div>
+
+
+            <button
+              class="remove-button"
+              type="button"
+              data-title="${song.title}"
+              data-artist="${song.artist}"
+            >
+              삭제
+            </button>
+
+          `;
+
+
+          savedList.appendChild(
+            item
+          );
+
+        }
+      );
+
+    }
+
+
+    /*
+      저장곡 삭제
+    */
+
+    savedList.addEventListener(
+      "click",
+      function (event) {
+
+        const button =
+          event.target.closest(
+            ".remove-button"
+          );
+
+
+        if (!button) {
+          return;
+        }
+
+
+        const title =
+          button.dataset.title;
+
+
+        const artist =
+          button.dataset.artist;
+
+
+        savedSongs =
+          savedSongs.filter(
+            function (song) {
+
+              return !(
+                song.title === title &&
+                song.artist === artist
+              );
+
+            }
+          );
+
+
+        localStorage.setItem(
+          "sharkPlaylist",
+          JSON.stringify(
+            savedSongs
+          )
+        );
+
+
+        showMusic();
+
+        showSavedPlaylist();
+
+      }
+    );
+
+
+    /*
+      K-POP
+    */
+
+    kpopButton.addEventListener(
+      "click",
+      function () {
+
+        currentGenre =
+          "KPOP";
+
+
+        currentSongs = [];
+
+
+        kpopButton.classList.add(
+          "selected"
+        );
+
+        popButton.classList.remove(
+          "selected"
+        );
+
+
+        showMusic();
+
+      }
+    );
+
+
+    /*
+      POP
+    */
+
+    popButton.addEventListener(
+      "click",
+      function () {
+
+        currentGenre =
+          "POP";
+
+
+        currentSongs = [];
+
+
+        popButton.classList.add(
+          "selected"
+        );
+
+        kpopButton.classList.remove(
+          "selected"
+        );
+
+
+        showMusic();
+
+      }
+    );
+
+
+    /*
       다시 고르기
     */
 
     document
-      .getElementById("backButton")
+      .getElementById(
+        "backButton"
+      )
       .addEventListener(
         "click",
         function () {
@@ -1288,6 +1929,14 @@
         }
       );
 
+
+    /*
+      최초 실행
+    */
+
+    showMusic();
+
+    showSavedPlaylist();
 
   </script>
 
