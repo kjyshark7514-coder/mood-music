@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -80,8 +81,6 @@
         );
     }
 
-
-    /* 은은한 바다빛 */
 
     .page::before {
       content: "";
@@ -511,7 +510,7 @@
 
 
     /* =========================================
-       YouTube 버튼
+       YouTube Music 버튼
     ========================================= */
 
     .music-button {
@@ -775,28 +774,20 @@
 
   <main class="page">
 
-    <!-- 로고 -->
-
     <div class="logo">
       SHARK
     </div>
 
-
-    <!-- 작은 문구 -->
 
     <div class="eyebrow">
       YOUR MOOD · YOUR MUSIC
     </div>
 
 
-    <!-- 제목 -->
-
     <h1 class="result-title">
       오늘은 이런 노래 어때?
     </h1>
 
-
-    <!-- 선택한 기분 -->
 
     <div class="selected-mood-wrap">
 
@@ -810,8 +801,6 @@
     </div>
 
 
-    <!-- 기분 설명 -->
-
     <p
       class="mood-text"
       id="moodText"
@@ -819,8 +808,6 @@
       행복한 기분에 어울리는 노래를 골라봤어.
     </p>
 
-
-    <!-- 장르 -->
 
     <section class="genre-section">
 
@@ -859,16 +846,12 @@
     </section>
 
 
-    <!-- 음악 목록 -->
-
     <div
       class="music-list"
       id="musicList"
     >
     </div>
 
-
-    <!-- 다른 노래 추천 -->
 
     <button
       class="random-button"
@@ -879,8 +862,6 @@
     </button>
 
 
-    <!-- MY MUSIC -->
-
     <button
       class="playlist-button"
       id="playlistButton"
@@ -889,8 +870,6 @@
       MY MUSIC
     </button>
 
-
-    <!-- 다시 고르기 -->
 
     <button
       class="back-button"
@@ -1437,10 +1416,10 @@
 
 
     /* =========================================
-       YouTube 주소
+       YouTube Music 주소
     ========================================= */
 
-    function getYouTubeMusicURL(music) {
+    function getMusicURL(music) {
 
       const searchText =
         music.title +
@@ -1448,7 +1427,7 @@
         music.artist;
 
       return (
-        "https://www.youtube.com/results?search_query=" +
+        "https://music.youtube.com/search?q=" +
         encodeURIComponent(searchText)
       );
 
@@ -1630,6 +1609,10 @@
             "button-row";
 
 
+          /* =========================================
+             YouTube Music 버튼
+          ========================================= */
+
           const musicButton =
             document.createElement(
               "a"
@@ -1639,17 +1622,21 @@
             "music-button";
 
           musicButton.href =
-            getYouTubeMusicURL(music);
+            getMusicURL(music);
 
           musicButton.target =
             "_blank";
 
           musicButton.rel =
-            "noopener";
+            "noopener noreferrer";
 
           musicButton.textContent =
-            "YouTube에서 듣기";
+            "YouTube Music에서 듣기";
 
+
+          /* =========================================
+             하트 버튼
+          ========================================= */
 
           const heartButton =
             document.createElement(
@@ -1728,7 +1715,7 @@
                     music.artist,
 
                   url:
-                    getYouTubeMusicURL(music)
+                    getMusicURL(music)
 
                 });
 
@@ -1919,3 +1906,4 @@
 
 </body>
 </html>
+```
