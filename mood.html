@@ -376,16 +376,17 @@
           return;
         }
 
+
         /*
-          다음 단계에서
-          YouTube 음악 추천 기능을
-          이 부분에 연결할 예정
+          선택한 기분을
+          result.html로 전달
         */
 
-        console.log(
-          "선택한 기분:",
-          selectedMood
-        );
+        window.location.href =
+          "./result.html?mood=" +
+          encodeURIComponent(
+            selectedMood
+          );
 
       }
     );
