@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>SHARK - My Music</title>
+
+  <style>
+
+    * {
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+
+      width: 100%;
+      min-height: 100%;
+    }
+
+    body {
+      font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "SF Pro Display",
+        "SF Pro Text",
+        "Apple SD Gothic Neo",
+        "Noto Sans KR",
+        sans-serif;
+
+      background: #dff4f6;
+      color: #10202a;
+    }
+
+    button {
+      font-family: inherit;
+    }
+
+
+    /* 전체 페이지 */
+
+    .page {
+
+      width: 100%;
+
+      min-height: 100vh;
+      min-height: 100dvh;
+
+      padding:
+        calc(45px + env(safe-area-inset-top))
+        24px
+        calc(35px + env(safe-area-inset-bottom));
+
+      display: flex;
+
+      flex-direction: column;
+
+      align-items: center;
+
+      background: #dff4f6;
+    }
+
+
+    /* 로고 */
+
+    .logo {
+
+      margin-bottom: 55px;
+
+      color: #10202a;
+
+      font-size: 20px;
+
+      font-weight: 600;
+
+      letter-spacing: 3px;
+
+    }
+
+
+    /* 제목 */
+
+    .playlist-title {
+
+      margin: 0;
+
+      text-align: center;
+
+      color: #10202a;
+
+      font-size:
+        clamp(30px, 8vw, 42px);
+
+      line-height: 1.3;
+
+      font-weight: 600;
+
+      letter-spacing: -1.5px;
+
+    }
+
+
+    /* 설명 */
+
+    .playlist-subtitle {
+
+      margin:
+
+        15px 0 0;
+
+      text-align: center;
+
+      color: #607781;
+
+      font-size: 16px;
+
+      line-height: 1.5;
+
+    }
+
+
+    /* 음악 목록 */
+
+    .music-list {
+
+      width: 100%;
+
+      max-width: 420px;
+
+      margin-top: 40px;
+
+      display: flex;
+
+      flex-direction: column;
+
+      gap: 14px;
+
+    }
+
+
+    /* 음악 카드 */
+
+    .music-item {
+
+      width: 100%;
+
+      padding: 20px;
+
+      border-radius: 22px;
+
+      background:
+        rgba(
+          255,
+          255,
+          255,
+          0.82
+        );
+
+      box-shadow:
+        0 8px 25px
+        rgba(
+          16,
+          32,
+          42,
+          0.06
+        );
+
+    }
+
+
+    /* 곡 정보 */
+
+    .music-info {
+
+      width: 100%;
+
+      margin-bottom: 16px;
+
+    }
+
+
+    .music-name {
+
+      margin: 0;
+
+      color: #10202a;
+
+      font-size: 19px;
+
+      font-weight: 600;
+
+      line-height: 1.4;
+
+    }
+
+
+    .music-artist {
+
+      margin:
+
+        6px 0 0;
+
+      color: #607781;
+
+      font-size: 14px;
+
+      line-height: 1.4;
+
+    }
+
+
+    /* 버튼 영역 */
+
+    .music-actions {
+
+      display: flex;
+
+      gap: 10px;
+
+      width: 100%;
+
+    }
+
+
+    /* YouTube Music 버튼 */
+
+    .play-button {
+
+      flex: 1;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      min-height: 48px;
+
+      padding: 12px;
+
+      border-radius: 16px;
+
+      background: #10202a;
+
+      color: #ffffff;
+
+      text-decoration: none;
+
+      font-size: 14px;
+
+      font-weight: 500;
+
+      letter-spacing: 0.2px;
+
+    }
+
+
+    /* 하트 삭제 버튼 */
+
+    .remove-button {
+
+      width: 54px;
+
+      min-width: 54px;
+
+      min-height: 48px;
+
+      border: none;
+
+      border-radius: 16px;
+
+      background: #edf7f8;
+
+      color: #10202a;
+
+      font-size: 22px;
+
+      cursor: pointer;
+
+      transition:
+        transform 0.15s ease,
+        background 0.2s ease;
+
+    }
+
+
+    .remove-button:active {
+
+      transform:
+        scale(0.88);
+
+    }
+
+
+    /* 저장된 상태 */
+
+    .remove-button.saved {
+
+      background: #10202a;
+
+      color: #ffffff;
+
+    }
+
+
+    /* 저장된 곡이 없을 때 */
+
+    .empty-message {
+
+      width: 100%;
+
+      max-width: 420px;
+
+      margin-top: 55px;
+
+      padding: 40px 24px;
+
+      border-radius: 24px;
+
+      background:
+        rgba(
+          255,
+          255,
+          255,
+          0.7
+        );
+
+      text-align: center;
+
+      color: #607781;
+
+      font-size: 16px;
+
+      line-height: 1.6;
+
+    }
+
+
+    .empty-heart {
+
+      display: block;
+
+      margin-bottom: 15px;
+
+      font-size: 42px;
+
+    }
+
+
+    /* 다시 기분 고르기 */
+
+    .back-button {
+
+      margin-top: 30px;
+
+      padding: 12px 20px;
+
+      border: none;
+
+      background: transparent;
+
+      color: #526b74;
+
+      font-size: 15px;
+
+      cursor: pointer;
+
+    }
+
+
+    /* 작은 화면 */
+
+    @media (max-width: 380px) {
+
+      .page {
+
+        padding-left: 18px;
+
+        padding-right: 18px;
+
+      }
+
+      .logo {
+
+        margin-bottom: 45px;
+
+      }
+
+      .music-item {
+
+        padding: 18px;
+
+      }
+
+      .music-name {
+
+        font-size: 18px;
+
+      }
+
+    }
+
+  </style>
+</head>
+
+
+<body>
+
+  <main class="page">
+
+
+    <!-- 로고 -->
+
+    <div class="logo">
+      SHARK
+    </div>
+
+
+    <!-- 제목 -->
+
+    <h1 class="playlist-title">
+      MY MUSIC
+    </h1>
+
+
+    <!-- 설명 -->
+
+    <p class="playlist-subtitle">
+      내가 좋아하는 노래만 모아봤어.
+    </p>
+
+
+    <!-- 음악 목록 -->
+
+    <div
+      class="music-list"
+      id="musicList"
+    ></div>
+
+
+    <!-- 저장된 곡이 없을 때 -->
+
+    <div
+      class="empty-message"
+      id="emptyMessage"
+      style="display: none;"
+    >
+
+      <span class="empty-heart">
+        🤍
+      </span>
+
+      아직 저장한 노래가 없어.<br>
+
+      마음에 드는 노래에<br>
+      ❤️를 눌러 저장해봐.
+
+    </div>
+
+
+    <!-- 다시 고르기 -->
+
+    <button
+      class="back-button"
+      id="backButton"
+      type="button"
+    >
+      다시 기분 고르기
+    </button>
+
+
+  </main>
+
+
+  <script>
+
+
+    /* =========================================
+       저장된 노래 가져오기
+    ========================================= */
+
+    let savedSongs =
+      JSON.parse(
+        localStorage.getItem(
+          "sharkPlaylist"
+        ) || "[]"
+      );
+
+
+    const musicList =
+      document.getElementById(
+        "musicList"
+      );
+
+
+    const emptyMessage =
+      document.getElementById(
+        "emptyMessage"
+      );
+
+
+    /* =========================================
+       YouTube Music 주소
+    ========================================= */
+
+    function getYouTubeMusicURL(song) {
+
+      if (song.url) {
+
+        return song.url;
+
+      }
+
+
+      const searchText =
+        song.title +
+        " " +
+        song.artist;
+
+
+      return (
+        "https://music.youtube.com/search?q=" +
+        encodeURIComponent(
+          searchText
+        )
+      );
+
+    }
+
+
+    /* =========================================
+       목록 표시
+    ========================================= */
+
+    function renderPlaylist() {
+
+      musicList.innerHTML = "";
+
+
+      /* 저장된 노래가 없는 경우 */
+
+      if (
+        savedSongs.length === 0
+      ) {
+
+        musicList.style.display =
+          "none";
+
+        emptyMessage.style.display =
+          "block";
+
+        return;
+
+      }
+
+
+      musicList.style.display =
+        "flex";
+
+      emptyMessage.style.display =
+        "none";
+
+
+      /* 저장된 곡 하나씩 만들기 */
+
+      savedSongs.forEach(
+        function (
+          song,
+          index
+        ) {
+
+
+          /* 음악 카드 */
+
+          const item =
+            document.createElement(
+              "article"
+            );
+
+
+          item.className =
+            "music-item";
+
+
+          /* 곡 정보 */
+
+          const info =
+            document.createElement(
+              "div"
+            );
+
+
+          info.className =
+            "music-info";
+
+
+          /* 제목 */
+
+          const title =
+            document.createElement(
+              "h2"
+            );
+
+
+          title.className =
+            "music-name";
+
+
+          title.textContent =
+            song.title;
+
+
+          /* 아티스트 */
+
+          const artist =
+            document.createElement(
+              "p"
+            );
+
+
+          artist.className =
+            "music-artist";
+
+
+          artist.textContent =
+            song.artist;
+
+
+          info.appendChild(
+            title
+          );
+
+          info.appendChild(
+            artist
+          );
+
+
+          /* 버튼 영역 */
+
+          const actions =
+            document.createElement(
+              "div"
+            );
+
+
+          actions.className =
+            "music-actions";
+
+
+          /* YouTube Music */
+
+          const playButton =
+            document.createElement(
+              "a"
+            );
+
+
+          playButton.className =
+            "play-button";
+
+
+          playButton.textContent =
+            "▶ YouTube Music";
+
+
+          playButton.href =
+            getYouTubeMusicURL(
+              song
+            );
+
+
+          playButton.target =
+            "_blank";
+
+
+          playButton.rel =
+            "noopener";
+
+
+          /* 삭제 버튼 */
+
+          const removeButton =
+            document.createElement(
+              "button"
+            );
+
+
+          removeButton.className =
+            "remove-button saved";
+
+
+          removeButton.type =
+            "button";
+
+
+          removeButton.textContent =
+            "❤️";
+
+
+          removeButton.setAttribute(
+            "aria-label",
+            "저장 취소"
+          );
+
+
+          /* 하트 누르면 삭제 */
+
+          removeButton.addEventListener(
+            "click",
+            function () {
+
+              savedSongs.splice(
+                index,
+                1
+              );
+
+
+              localStorage.setItem(
+                "sharkPlaylist",
+                JSON.stringify(
+                  savedSongs
+                )
+              );
+
+
+              renderPlaylist();
+
+            }
+          );
+
+
+          /* 조립 */
+
+          actions.appendChild(
+            playButton
+          );
+
+          actions.appendChild(
+            removeButton
+          );
+
+
+          item.appendChild(
+            info
+          );
+
+          item.appendChild(
+            actions
+          );
+
+
+          musicList.appendChild(
+            item
+          );
+
+        }
+      );
+
+    }
+
+
+    /* =========================================
+       처음 실행
+    ========================================= */
+
+    renderPlaylist();
+
+
+    /* =========================================
+       다시 기분 고르기
+    ========================================= */
+
+    document
+      .getElementById(
+        "backButton"
+      )
+      .addEventListener(
+        "click",
+        function () {
+
+          window.location.href =
+            "./mood.html";
+
+        }
+      );
+
+
+  </script>
+
+</body>
+</html>
