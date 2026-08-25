@@ -35,8 +35,8 @@
         "Noto Sans KR",
         sans-serif;
 
-      background: #dff4f6;
-      color: #10202a;
+      background: #06141d;
+      color: #f4fbfd;
     }
 
     button {
@@ -44,126 +44,277 @@
     }
 
 
-    /* 전체 페이지 */
+    /* =========================================
+       전체 페이지
+    ========================================= */
 
     .page {
+      position: relative;
+
       width: 100%;
       min-height: 100vh;
       min-height: 100dvh;
 
       padding:
-        calc(45px + env(safe-area-inset-top))
-        24px
-        calc(35px + env(safe-area-inset-bottom));
+        calc(28px + env(safe-area-inset-top))
+        20px
+        calc(40px + env(safe-area-inset-bottom));
 
       display: flex;
       flex-direction: column;
       align-items: center;
 
-      background: #dff4f6;
+      overflow: hidden;
+
+      background:
+        radial-gradient(
+          circle at 50% 0%,
+          rgba(44, 145, 171, 0.22),
+          transparent 38%
+        ),
+        linear-gradient(
+          180deg,
+          #071a24 0%,
+          #06141d 48%,
+          #041017 100%
+        );
     }
 
 
-    /* 로고 */
+    /* 은은한 바다빛 */
+
+    .page::before {
+      content: "";
+
+      position: absolute;
+
+      width: 520px;
+      height: 520px;
+
+      top: 180px;
+      left: 50%;
+
+      transform: translateX(-50%);
+
+      border-radius: 50%;
+
+      background:
+        radial-gradient(
+          circle,
+          rgba(30, 166, 193, 0.10),
+          transparent 68%
+        );
+
+      pointer-events: none;
+    }
+
+
+    /* =========================================
+       로고
+    ========================================= */
 
     .logo {
-      margin-bottom: 55px;
+      position: relative;
+      z-index: 1;
 
-      color: #10202a;
+      margin-bottom: 52px;
 
-      font-size: 20px;
-      font-weight: 600;
-      letter-spacing: 3px;
+      color: #ffffff;
+
+      font-size: 18px;
+      font-weight: 700;
+
+      letter-spacing: 5px;
     }
 
 
-    /* 제목 */
+    .logo::after {
+      content: "";
+
+      display: block;
+
+      width: 22px;
+      height: 2px;
+
+      margin: 8px auto 0;
+
+      border-radius: 2px;
+
+      background: #55d5e8;
+    }
+
+
+    /* =========================================
+       상단 작은 문구
+    ========================================= */
+
+    .eyebrow {
+      position: relative;
+      z-index: 1;
+
+      margin-bottom: 12px;
+
+      color: #65d5e5;
+
+      font-size: 11px;
+      font-weight: 600;
+
+      letter-spacing: 2.2px;
+
+      text-transform: uppercase;
+    }
+
+
+    /* =========================================
+       제목
+    ========================================= */
 
     .result-title {
+      position: relative;
+      z-index: 1;
+
       margin: 0;
 
       text-align: center;
 
-      color: #10202a;
+      color: #ffffff;
 
       font-size:
-        clamp(28px, 7vw, 40px);
+        clamp(29px, 8vw, 42px);
 
-      line-height: 1.3;
+      line-height: 1.25;
 
-      font-weight: 600;
-      letter-spacing: -1.5px;
+      font-weight: 650;
+
+      letter-spacing: -1.8px;
     }
 
 
-    /* 선택한 기분 */
+    /* =========================================
+       선택한 기분
+    ========================================= */
 
-    .selected-mood {
+    .selected-mood-wrap {
+      position: relative;
+      z-index: 1;
+
+      width: 86px;
+      height: 86px;
+
       margin-top: 25px;
 
-      font-size: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      border-radius: 50%;
+
+      background:
+        rgba(77, 208, 225, 0.08);
+
+      border:
+        1px solid
+        rgba(99, 221, 235, 0.25);
+
+      box-shadow:
+        0 0 35px
+        rgba(45, 193, 214, 0.10);
+    }
+
+
+    .selected-mood {
+      font-size: 43px;
       line-height: 1;
     }
 
 
-    /* 기분 설명 */
+    /* =========================================
+       기분 설명
+    ========================================= */
 
     .mood-text {
-      margin-top: 20px;
+      position: relative;
+      z-index: 1;
+
+      max-width: 330px;
+
+      margin:
+        17px auto 0;
 
       text-align: center;
 
-      font-size: 17px;
-      line-height: 1.5;
+      color: #9db7bf;
 
-      color: #4b626b;
+      font-size: 14px;
+
+      line-height: 1.6;
     }
 
 
-    /* 장르 선택 */
+    /* =========================================
+       장르 영역
+    ========================================= */
+
+    .genre-section {
+      position: relative;
+      z-index: 1;
+
+      width: 100%;
+      max-width: 440px;
+
+      margin-top: 34px;
+    }
+
 
     .genre-title {
-      width: 100%;
-      max-width: 420px;
+      margin-bottom: 11px;
 
-      margin-top: 32px;
-      margin-bottom: 12px;
+      color: #7898a2;
 
-      font-size: 13px;
+      font-size: 11px;
       font-weight: 600;
 
-      letter-spacing: 0.8px;
+      letter-spacing: 1.5px;
 
-      color: #78909a;
+      text-transform: uppercase;
     }
 
 
     .genre-row {
       width: 100%;
-      max-width: 420px;
 
       display: flex;
-      gap: 10px;
+
+      padding: 4px;
+
+      gap: 4px;
+
+      border-radius: 17px;
+
+      background:
+        rgba(255, 255, 255, 0.055);
+
+      border:
+        1px solid
+        rgba(255, 255, 255, 0.07);
     }
 
 
     .genre-button {
       flex: 1;
 
-      padding: 13px 10px;
+      padding: 12px 10px;
 
-      border: 1px solid
-        rgba(16, 32, 42, 0.1);
+      border: none;
 
-      border-radius: 16px;
+      border-radius: 13px;
 
-      background:
-        rgba(255, 255, 255, 0.6);
+      background: transparent;
 
-      color: #526b74;
+      color: #7f9ca5;
 
-      font-size: 14px;
-      font-weight: 500;
+      font-size: 13px;
+      font-weight: 600;
 
       cursor: pointer;
 
@@ -175,10 +326,13 @@
 
 
     .genre-button.active {
-      background: #10202a;
-      color: #ffffff;
+      background: #eafcff;
 
-      border-color: #10202a;
+      color: #09202a;
+
+      box-shadow:
+        0 4px 14px
+        rgba(0, 0, 0, 0.16);
     }
 
 
@@ -187,46 +341,92 @@
     }
 
 
-    /* 음악 목록 */
+    /* =========================================
+       음악 목록
+    ========================================= */
 
     .music-list {
-      width: 100%;
-      max-width: 420px;
+      position: relative;
+      z-index: 1;
 
-      margin-top: 28px;
+      width: 100%;
+      max-width: 440px;
+
+      margin-top: 20px;
 
       display: flex;
       flex-direction: column;
 
-      gap: 12px;
+      gap: 11px;
     }
 
 
-    /* 음악 카드 */
+    /* =========================================
+       음악 카드
+    ========================================= */
 
     .music-card {
+      position: relative;
+
       width: 100%;
 
-      padding: 20px;
+      padding: 18px;
 
-      border-radius: 24px;
+      border-radius: 22px;
 
       background:
-        rgba(255, 255, 255, 0.8);
+        linear-gradient(
+          145deg,
+          rgba(255, 255, 255, 0.105),
+          rgba(255, 255, 255, 0.045)
+        );
+
+      border:
+        1px solid
+        rgba(255, 255, 255, 0.09);
 
       box-shadow:
-        0 8px 24px
-        rgba(16, 32, 42, 0.06);
+        0 10px 30px
+        rgba(0, 0, 0, 0.18);
+
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+
+      overflow: hidden;
     }
 
 
-    /* 곡 번호 + 정보 */
+    .music-card::before {
+      content: "";
+
+      position: absolute;
+
+      top: 0;
+      left: 0;
+
+      width: 3px;
+      height: 100%;
+
+      background:
+        linear-gradient(
+          180deg,
+          #58d9ea,
+          rgba(88, 217, 234, 0.05)
+        );
+
+      opacity: 0.75;
+    }
+
+
+    /* =========================================
+       곡 번호 + 정보
+    ========================================= */
 
     .music-top {
       display: flex;
       align-items: flex-start;
 
-      gap: 14px;
+      gap: 13px;
     }
 
 
@@ -241,12 +441,17 @@
 
       border-radius: 10px;
 
-      background: #edf7f8;
+      background:
+        rgba(91, 215, 232, 0.09);
 
-      color: #607781;
+      border:
+        1px solid
+        rgba(91, 215, 232, 0.13);
 
-      font-size: 13px;
-      font-weight: 600;
+      color: #6bd8e7;
+
+      font-size: 11px;
+      font-weight: 700;
     }
 
 
@@ -256,48 +461,58 @@
     }
 
 
-    /* 노래 제목 */
+    /* =========================================
+       노래 제목
+    ========================================= */
 
     .music-title {
-      margin: 2px 0 5px;
+      margin: 1px 0 4px;
 
-      font-size: 19px;
+      color: #f5fcfd;
+
+      font-size: 17px;
 
       font-weight: 600;
 
-      color: #10202a;
+      line-height: 1.35;
 
-      line-height: 1.3;
+      letter-spacing: -0.3px;
     }
 
 
-    /* 아티스트 */
+    /* =========================================
+       아티스트
+    ========================================= */
 
     .music-artist {
       margin: 0;
 
-      font-size: 14px;
+      color: #7f9ca5;
 
-      color: #607781;
+      font-size: 13px;
 
       line-height: 1.4;
     }
 
 
-    /* 버튼 영역 */
+    /* =========================================
+       버튼 영역
+    ========================================= */
 
     .button-row {
       display: flex;
 
-      gap: 9px;
+      gap: 8px;
 
       width: 100%;
 
-      margin-top: 17px;
+      margin-top: 15px;
     }
 
 
-    /* YouTube Music */
+    /* =========================================
+       YouTube 버튼
+    ========================================= */
 
     .music-button {
       flex: 1;
@@ -307,51 +522,66 @@
       align-items: center;
       justify-content: center;
 
-      min-height: 46px;
+      min-height: 43px;
 
-      padding: 11px 10px;
+      padding: 10px;
 
-      border-radius: 15px;
+      border-radius: 13px;
 
-      background: #10202a;
+      background: #ecfbfd;
 
-      color: #ffffff;
+      color: #09202a;
 
       text-align: center;
 
       text-decoration: none;
 
-      font-size: 14px;
+      font-size: 13px;
 
-      font-weight: 500;
+      font-weight: 650;
 
-      letter-spacing: 0.2px;
+      letter-spacing: 0.1px;
+
+      transition:
+        transform 0.15s ease,
+        opacity 0.2s ease;
     }
 
 
-    /* 하트 */
+    .music-button:active {
+      transform: scale(0.97);
+    }
+
+
+    /* =========================================
+       하트
+    ========================================= */
 
     .heart-button {
-      width: 52px;
-      min-width: 52px;
+      width: 48px;
+      min-width: 48px;
 
-      min-height: 46px;
+      min-height: 43px;
 
-      border: none;
+      border:
+        1px solid
+        rgba(255, 255, 255, 0.08);
 
-      border-radius: 15px;
+      border-radius: 13px;
 
-      background: #edf7f8;
+      background:
+        rgba(255, 255, 255, 0.055);
 
-      color: #10202a;
+      color: #a5c0c7;
 
-      font-size: 22px;
+      font-size: 20px;
 
       cursor: pointer;
 
       transition:
         transform 0.15s ease,
-        background 0.2s ease;
+        background 0.2s ease,
+        color 0.2s ease;
     }
 
 
@@ -360,116 +590,179 @@
     }
 
 
-    /* 저장된 상태 */
-
     .heart-button.saved {
-      background: #10202a;
-      color: #ffffff;
+      background:
+        rgba(255, 82, 105, 0.13);
+
+      color: #ff7185;
+
+      border-color:
+        rgba(255, 82, 105, 0.18);
     }
 
 
-    /* 다른 노래 */
+    /* =========================================
+       다른 노래 추천
+    ========================================= */
 
     .random-button {
-      width: 100%;
-      max-width: 420px;
+      position: relative;
+      z-index: 1;
 
-      margin-top: 18px;
+      width: 100%;
+      max-width: 440px;
+
+      margin-top: 17px;
 
       padding: 14px 20px;
 
-      border: 1px solid
-        rgba(16, 32, 42, 0.1);
+      border:
+        1px solid
+        rgba(255, 255, 255, 0.09);
+
+      border-radius: 15px;
+
+      background:
+        rgba(255, 255, 255, 0.045);
+
+      color: #9bb7bf;
+
+      font-size: 13px;
+      font-weight: 500;
+
+      cursor: pointer;
+
+      transition:
+        background 0.2s ease,
+        transform 0.15s ease;
+    }
+
+
+    .random-button:hover {
+      background:
+        rgba(255, 255, 255, 0.075);
+    }
+
+
+    .random-button:active {
+      transform: scale(0.98);
+    }
+
+
+    /* =========================================
+       MY MUSIC
+    ========================================= */
+
+    .playlist-button {
+      position: relative;
+      z-index: 1;
+
+      width: 100%;
+      max-width: 440px;
+
+      margin-top: 12px;
+
+      padding: 15px 20px;
+
+      border:
+        1px solid
+        rgba(92, 214, 231, 0.18);
 
       border-radius: 16px;
 
       background:
-        rgba(255, 255, 255, 0.55);
+        rgba(70, 197, 216, 0.075);
 
-      color: #526b74;
+      color: #bdebf0;
 
-      font-size: 14px;
+      font-size: 13px;
+
+      font-weight: 600;
+
+      letter-spacing: 0.5px;
 
       cursor: pointer;
+
+      transition:
+        background 0.2s ease,
+        transform 0.15s ease;
     }
 
 
-    /* MY MUSIC */
-
-    .playlist-button {
-      width: 100%;
-      max-width: 420px;
-
-      margin-top: 22px;
-
-      padding: 15px 20px;
-
-      border: 1px solid
-        rgba(16, 32, 42, 0.12);
-
-      border-radius: 18px;
-
+    .playlist-button:hover {
       background:
-        rgba(255, 255, 255, 0.55);
-
-      color: #10202a;
-
-      font-size: 15px;
-
-      font-weight: 500;
-
-      letter-spacing: 0.3px;
-
-      cursor: pointer;
+        rgba(70, 197, 216, 0.12);
     }
 
 
-    /* 다시 고르기 */
+    .playlist-button:active {
+      transform: scale(0.98);
+    }
+
+
+    /* =========================================
+       다시 고르기
+    ========================================= */
 
     .back-button {
-      margin-top: 20px;
+      position: relative;
+      z-index: 1;
 
-      padding: 12px 20px;
+      margin-top: 15px;
+
+      padding: 11px 20px;
 
       border: none;
 
       background: transparent;
 
-      color: #526b74;
+      color: #66838c;
 
-      font-size: 15px;
+      font-size: 13px;
 
       cursor: pointer;
     }
 
 
-    /* 작은 화면 */
+    .back-button:hover {
+      color: #9bb9c1;
+    }
+
+
+    /* =========================================
+       작은 화면
+    ========================================= */
 
     @media (max-width: 380px) {
 
       .page {
-        padding-left: 18px;
-        padding-right: 18px;
+        padding-left: 16px;
+        padding-right: 16px;
       }
 
       .logo {
-        margin-bottom: 45px;
+        margin-bottom: 43px;
+      }
+
+      .selected-mood-wrap {
+        width: 78px;
+        height: 78px;
       }
 
       .selected-mood {
-        font-size: 56px;
+        font-size: 38px;
       }
 
       .music-card {
-        padding: 17px;
+        padding: 16px;
       }
 
       .music-title {
-        font-size: 18px;
+        font-size: 16px;
       }
 
       .music-button {
-        font-size: 13px;
+        font-size: 12px;
       }
 
     }
@@ -489,6 +782,13 @@
     </div>
 
 
+    <!-- 작은 문구 -->
+
+    <div class="eyebrow">
+      YOUR MOOD · YOUR MUSIC
+    </div>
+
+
     <!-- 제목 -->
 
     <h1 class="result-title">
@@ -498,11 +798,15 @@
 
     <!-- 선택한 기분 -->
 
-    <div
-      class="selected-mood"
-      id="selectedMood"
-    >
-      😊
+    <div class="selected-mood-wrap">
+
+      <div
+        class="selected-mood"
+        id="selectedMood"
+      >
+        😊
+      </div>
+
     </div>
 
 
@@ -518,38 +822,41 @@
 
     <!-- 장르 -->
 
-    <div class="genre-title">
-      어떤 음악을 들을까?
-    </div>
+    <section class="genre-section">
 
+      <div class="genre-title">
+        CHOOSE YOUR SOUND
+      </div>
 
-    <div class="genre-row">
+      <div class="genre-row">
 
-      <button
-        class="genre-button active"
-        type="button"
-        data-genre="ALL"
-      >
-        전체
-      </button>
+        <button
+          class="genre-button active"
+          type="button"
+          data-genre="ALL"
+        >
+          전체
+        </button>
 
-      <button
-        class="genre-button"
-        type="button"
-        data-genre="KPOP"
-      >
-        K-POP
-      </button>
+        <button
+          class="genre-button"
+          type="button"
+          data-genre="KPOP"
+        >
+          K-POP
+        </button>
 
-      <button
-        class="genre-button"
-        type="button"
-        data-genre="POP"
-      >
-        POP
-      </button>
+        <button
+          class="genre-button"
+          type="button"
+          data-genre="POP"
+        >
+          POP
+        </button>
 
-    </div>
+      </div>
+
+    </section>
 
 
     <!-- 음악 목록 -->
@@ -1130,12 +1437,10 @@
 
 
     /* =========================================
-       YouTube Music 검색 주소
+       YouTube 주소
     ========================================= */
 
-    function getYouTubeMusicURL(
-      music
-    ) {
+    function getYouTubeMusicURL(music) {
 
       const searchText =
         music.title +
@@ -1143,10 +1448,8 @@
         music.artist;
 
       return (
-        "https://music.youtube.com/search?q=" +
-        encodeURIComponent(
-          searchText
-        )
+        "https://www.youtube.com/results?search_query=" +
+        encodeURIComponent(searchText)
       );
 
     }
@@ -1200,14 +1503,10 @@
       }
 
 
-      /* 음악을 랜덤하게 섞기 */
-
       list.sort(
         () => Math.random() - 0.5
       );
 
-
-      /* 최대 5곡 */
 
       return list.slice(0, 5);
 
@@ -1218,19 +1517,14 @@
        하트 상태 확인
     ========================================= */
 
-    function isSaved(
-      music
-    ) {
+    function isSaved(music) {
 
       return savedSongs.some(
         function(song) {
 
           return (
-            song.title ===
-              music.title
-            &&
-            song.artist ===
-              music.artist
+            song.title === music.title &&
+            song.artist === music.artist
           );
 
         }
@@ -1249,7 +1543,6 @@
 
       currentMusicList =
         musicArray;
-
 
       musicList.innerHTML = "";
 
@@ -1284,7 +1577,7 @@
             "music-number";
 
           number.textContent =
-            index + 1;
+            String(index + 1).padStart(2, "0");
 
 
           const info =
@@ -1320,22 +1613,12 @@
             music.artist;
 
 
-          info.appendChild(
-            title
-          );
-
-          info.appendChild(
-            artist
-          );
+          info.appendChild(title);
+          info.appendChild(artist);
 
 
-          top.appendChild(
-            number
-          );
-
-          top.appendChild(
-            info
-          );
+          top.appendChild(number);
+          top.appendChild(info);
 
 
           const buttonRow =
@@ -1356,9 +1639,7 @@
             "music-button";
 
           musicButton.href =
-            getYouTubeMusicURL(
-              music
-            );
+            getYouTubeMusicURL(music);
 
           musicButton.target =
             "_blank";
@@ -1367,7 +1648,7 @@
             "noopener";
 
           musicButton.textContent =
-            "YouTube Music";
+            "YouTube에서 듣기";
 
 
           const heartButton =
@@ -1417,11 +1698,8 @@
                   function(song) {
 
                     return (
-                      song.title ===
-                        music.title
-                      &&
-                      song.artist ===
-                        music.artist
+                      song.title === music.title &&
+                      song.artist === music.artist
                     );
 
                   }
@@ -1450,9 +1728,7 @@
                     music.artist,
 
                   url:
-                    getYouTubeMusicURL(
-                      music
-                    )
+                    getYouTubeMusicURL(music)
 
                 });
 
@@ -1461,9 +1737,7 @@
 
               localStorage.setItem(
                 "sharkPlaylist",
-                JSON.stringify(
-                  savedSongs
-                )
+                JSON.stringify(savedSongs)
               );
 
 
