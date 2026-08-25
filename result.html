@@ -21,7 +21,6 @@
     body {
       margin: 0;
       padding: 0;
-
       width: 100%;
       min-height: 100%;
     }
@@ -57,9 +56,7 @@
         calc(35px + env(safe-area-inset-bottom));
 
       display: flex;
-
       flex-direction: column;
-
       align-items: center;
 
       background: #dff4f6;
@@ -133,19 +130,34 @@
     }
 
 
+    /* 추천 음악 영역 */
+
+    .music-list {
+
+      width: 100%;
+
+      max-width: 420px;
+
+      margin-top: 40px;
+
+      display: flex;
+
+      flex-direction: column;
+
+      gap: 14px;
+
+    }
+
+
     /* 음악 카드 */
 
     .music-card {
 
       width: 100%;
 
-      max-width: 420px;
+      padding: 20px;
 
-      margin-top: 45px;
-
-      padding: 24px;
-
-      border-radius: 26px;
+      border-radius: 24px;
 
       background: rgba(
         255,
@@ -168,7 +180,7 @@
 
     .music-label {
 
-      font-size: 13px;
+      font-size: 11px;
 
       font-weight: 600;
 
@@ -181,9 +193,9 @@
 
     .music-title {
 
-      margin: 10px 0 5px;
+      margin: 8px 0 5px;
 
-      font-size: 22px;
+      font-size: 21px;
 
       font-weight: 600;
 
@@ -196,7 +208,7 @@
 
       margin: 0;
 
-      font-size: 15px;
+      font-size: 14px;
 
       color: #607781;
 
@@ -211,11 +223,11 @@
 
       width: 100%;
 
-      margin-top: 22px;
+      margin-top: 16px;
 
-      padding: 16px 20px;
+      padding: 14px 18px;
 
-      border-radius: 18px;
+      border-radius: 16px;
 
       background: #10202a;
 
@@ -225,11 +237,11 @@
 
       text-decoration: none;
 
-      font-size: 16px;
+      font-size: 15px;
 
       font-weight: 500;
 
-      letter-spacing: 0.5px;
+      letter-spacing: 0.3px;
 
       cursor: pointer;
 
@@ -278,6 +290,12 @@
 
       }
 
+      .music-title {
+
+        font-size: 19px;
+
+      }
+
     }
 
   </style>
@@ -303,7 +321,7 @@
     </h1>
 
 
-    <!-- 선택한 이모지 -->
+    <!-- 선택한 기분 -->
 
     <div
       class="selected-mood"
@@ -313,7 +331,7 @@
     </div>
 
 
-    <!-- 선택한 기분 설명 -->
+    <!-- 기분 설명 -->
 
     <p
       class="mood-text"
@@ -326,41 +344,14 @@
 
     <!-- 추천 음악 -->
 
-    <section class="music-card">
-
-      <div class="music-label">
-        TODAY'S PICK
-      </div>
-
-
-      <h2
-        class="music-title"
-        id="musicTitle"
-      >
-        기분 좋은 하루
-      </h2>
-
-
-      <p
-        class="music-artist"
-        id="musicArtist"
-      >
-        SHARK 추천 음악
-      </p>
-
-
-      <a
-        href="#"
-        class="music-button"
-        id="musicButton"
-      >
-        ▶ 노래 듣기
-      </a>
-
+    <section
+      class="music-list"
+      id="musicList"
+    >
     </section>
 
 
-    <!-- 다시 선택 -->
+    <!-- 다시 고르기 -->
 
     <button
       class="back-button"
@@ -402,21 +393,9 @@
       );
 
 
-    const musicTitle =
+    const musicList =
       document.getElementById(
-        "musicTitle"
-      );
-
-
-    const musicArtist =
-      document.getElementById(
-        "musicArtist"
-      );
-
-
-    const musicButton =
-      document.getElementById(
-        "musicButton"
+        "musicList"
       );
 
 
@@ -479,89 +458,295 @@
 
 
     /*
-      기분별 표시 음악
+      기분별 추천 음악 5개
     */
 
     const musicData = {
 
-      "행복": {
-        title: "기분 좋은 하루",
-        artist: "SHARK 추천 음악"
-      },
+      "행복": [
 
-      "사랑": {
-        title: "설레는 순간",
-        artist: "SHARK 추천 음악"
-      },
+        {
+          title: "Happy Day",
+          artist: "Happy Mood",
+          query: "happy mood music"
+        },
 
-      "슬픔": {
-        title: "조용한 밤",
-        artist: "SHARK 추천 음악"
-      },
+        {
+          title: "Good Vibes",
+          artist: "Upbeat Music",
+          query: "good vibes happy music"
+        },
 
-      "화남": {
-        title: "Turn It Up",
-        artist: "SHARK 추천 음악"
-      },
+        {
+          title: "Sunny Day",
+          artist: "Feel Good Music",
+          query: "sunny day feel good music"
+        },
 
-      "피곤": {
-        title: "Slow Down",
-        artist: "SHARK 추천 음악"
-      },
+        {
+          title: "Feel Good",
+          artist: "Positive Music",
+          query: "feel good music"
+        },
 
-      "위로": {
-        title: "괜찮아",
-        artist: "SHARK 추천 음악"
-      },
+        {
+          title: "Bright Morning",
+          artist: "Happy Music",
+          query: "happy morning music"
+        }
 
-      "신남": {
-        title: "Let's Go",
-        artist: "SHARK 추천 음악"
-      },
+      ],
 
-      "SHARK": {
-        title: "Ocean Rain",
-        artist: "바다와 비가 어울리는 음악"
-      }
+
+      "사랑": [
+
+        {
+          title: "Romantic",
+          artist: "Love Songs",
+          query: "romantic love songs"
+        },
+
+        {
+          title: "Love Story",
+          artist: "Romantic Music",
+          query: "romantic love music"
+        },
+
+        {
+          title: "Sweet Love",
+          artist: "Love Songs",
+          query: "sweet love songs"
+        },
+
+        {
+          title: "Falling in Love",
+          artist: "Romantic Music",
+          query: "falling in love songs"
+        },
+
+        {
+          title: "Late Night Love",
+          artist: "Romantic Songs",
+          query: "late night romantic songs"
+        }
+
+      ],
+
+
+      "슬픔": [
+
+        {
+          title: "Sad Night",
+          artist: "Emotional Music",
+          query: "sad emotional music"
+        },
+
+        {
+          title: "Quiet Night",
+          artist: "Sad Music",
+          query: "sad quiet night music"
+        },
+
+        {
+          title: "Lonely",
+          artist: "Emotional Songs",
+          query: "emotional sad songs"
+        },
+
+        {
+          title: "Rainy Night",
+          artist: "Sad Mood Music",
+          query: "rainy night sad music"
+        },
+
+        {
+          title: "Deep Emotion",
+          artist: "Emotional Music",
+          query: "deep emotional music"
+        }
+
+      ],
+
+
+      "화남": [
+
+        {
+          title: "Power",
+          artist: "Rock Music",
+          query: "powerful rock music"
+        },
+
+        {
+          title: "Turn It Up",
+          artist: "Rock",
+          query: "hard rock music"
+        },
+
+        {
+          title: "Break Free",
+          artist: "Powerful Rock",
+          query: "powerful rock songs"
+        },
+
+        {
+          title: "Energy",
+          artist: "Rock Music",
+          query: "high energy rock music"
+        },
+
+        {
+          title: "Let It Out",
+          artist: "Rock",
+          query: "angry rock music"
+        }
+
+      ],
+
+
+      "피곤": [
+
+        {
+          title: "Slow Down",
+          artist: "Relaxing Music",
+          query: "relaxing sleep music"
+        },
+
+        {
+          title: "Deep Sleep",
+          artist: "Sleep Music",
+          query: "deep sleep music"
+        },
+
+        {
+          title: "Calm Night",
+          artist: "Relaxing Music",
+          query: "calm relaxing night music"
+        },
+
+        {
+          title: "Soft Dreams",
+          artist: "Sleep Music",
+          query: "soft sleep music"
+        },
+
+        {
+          title: "Peaceful",
+          artist: "Relaxing Music",
+          query: "peaceful relaxing music"
+        }
+
+      ],
+
+
+      "위로": [
+
+        {
+          title: "Comfort",
+          artist: "Emotional Music",
+          query: "comforting emotional music"
+        },
+
+        {
+          title: "It's Okay",
+          artist: "Comfort Music",
+          query: "comforting songs"
+        },
+
+        {
+          title: "Warm Heart",
+          artist: "Emotional Songs",
+          query: "warm emotional music"
+        },
+
+        {
+          title: "You Are Not Alone",
+          artist: "Comfort Music",
+          query: "you are not alone comforting songs"
+        },
+
+        {
+          title: "Healing",
+          artist: "Healing Music",
+          query: "healing emotional music"
+        }
+
+      ],
+
+
+      "신남": [
+
+        {
+          title: "Let's Go",
+          artist: "Upbeat Music",
+          query: "upbeat happy music"
+        },
+
+        {
+          title: "Good Vibes",
+          artist: "Upbeat Songs",
+          query: "upbeat music good vibes"
+        },
+
+        {
+          title: "Party Time",
+          artist: "Happy Music",
+          query: "upbeat party music"
+        },
+
+        {
+          title: "Energy Up",
+          artist: "Upbeat Music",
+          query: "high energy upbeat music"
+        },
+
+        {
+          title: "Feel Alive",
+          artist: "Happy Music",
+          query: "feel alive upbeat music"
+        }
+
+      ],
+
+
+      "SHARK": [
+
+        {
+          title: "Ocean",
+          artist: "Ocean & Rain",
+          query: "ocean rain music"
+        },
+
+        {
+          title: "Ocean Waves",
+          artist: "Ocean Sounds",
+          query: "ocean waves music"
+        },
+
+        {
+          title: "Deep Blue",
+          artist: "Deep Ocean",
+          query: "deep ocean music"
+        },
+
+        {
+          title: "Rainy Ocean",
+          artist: "Ocean Rain",
+          query: "ocean rain sounds"
+        },
+
+        {
+          title: "Sea Breeze",
+          artist: "Calm Ocean",
+          query: "calm ocean music"
+        }
+
+      ]
 
     };
 
 
     /*
-      기분별 YouTube Music 검색어
-    */
-
-    const musicQueries = {
-
-      "행복":
-        "happy mood music",
-
-      "사랑":
-        "romantic love songs",
-
-      "슬픔":
-        "sad emotional music",
-
-      "화남":
-        "powerful rock music",
-
-      "피곤":
-        "relaxing sleep music",
-
-      "위로":
-        "comforting emotional music",
-
-      "신남":
-        "upbeat happy music",
-
-      "SHARK":
-        "ocean rain music"
-
-    };
-
-
-    /*
-      선택한 기분 표시
+      추천 음악 카드 생성
     */
 
     if (mood) {
@@ -575,17 +760,58 @@
         "너의 기분에 어울리는 노래를 골라봤어.";
 
 
-      const music =
+      const recommendations =
         musicData[mood];
 
 
-      if (music) {
+      if (recommendations) {
 
-        musicTitle.textContent =
-          music.title;
+        recommendations.forEach(
+          function (music, index) {
 
-        musicArtist.textContent =
-          music.artist;
+            const card =
+              document.createElement(
+                "article"
+              );
+
+
+            card.className =
+              "music-card";
+
+
+            card.innerHTML = `
+
+              <div class="music-label">
+                ${index === 0
+                  ? "TODAY'S PICK"
+                  : "RECOMMENDED"}
+              </div>
+
+              <h2 class="music-title">
+                ${music.title}
+              </h2>
+
+              <p class="music-artist">
+                ${music.artist}
+              </p>
+
+              <a
+                href="#"
+                class="music-button"
+                data-query="${music.query}"
+              >
+                ▶ 노래 듣기
+              </a>
+
+            `;
+
+
+            musicList.appendChild(
+              card
+            );
+
+          }
+        );
 
       }
 
@@ -596,15 +822,26 @@
       YouTube Music 연결
     */
 
-    musicButton.addEventListener(
+    musicList.addEventListener(
       "click",
       function (event) {
+
+        const button =
+          event.target.closest(
+            ".music-button"
+          );
+
+
+        if (!button) {
+          return;
+        }
+
 
         event.preventDefault();
 
 
         const query =
-          musicQueries[mood];
+          button.dataset.query;
 
 
         if (!query) {
@@ -614,7 +851,9 @@
 
         const youtubeMusicURL =
           "https://music.youtube.com/search?q=" +
-          encodeURIComponent(query);
+          encodeURIComponent(
+            query
+          );
 
 
         window.open(
