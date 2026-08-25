@@ -93,19 +93,19 @@
     }
 
     .home-content {
-  width: 100%;
+      width: 100%;
 
-  display: flex;
-  justify-content: center;
-  align-items: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
 
-  text-align: center;
+      text-align: center;
 
-  transform: translateY(-220px);
-}
+      transform: translateY(-220px);
+    }
 
-.home-title {
-  margin: 0;
+    .home-title {
+      margin: 0;
 
       color: #10202a;
 
@@ -120,7 +120,7 @@
       display: block;
     }
 
-    /* 듣 기 버튼 */
+    /* 듣기 버튼 */
 
     .listen-button {
       width: 100%;
@@ -141,83 +141,10 @@
       cursor: pointer;
     }
 
-    /* 두 번째 화면 */
-
-    #moodPage {
-      background: #ffffff;
-      justify-content: flex-start;
+    .listen-button:active {
+      transform: scale(0.98);
     }
 
-    .mood-title {
-      width: 100%;
-
-      margin: 70px 0 50px;
-
-      text-align: center;
-
-      color: #10202a;
-
-      font-size: clamp(28px, 7vw, 40px);
-      line-height: 1.3;
-
-      font-weight: 600;
-      letter-spacing: -1.5px;
-    }
-
-    .mood-grid {
-      width: 100%;
-      max-width: 420px;
-
-      margin: 0 auto;
-
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-
-      gap: 14px;
-    }
-
-    .mood-button {
-      aspect-ratio: 1 / 1;
-
-      border: none;
-      border-radius: 22px;
-
-      background: #f1f1f1;
-
-      font-size: 30px;
-
-      cursor: pointer;
-    }
-
-    .mood-button:active {
-      transform: scale(0.92);
-    }
-
-    @media (max-width: 380px) {
-      .page {
-        padding-left: 18px;
-        padding-right: 18px;
-      }
-
-      .home-title {
-        font-size: 32px;
-      }
-
-      .mood-title {
-        margin-top: 60px;
-        margin-bottom: 45px;
-        font-size: 28px;
-      }
-
-      .mood-grid {
-        gap: 10px;
-      }
-
-      .mood-button {
-        font-size: 26px;
-        border-radius: 18px;
-      }
-    }
   </style>
 </head>
 
@@ -252,59 +179,28 @@
 
     </section>
 
-
-    <!-- 두 번째 화면 -->
-
-    <section class="page" id="moodPage">
-
-      <h1 class="mood-title">
-        하나 골라봐
-      </h1>
-
-      <div class="mood-grid">
-
-        <button class="mood-button" type="button">😊</button>
-
-        <button class="mood-button" type="button">💗</button>
-
-        <button class="mood-button" type="button">😢</button>
-
-        <button class="mood-button" type="button">😡</button>
-
-        <button class="mood-button" type="button">😴</button>
-
-        <button class="mood-button" type="button">🥺</button>
-
-        <button class="mood-button" type="button">🤩</button>
-
-        <button class="mood-button" type="button">🦈</button>
-
-      </div>
-
-    </section>
-
   </main>
 
 
   <script>
 
-    const homePage =
-      document.getElementById("homePage");
-
-    const moodPage =
-      document.getElementById("moodPage");
-
     const listenButton =
-      document.getElementById("listenButton");
+      document.getElementById(
+        "listenButton"
+      );
 
+
+    /*
+      듣기 버튼을 누르면
+      mood.html로 이동
+    */
 
     listenButton.addEventListener(
       "click",
       function () {
 
-        homePage.classList.remove("active");
-
-        moodPage.classList.add("active");
+        window.location.href =
+          "mood.html";
 
       }
     );
