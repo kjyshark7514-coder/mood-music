@@ -2,7 +2,11 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
   <title>SHARK</title>
 
   <style>
@@ -14,7 +18,6 @@
     html,
     body {
       margin: 0;
-      padding: 0;
       width: 100%;
       min-height: 100%;
     }
@@ -29,173 +32,409 @@
         "Noto Sans KR",
         sans-serif;
 
-      background: #ffffff;
-      color: #10202a;
-    }
-
-    .app {
-      position: relative;
-      width: 100%;
-      min-height: 100vh;
-      min-height: 100dvh;
-      overflow: hidden;
+      background: #031118;
+      color: #ffffff;
     }
 
     .page {
-      position: absolute;
-      inset: 0;
+      position: relative;
 
       width: 100%;
       min-height: 100vh;
       min-height: 100dvh;
+
+      overflow: hidden;
 
       display: flex;
       flex-direction: column;
 
       padding:
-        calc(45px + env(safe-area-inset-top))
-        24px
-        calc(35px + env(safe-area-inset-bottom));
+        calc(30px + env(safe-area-inset-top))
+        22px
+        calc(28px + env(safe-area-inset-bottom));
 
-      opacity: 0;
-      visibility: hidden;
-    }
+      background-image:
+        linear-gradient(
+          180deg,
+          rgba(2, 13, 19, 0.20) 0%,
+          rgba(2, 15, 22, 0.32) 35%,
+          rgba(2, 13, 19, 0.78) 72%,
+          rgba(2, 11, 16, 0.96) 100%
+        ),
+        url("./main.jpeg");
 
-    .page.active {
-      opacity: 1;
-      visibility: visible;
-      z-index: 2;
-    }
-
-    /* 첫 화면 */
-
-    #homePage {
-      justify-content: space-between;
-
-      background-image: url("main.jpeg");
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
     }
 
-    .logo {
-      text-align: center;
-      color: #10202a;
-      font-size: 20px;
-      font-weight: 600;
-      letter-spacing: 3px;
+    /* 바다빛 */
+    .page::before {
+      content: "";
+
+      position: absolute;
+
+      width: 520px;
+      height: 520px;
+
+      top: -210px;
+      left: 50%;
+
+      transform: translateX(-50%);
+
+      border-radius: 50%;
+
+      background:
+        radial-gradient(
+          circle,
+          rgba(68, 224, 231, 0.24) 0%,
+          rgba(30, 172, 198, 0.09) 38%,
+          transparent 70%
+        );
+
+      filter: blur(4px);
+
+      pointer-events: none;
     }
 
-    .home-content {
-      width: 100%;
+    /* 하단 네온 */
+    .page::after {
+      content: "";
+
+      position: absolute;
+
+      width: 380px;
+      height: 180px;
+
+      bottom: -100px;
+      left: 50%;
+
+      transform: translateX(-50%);
+
+      border-radius: 50%;
+
+      background:
+        rgba(57, 210, 224, 0.18);
+
+      filter: blur(70px);
+
+      pointer-events: none;
+    }
+
+    .top {
+      position: relative;
+      z-index: 2;
 
       display: flex;
-      justify-content: center;
       align-items: center;
-
-      text-align: center;
-
-      transform: translateY(-220px);
+      justify-content: space-between;
     }
 
-    .home-title {
+    .logo {
+      color: #ffffff;
+
+      font-size: 17px;
+      font-weight: 700;
+
+      letter-spacing: 6px;
+    }
+
+    .logo-dot {
+      width: 7px;
+      height: 7px;
+
+      border-radius: 50%;
+
+      background: #6ce8ee;
+
+      box-shadow:
+        0 0 14px rgba(108, 232, 238, 0.9);
+    }
+
+    .hero {
+      position: relative;
+      z-index: 2;
+
+      flex: 1;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+
+      padding-bottom: 28px;
+    }
+
+    .eyebrow {
+      margin-bottom: 14px;
+
+      color: #76dce5;
+
+      font-size: 11px;
+      font-weight: 650;
+
+      letter-spacing: 2.6px;
+    }
+
+    .title {
       margin: 0;
 
-      color: #10202a;
+      max-width: 340px;
 
-      font-size: clamp(32px, 8vw, 48px);
-      line-height: 1.25;
+      color: #ffffff;
 
-      font-weight: 600;
-      letter-spacing: -1.8px;
+      font-size:
+        clamp(38px, 10vw, 56px);
+
+      line-height: 1.05;
+
+      font-weight: 680;
+
+      letter-spacing: -2.6px;
+
+      text-shadow:
+        0 3px 24px rgba(0, 0, 0, 0.35);
     }
 
-    .home-title span {
+    .title span {
       display: block;
     }
 
-    /* 듣기 버튼 */
+    .title .accent {
+      color: #a9f5f5;
+    }
 
-    .listen-button {
-      display: block;
+    .description {
+      max-width: 310px;
+
+      margin:
+        20px 0 0;
+
+      color:
+        rgba(226, 245, 247, 0.72);
+
+      font-size: 14px;
+
+      line-height: 1.7;
+
+      letter-spacing: -0.2px;
+    }
+
+    .bottom {
+      position: relative;
+      z-index: 2;
 
       width: 100%;
+    }
 
-      padding: 18px 20px;
+    .glass-card {
+      width: 100%;
+
+      padding: 7px;
+
+      border-radius: 24px;
+
+      background:
+        rgba(255, 255, 255, 0.08);
+
+      border:
+        1px solid
+        rgba(255, 255, 255, 0.12);
+
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+
+      box-shadow:
+        0 18px 45px
+        rgba(0, 0, 0, 0.28);
+    }
+
+    .listen-button {
+      width: 100%;
+
+      min-height: 61px;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      padding:
+        0 17px 0 21px;
 
       border: none;
-      border-radius: 20px;
+      border-radius: 18px;
 
-      background: #10202a;
-      color: white;
+      background:
+        linear-gradient(
+          135deg,
+          #dffbfb 0%,
+          #a8eef2 100%
+        );
 
-      font-size: 18px;
-      font-weight: 500;
+      color: #06202a;
 
-      letter-spacing: 1px;
-
-      text-align: center;
       text-decoration: none;
 
-      cursor: pointer;
+      font-size: 16px;
+      font-weight: 700;
 
-      transition: transform 0.15s ease;
+      letter-spacing: -0.3px;
+
+      box-shadow:
+        0 10px 28px
+        rgba(54, 211, 220, 0.18);
+
+      transition:
+        transform 0.18s ease,
+        box-shadow 0.18s ease;
     }
 
     .listen-button:active {
-      transform: scale(0.98);
+      transform: scale(0.985);
     }
 
-    /* 작은 화면 */
+    .arrow {
+      width: 36px;
+      height: 36px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      border-radius: 50%;
+
+      background:
+        rgba(7, 34, 42, 0.11);
+
+      font-size: 18px;
+    }
+
+    .bottom-note {
+      margin-top: 13px;
+
+      text-align: center;
+
+      color:
+        rgba(201, 230, 234, 0.48);
+
+      font-size: 10px;
+
+      letter-spacing: 1.5px;
+    }
+
+    /* 은은한 움직임 */
+    .glow {
+      position: absolute;
+
+      width: 160px;
+      height: 160px;
+
+      top: 27%;
+      right: -100px;
+
+      border-radius: 50%;
+
+      background:
+        rgba(88, 225, 232, 0.08);
+
+      filter: blur(38px);
+
+      animation:
+        floatGlow 7s ease-in-out infinite;
+    }
+
+    @keyframes floatGlow {
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(35px);
+      }
+    }
+
+    @media (min-width: 700px) {
+      .page {
+        padding-left: max(40px, calc((100vw - 520px) / 2));
+        padding-right: max(40px, calc((100vw - 520px) / 2));
+      }
+    }
 
     @media (max-width: 380px) {
-
       .page {
         padding-left: 18px;
         padding-right: 18px;
       }
 
-      .home-title {
-        font-size: 32px;
+      .title {
+        font-size: 37px;
+      }
+
+      .description {
+        font-size: 13px;
       }
     }
-
   </style>
 </head>
 
 <body>
 
-  <main class="app">
+  <main class="page">
 
-    <!-- 첫 화면 -->
+    <div class="glow"></div>
 
-    <section class="page active" id="homePage">
+    <header class="top">
 
       <div class="logo">
         SHARK
       </div>
 
+      <div class="logo-dot"></div>
 
-      <div class="home-content">
+    </header>
 
-        <h1 class="home-title">
-          <span>네 기분만 줘.</span>
-          <span>노래는 내가 고를게</span>
-        </h1>
+    <section class="hero">
+
+      <div class="eyebrow">
+        MUSIC FOR YOUR MOMENT
+      </div>
+
+      <h1 class="title">
+        <span>지금 기분을</span>
+        <span class="accent">노래로 바꿔줄게.</span>
+      </h1>
+
+      <p class="description">
+        네가 지금 어떤 기분인지 골라줘.
+         그 순간에 어울리는 음악을 찾아줄게.
+      </p>
+
+    </section>
+
+    <footer class="bottom">
+
+      <div class="glass-card">
+
+        <a
+          href="./mood.html"
+          class="listen-button"
+        >
+          <span>
+            내 기분으로 음악 찾기
+          </span>
+
+          <span class="arrow">
+            →
+          </span>
+        </a>
 
       </div>
 
+      <div class="bottom-note">
+        YOUR MOOD · YOUR MUSIC
+      </div>
 
-      <!-- mood.html로 이동 -->
-
-      <a
-        href="./mood.html"
-        class="listen-button"
-      >
-        듣 기
-      </a>
-
-    </section>
+    </footer>
 
   </main>
 
