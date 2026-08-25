@@ -1,1 +1,396 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
 
+  <title>SHARK - Mood</title>
+
+  <style>
+
+    * {
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+
+      width: 100%;
+      min-height: 100%;
+    }
+
+    body {
+      font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "SF Pro Display",
+        "SF Pro Text",
+        "Apple SD Gothic Neo",
+        "Noto Sans KR",
+        sans-serif;
+
+      background: #dff4f6;
+      color: #10202a;
+    }
+
+    button {
+      font-family: inherit;
+    }
+
+    .page {
+      width: 100%;
+      min-height: 100vh;
+      min-height: 100dvh;
+
+      padding:
+        calc(45px + env(safe-area-inset-top))
+        24px
+        calc(35px + env(safe-area-inset-bottom));
+
+      display: flex;
+      flex-direction: column;
+
+      background: #dff4f6;
+    }
+
+    /* 제목 */
+
+    .mood-title {
+      width: 100%;
+
+      margin: 70px 0 50px;
+
+      text-align: center;
+
+      color: #10202a;
+
+      font-size: clamp(28px, 7vw, 40px);
+      line-height: 1.3;
+
+      font-weight: 600;
+      letter-spacing: -1.5px;
+    }
+
+    /* 기분 버튼 */
+
+    .mood-grid {
+      width: 100%;
+      max-width: 420px;
+
+      margin: 0 auto;
+
+      display: grid;
+
+      grid-template-columns:
+        repeat(4, 1fr);
+
+      gap: 14px;
+    }
+
+    .mood-button {
+      aspect-ratio: 1 / 1;
+
+      border: none;
+      border-radius: 22px;
+
+      background:
+        rgba(255, 255, 255, 0.75);
+
+      font-size: 30px;
+
+      cursor: pointer;
+
+      transition:
+        transform 0.2s ease,
+        background 0.2s ease,
+        box-shadow 0.2s ease;
+    }
+
+    /* 선택된 기분 */
+
+    .mood-button.selected {
+      background: #ffffff;
+
+      transform: scale(1.06);
+
+      box-shadow:
+        0 8px 20px
+        rgba(16, 32, 42, 0.12);
+    }
+
+    .mood-button:active {
+      transform: scale(0.92);
+    }
+
+    /* 추천 버튼 */
+
+    .recommend-button {
+      width: 100%;
+      max-width: 420px;
+
+      margin: 35px auto 0;
+
+      padding: 18px 20px;
+
+      border: none;
+      border-radius: 20px;
+
+      background: #10202a;
+      color: #ffffff;
+
+      font-size: 18px;
+      font-weight: 500;
+
+      letter-spacing: 0.5px;
+
+      cursor: pointer;
+
+      opacity: 0;
+      visibility: hidden;
+
+      transform: translateY(10px);
+
+      transition:
+        opacity 0.25s ease,
+        transform 0.25s ease;
+    }
+
+    .recommend-button.visible {
+      opacity: 1;
+      visibility: visible;
+
+      transform: translateY(0);
+    }
+
+    /* 작은 화면 */
+
+    @media (max-width: 380px) {
+
+      .page {
+        padding-left: 18px;
+        padding-right: 18px;
+      }
+
+      .mood-title {
+        margin-top: 60px;
+        margin-bottom: 45px;
+
+        font-size: 28px;
+      }
+
+      .mood-grid {
+        gap: 10px;
+      }
+
+      .mood-button {
+        font-size: 26px;
+        border-radius: 18px;
+      }
+    }
+
+  </style>
+</head>
+
+
+<body>
+
+  <main class="page">
+
+    <!-- 제목 -->
+
+    <h1 class="mood-title">
+      하나 골라봐
+    </h1>
+
+
+    <!-- 기분 선택 -->
+
+    <div class="mood-grid">
+
+      <button
+        class="mood-button"
+        type="button"
+        data-mood="행복"
+      >
+        😊
+      </button>
+
+      <button
+        class="mood-button"
+        type="button"
+        data-mood="사랑"
+      >
+        💗
+      </button>
+
+      <button
+        class="mood-button"
+        type="button"
+        data-mood="슬픔"
+      >
+        😢
+      </button>
+
+      <button
+        class="mood-button"
+        type="button"
+        data-mood="화남"
+      >
+        😡
+      </button>
+
+      <button
+        class="mood-button"
+        type="button"
+        data-mood="피곤"
+      >
+        😴
+      </button>
+
+      <button
+        class="mood-button"
+        type="button"
+        data-mood="위로"
+      >
+        🥺
+      </button>
+
+      <button
+        class="mood-button"
+        type="button"
+        data-mood="신남"
+      >
+        🤩
+      </button>
+
+      <button
+        class="mood-button"
+        type="button"
+        data-mood="SHARK"
+      >
+        🦈
+      </button>
+
+    </div>
+
+
+    <!-- 추천 버튼 -->
+
+    <button
+      class="recommend-button"
+      id="recommendButton"
+      type="button"
+    >
+      이 기분으로 노래 골라줘
+    </button>
+
+  </main>
+
+
+  <script>
+
+    /* 선택한 기분 */
+
+    const moodButtons =
+      document.querySelectorAll(
+        ".mood-button"
+      );
+
+    const recommendButton =
+      document.getElementById(
+        "recommendButton"
+      );
+
+    let selectedMood = null;
+
+
+    /* 이모지 클릭 */
+
+    moodButtons.forEach(
+      function (button) {
+
+        button.addEventListener(
+          "click",
+          function () {
+
+            /*
+              기존 선택 제거
+            */
+
+            moodButtons.forEach(
+              function (item) {
+
+                item.classList.remove(
+                  "selected"
+                );
+
+              }
+            );
+
+
+            /*
+              현재 선택
+            */
+
+            button.classList.add(
+              "selected"
+            );
+
+
+            /*
+              기분 저장
+            */
+
+            selectedMood =
+              button.dataset.mood;
+
+
+            /*
+              추천 버튼 표시
+            */
+
+            recommendButton.classList.add(
+              "visible"
+            );
+
+          }
+        );
+
+      }
+    );
+
+
+    /* 추천 버튼 */
+
+    recommendButton.addEventListener(
+      "click",
+      function () {
+
+        if (!selectedMood) {
+          return;
+        }
+
+        /*
+          다음 단계에서
+          YouTube 음악 추천 기능을
+          이 부분에 연결할 예정
+        */
+
+        console.log(
+          "선택한 기분:",
+          selectedMood
+        );
+
+      }
+    );
+
+  </script>
+
+</body>
+</html>
