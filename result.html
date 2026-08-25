@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charst="UTF-8">
+  <meta charset="UTF-8">
 
   <meta
     name="viewport"
@@ -231,6 +231,8 @@
 
       letter-spacing: 0.5px;
 
+      cursor: pointer;
+
     }
 
 
@@ -412,6 +414,12 @@
       );
 
 
+    const musicButton =
+      document.getElementById(
+        "musicButton"
+      );
+
+
     /*
       기분별 이모지
     */
@@ -471,7 +479,7 @@
 
 
     /*
-      기분별 임시 추천곡
+      기분별 표시 음악
     */
 
     const musicData = {
@@ -520,7 +528,40 @@
 
 
     /*
-      선택한 기분이 있을 경우
+      기분별 YouTube Music 검색어
+    */
+
+    const musicQueries = {
+
+      "행복":
+        "happy mood music",
+
+      "사랑":
+        "romantic love songs",
+
+      "슬픔":
+        "sad emotional music",
+
+      "화남":
+        "powerful rock music",
+
+      "피곤":
+        "relaxing sleep music",
+
+      "위로":
+        "comforting emotional music",
+
+      "신남":
+        "upbeat happy music",
+
+      "SHARK":
+        "ocean rain music"
+
+    };
+
+
+    /*
+      선택한 기분 표시
     */
 
     if (mood) {
@@ -549,6 +590,40 @@
       }
 
     }
+
+
+    /*
+      YouTube Music 연결
+    */
+
+    musicButton.addEventListener(
+      "click",
+      function (event) {
+
+        event.preventDefault();
+
+
+        const query =
+          musicQueries[mood];
+
+
+        if (!query) {
+          return;
+        }
+
+
+        const youtubeMusicURL =
+          "https://music.youtube.com/search?q=" +
+          encodeURIComponent(query);
+
+
+        window.open(
+          youtubeMusicURL,
+          "_blank"
+        );
+
+      }
+    );
 
 
     /*
