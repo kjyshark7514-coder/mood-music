@@ -33,10 +33,6 @@
       color: #10202a;
     }
 
-    button {
-      font-family: inherit;
-    }
-
     .app {
       position: relative;
       width: 100%;
@@ -63,8 +59,6 @@
 
       opacity: 0;
       visibility: hidden;
-
-      transition: opacity 0.3s ease;
     }
 
     .page.active {
@@ -123,6 +117,8 @@
     /* 듣기 버튼 */
 
     .listen-button {
+      display: block;
+
       width: 100%;
 
       padding: 18px 20px;
@@ -138,11 +134,30 @@
 
       letter-spacing: 1px;
 
+      text-align: center;
+      text-decoration: none;
+
       cursor: pointer;
+
+      transition: transform 0.15s ease;
     }
 
     .listen-button:active {
       transform: scale(0.98);
+    }
+
+    /* 작은 화면 */
+
+    @media (max-width: 380px) {
+
+      .page {
+        padding-left: 18px;
+        padding-right: 18px;
+      }
+
+      .home-title {
+        font-size: 32px;
+      }
     }
 
   </style>
@@ -160,6 +175,7 @@
         SHARK
       </div>
 
+
       <div class="home-content">
 
         <h1 class="home-title">
@@ -169,43 +185,19 @@
 
       </div>
 
-      <button
+
+      <!-- mood.html로 이동 -->
+
+      <a
+        href="./mood.html"
         class="listen-button"
-        id="listenButton"
-        type="button"
       >
         듣 기
-      </button>
+      </a>
 
     </section>
 
   </main>
-
-
-  <script>
-
-    const listenButton =
-      document.getElementById(
-        "listenButton"
-      );
-
-
-    /*
-      듣기 버튼을 누르면
-      mood.html로 이동
-    */
-
-    listenButton.addEventListener(
-      "click",
-      function () {
-
-        window.location.href =
-          "mood.html";
-
-      }
-    );
-
-  </script>
 
 </body>
 </html>
