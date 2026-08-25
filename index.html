@@ -1,23 +1,16 @@
-```html
 <!DOCTYPE html>
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
-
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  >
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>SHARK</title>
 
   <style>
-
     * {
       box-sizing: border-box;
       -webkit-tap-highlight-color: transparent;
     }
-
 
     html,
     body {
@@ -26,7 +19,6 @@
       width: 100%;
       min-height: 100%;
     }
-
 
     body {
       font-family:
@@ -39,48 +31,30 @@
         sans-serif;
 
       background: #ffffff;
-
       color: #10202a;
     }
-
 
     button {
       font-family: inherit;
     }
 
-
-    /* =========================
-       전체 앱
-    ========================= */
-
     .app {
       position: relative;
-
       width: 100%;
-
       min-height: 100vh;
       min-height: 100dvh;
-
       overflow: hidden;
     }
 
-
-    /* =========================
-       페이지 공통
-    ========================= */
-
     .page {
       position: absolute;
-
       inset: 0;
 
       width: 100%;
-
       min-height: 100vh;
       min-height: 100dvh;
 
       display: flex;
-
       flex-direction: column;
 
       padding:
@@ -89,45 +63,27 @@
         calc(35px + env(safe-area-inset-bottom));
 
       opacity: 0;
-
       visibility: hidden;
 
-      transition:
-        opacity 0.3s ease;
+      transition: opacity 0.3s ease;
     }
-
 
     .page.active {
       opacity: 1;
-
       visibility: visible;
-
       z-index: 2;
     }
 
-
-    /* =========================
-       첫 페이지
-    ========================= */
+    /* 첫 화면 */
 
     #homePage {
       justify-content: space-between;
 
-      background-image:
-        url("main.jpeg");
-
+      background-image: url("main.jpeg");
       background-size: cover;
-
       background-position: center;
-
       background-repeat: no-repeat;
     }
-
-
-    /* =========================
-       SHARK
-       첫 페이지에만 존재
-    ========================= */
 
     .logo {
       position: relative;
@@ -137,16 +93,10 @@
       color: #10202a;
 
       font-size: 20px;
-
       font-weight: 600;
 
       letter-spacing: 3px;
     }
-
-
-    /* =========================
-       첫 페이지 문구
-    ========================= */
 
     .home-content {
       position: relative;
@@ -154,22 +104,18 @@
       width: 100%;
 
       display: flex;
-
       justify-content: center;
-
       align-items: center;
 
       text-align: center;
     }
-
 
     .home-title {
       margin: 0;
 
       color: #10202a;
 
-      font-size:
-        clamp(32px, 8vw, 48px);
+      font-size: clamp(32px, 8vw, 48px);
 
       line-height: 1.25;
 
@@ -178,15 +124,11 @@
       letter-spacing: -1.8px;
     }
 
-
     .home-title span {
       display: block;
     }
 
-
-    /* =========================
-       듣 기 버튼
-    ========================= */
+    /* 듣 기 버튼 */
 
     .listen-button {
       position: relative;
@@ -196,15 +138,12 @@
       padding: 18px 20px;
 
       border: none;
-
       border-radius: 20px;
 
       background: #10202a;
-
       color: white;
 
       font-size: 18px;
-
       font-weight: 500;
 
       letter-spacing: 1px;
@@ -216,44 +155,30 @@
         opacity 0.15s ease;
     }
 
-
     .listen-button:active {
       transform: scale(0.97);
-
       opacity: 0.85;
     }
 
-
-    /* =========================
-       두 번째 페이지
-       SHARK 없음
-    ========================= */
+    /* 두 번째 화면 */
 
     #moodPage {
       background: #ffffff;
-
       justify-content: flex-start;
     }
-
-
-    /* =========================
-       두 번째 페이지 제목
-    ========================= */
 
     .mood-title {
       position: relative;
 
       width: 100%;
 
-      margin:
-        70px 0 50px;
+      margin: 70px 0 50px;
 
       text-align: center;
 
       color: #10202a;
 
-      font-size:
-        clamp(28px, 7vw, 40px);
+      font-size: clamp(28px, 7vw, 40px);
 
       line-height: 1.3;
 
@@ -262,34 +187,25 @@
       letter-spacing: -1.5px;
     }
 
-
-    /* =========================
-       기분 이모지
-    ========================= */
-
     .mood-grid {
       position: relative;
 
       width: 100%;
-
       max-width: 420px;
 
       margin: 0 auto;
 
       display: grid;
 
-      grid-template-columns:
-        repeat(4, 1fr);
+      grid-template-columns: repeat(4, 1fr);
 
       gap: 14px;
     }
-
 
     .mood-button {
       aspect-ratio: 1 / 1;
 
       border: none;
-
       border-radius: 22px;
 
       background: #f1f1f1;
@@ -303,97 +219,64 @@
         background 0.15s ease;
     }
 
-
     .mood-button:active {
       transform: scale(0.92);
-
       background: #e5e5e5;
     }
 
-
-    /* =========================
-       작은 화면
-    ========================= */
+    /* 작은 화면 */
 
     @media (max-width: 380px) {
-
       .page {
         padding-left: 18px;
-
         padding-right: 18px;
       }
-
 
       .home-title {
         font-size: 32px;
       }
 
-
       .mood-title {
         margin-top: 60px;
-
         margin-bottom: 45px;
-
         font-size: 28px;
       }
-
 
       .mood-grid {
         gap: 10px;
       }
 
-
       .mood-button {
         font-size: 26px;
-
         border-radius: 18px;
       }
-
     }
-
   </style>
-
 </head>
-
 
 <body>
 
   <main class="app">
 
-
-    <!-- =========================
-         첫 번째 페이지
-    ========================= -->
+    <!-- 첫 화면 -->
 
     <section
       class="page active"
       id="homePage"
     >
 
-
-      <!-- 첫 페이지에만 SHARK -->
-
       <div class="logo">
         SHARK
       </div>
 
-
       <div class="home-content">
 
         <h1 class="home-title">
-
-          <span>
-            네 기분만 줘.
-          </span>
-
-          <span>
-            노래는 내가 고를게.
-          </span>
-
+          <span>네 기분만 줘.</span>
+          <span>노래는 내가 고를게.</span>
         </h1>
 
       </div>
-
 
       <button
         class="listen-button"
@@ -403,152 +286,69 @@
         듣 기
       </button>
 
-
     </section>
 
 
-
-    <!-- =========================
-         두 번째 페이지
-    ========================= -->
+    <!-- 두 번째 화면 -->
 
     <section
       class="page"
       id="moodPage"
     >
 
-
       <h1 class="mood-title">
         마음에 드는 걸 골라봐
       </h1>
 
-
       <div class="mood-grid">
 
+        <button class="mood-button" type="button">😊</button>
 
-        <button
-          class="mood-button"
-          type="button"
-        >
-          😊
-        </button>
+        <button class="mood-button" type="button">💗</button>
 
+        <button class="mood-button" type="button">😢</button>
 
-        <button
-          class="mood-button"
-          type="button"
-        >
-          💗
-        </button>
+        <button class="mood-button" type="button">😡</button>
 
+        <button class="mood-button" type="button">😴</button>
 
-        <button
-          class="mood-button"
-          type="button"
-        >
-          😢
-        </button>
+        <button class="mood-button" type="button">🥺</button>
 
+        <button class="mood-button" type="button">🤩</button>
 
-        <button
-          class="mood-button"
-          type="button"
-        >
-          😡
-        </button>
-
-
-        <button
-          class="mood-button"
-          type="button"
-        >
-          😴
-        </button>
-
-
-        <button
-          class="mood-button"
-          type="button"
-        >
-          🥺
-        </button>
-
-
-        <button
-          class="mood-button"
-          type="button"
-        >
-          🤩
-        </button>
-
-
-        <button
-          class="mood-button"
-          type="button"
-        >
-          🦈
-        </button>
-
+        <button class="mood-button" type="button">🦈</button>
 
       </div>
 
-
     </section>
-
 
   </main>
 
 
-
   <script>
 
-
-    /* =========================
-       페이지 가져오기
-    ========================= */
-
     const homePage =
-      document.getElementById(
-        "homePage"
-      );
-
+      document.getElementById("homePage");
 
     const moodPage =
-      document.getElementById(
-        "moodPage"
-      );
-
+      document.getElementById("moodPage");
 
     const listenButton =
-      document.getElementById(
-        "listenButton"
-      );
+      document.getElementById("listenButton");
 
-
-    /* =========================
-       듣 기 → 두 번째 페이지
-    ========================= */
 
     listenButton.addEventListener(
       "click",
-      () => {
+      function () {
 
-        homePage.classList.remove(
-          "active"
-        );
+        homePage.classList.remove("active");
 
-
-        moodPage.classList.add(
-          "active"
-        );
+        moodPage.classList.add("active");
 
       }
     );
 
-
   </script>
-
 
 </body>
 </html>
-```
