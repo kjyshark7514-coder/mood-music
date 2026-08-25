@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -12,7 +11,6 @@
   <title>SHARK - Music</title>
 
   <style>
-
     * {
       box-sizing: border-box;
       -webkit-tap-highlight-color: transparent;
@@ -43,11 +41,6 @@
     button {
       font-family: inherit;
     }
-
-
-    /* =========================================
-       전체 페이지
-    ========================================= */
 
     .page {
       position: relative;
@@ -81,7 +74,6 @@
         );
     }
 
-
     .page::before {
       content: "";
 
@@ -107,11 +99,6 @@
       pointer-events: none;
     }
 
-
-    /* =========================================
-       로고
-    ========================================= */
-
     .logo {
       position: relative;
       z-index: 1;
@@ -125,7 +112,6 @@
 
       letter-spacing: 5px;
     }
-
 
     .logo::after {
       content: "";
@@ -142,11 +128,6 @@
       background: #55d5e8;
     }
 
-
-    /* =========================================
-       상단 작은 문구
-    ========================================= */
-
     .eyebrow {
       position: relative;
       z-index: 1;
@@ -159,14 +140,7 @@
       font-weight: 600;
 
       letter-spacing: 2.2px;
-
-      text-transform: uppercase;
     }
-
-
-    /* =========================================
-       제목
-    ========================================= */
 
     .result-title {
       position: relative;
@@ -187,11 +161,6 @@
 
       letter-spacing: -1.8px;
     }
-
-
-    /* =========================================
-       선택한 기분
-    ========================================= */
 
     .selected-mood-wrap {
       position: relative;
@@ -220,16 +189,10 @@
         rgba(45, 193, 214, 0.10);
     }
 
-
     .selected-mood {
       font-size: 43px;
       line-height: 1;
     }
-
-
-    /* =========================================
-       기분 설명
-    ========================================= */
 
     .mood-text {
       position: relative;
@@ -237,22 +200,15 @@
 
       max-width: 330px;
 
-      margin:
-        17px auto 0;
+      margin: 17px auto 0;
 
       text-align: center;
 
       color: #9db7bf;
 
       font-size: 14px;
-
       line-height: 1.6;
     }
-
-
-    /* =========================================
-       장르 영역
-    ========================================= */
 
     .genre-section {
       position: relative;
@@ -264,7 +220,6 @@
       margin-top: 34px;
     }
 
-
     .genre-title {
       margin-bottom: 11px;
 
@@ -274,10 +229,7 @@
       font-weight: 600;
 
       letter-spacing: 1.5px;
-
-      text-transform: uppercase;
     }
-
 
     .genre-row {
       width: 100%;
@@ -285,7 +237,6 @@
       display: flex;
 
       padding: 4px;
-
       gap: 4px;
 
       border-radius: 17px;
@@ -298,18 +249,15 @@
         rgba(255, 255, 255, 0.07);
     }
 
-
     .genre-button {
       flex: 1;
 
       padding: 12px 10px;
 
       border: none;
-
       border-radius: 13px;
 
       background: transparent;
-
       color: #7f9ca5;
 
       font-size: 13px;
@@ -323,10 +271,8 @@
         transform 0.15s ease;
     }
 
-
     .genre-button.active {
       background: #eafcff;
-
       color: #09202a;
 
       box-shadow:
@@ -334,15 +280,9 @@
         rgba(0, 0, 0, 0.16);
     }
 
-
     .genre-button:active {
       transform: scale(0.96);
     }
-
-
-    /* =========================================
-       음악 목록
-    ========================================= */
 
     .music-list {
       position: relative;
@@ -358,11 +298,6 @@
 
       gap: 11px;
     }
-
-
-    /* =========================================
-       음악 카드
-    ========================================= */
 
     .music-card {
       position: relative;
@@ -394,7 +329,6 @@
       overflow: hidden;
     }
 
-
     .music-card::before {
       content: "";
 
@@ -412,14 +346,7 @@
           #58d9ea,
           rgba(88, 217, 234, 0.05)
         );
-
-      opacity: 0.75;
     }
-
-
-    /* =========================================
-       곡 번호 + 정보
-    ========================================= */
 
     .music-top {
       display: flex;
@@ -427,7 +354,6 @@
 
       gap: 13px;
     }
-
 
     .music-number {
       width: 30px;
@@ -443,26 +369,16 @@
       background:
         rgba(91, 215, 232, 0.09);
 
-      border:
-        1px solid
-        rgba(91, 215, 232, 0.13);
-
       color: #6bd8e7;
 
       font-size: 11px;
       font-weight: 700;
     }
 
-
     .music-info {
       flex: 1;
       min-width: 0;
     }
-
-
-    /* =========================================
-       노래 제목
-    ========================================= */
 
     .music-title {
       margin: 1px 0 4px;
@@ -470,18 +386,10 @@
       color: #f5fcfd;
 
       font-size: 17px;
-
       font-weight: 600;
 
       line-height: 1.35;
-
-      letter-spacing: -0.3px;
     }
-
-
-    /* =========================================
-       아티스트
-    ========================================= */
 
     .music-artist {
       margin: 0;
@@ -489,14 +397,8 @@
       color: #7f9ca5;
 
       font-size: 13px;
-
       line-height: 1.4;
     }
-
-
-    /* =========================================
-       버튼 영역
-    ========================================= */
 
     .button-row {
       display: flex;
@@ -508,16 +410,10 @@
       margin-top: 15px;
     }
 
-
-    /* =========================================
-       YouTube Music 버튼
-    ========================================= */
-
     .music-button {
       flex: 1;
 
       display: flex;
-
       align-items: center;
       justify-content: center;
 
@@ -532,34 +428,15 @@
       color: #09202a;
 
       text-align: center;
-
       text-decoration: none;
 
       font-size: 13px;
-
       font-weight: 650;
-
-      letter-spacing: 0.1px;
-
-      transition:
-        transform 0.15s ease,
-        opacity 0.2s ease;
     }
-
-
-    .music-button:active {
-      transform: scale(0.97);
-    }
-
-
-    /* =========================================
-       하트
-    ========================================= */
 
     .heart-button {
       width: 48px;
       min-width: 48px;
-
       min-height: 43px;
 
       border:
@@ -576,41 +453,27 @@
       font-size: 20px;
 
       cursor: pointer;
-
-      transition:
-        transform 0.15s ease,
-        background 0.2s ease,
-        color 0.2s ease;
     }
-
-
-    .heart-button:active {
-      transform: scale(0.88);
-    }
-
 
     .heart-button.saved {
       background:
         rgba(255, 82, 105, 0.13);
 
       color: #ff7185;
-
-      border-color:
-        rgba(255, 82, 105, 0.18);
     }
 
-
-    /* =========================================
-       다른 노래 추천
-    ========================================= */
-
-    .random-button {
+    .random-button,
+    .playlist-button {
       position: relative;
       z-index: 1;
 
       width: 100%;
       max-width: 440px;
 
+      cursor: pointer;
+    }
+
+    .random-button {
       margin-top: 17px;
 
       padding: 14px 20px;
@@ -627,38 +490,9 @@
       color: #9bb7bf;
 
       font-size: 13px;
-      font-weight: 500;
-
-      cursor: pointer;
-
-      transition:
-        background 0.2s ease,
-        transform 0.15s ease;
     }
-
-
-    .random-button:hover {
-      background:
-        rgba(255, 255, 255, 0.075);
-    }
-
-
-    .random-button:active {
-      transform: scale(0.98);
-    }
-
-
-    /* =========================================
-       MY MUSIC
-    ========================================= */
 
     .playlist-button {
-      position: relative;
-      z-index: 1;
-
-      width: 100%;
-      max-width: 440px;
-
       margin-top: 12px;
 
       padding: 15px 20px;
@@ -675,33 +509,8 @@
       color: #bdebf0;
 
       font-size: 13px;
-
       font-weight: 600;
-
-      letter-spacing: 0.5px;
-
-      cursor: pointer;
-
-      transition:
-        background 0.2s ease,
-        transform 0.15s ease;
     }
-
-
-    .playlist-button:hover {
-      background:
-        rgba(70, 197, 216, 0.12);
-    }
-
-
-    .playlist-button:active {
-      transform: scale(0.98);
-    }
-
-
-    /* =========================================
-       다시 고르기
-    ========================================= */
 
     .back-button {
       position: relative;
@@ -722,18 +531,7 @@
       cursor: pointer;
     }
 
-
-    .back-button:hover {
-      color: #9bb9c1;
-    }
-
-
-    /* =========================================
-       작은 화면
-    ========================================= */
-
     @media (max-width: 380px) {
-
       .page {
         padding-left: 16px;
         padding-right: 16px;
@@ -755,20 +553,9 @@
       .music-card {
         padding: 16px;
       }
-
-      .music-title {
-        font-size: 16px;
-      }
-
-      .music-button {
-        font-size: 12px;
-      }
-
     }
-
   </style>
 </head>
-
 
 <body>
 
@@ -778,36 +565,27 @@
       SHARK
     </div>
 
-
     <div class="eyebrow">
       YOUR MOOD · YOUR MUSIC
     </div>
-
 
     <h1 class="result-title">
       오늘은 이런 노래 어때?
     </h1>
 
-
     <div class="selected-mood-wrap">
-
       <div
         class="selected-mood"
         id="selectedMood"
       >
         😊
       </div>
-
     </div>
-
 
     <p
       class="mood-text"
       id="moodText"
-    >
-      행복한 기분에 어울리는 노래를 골라봤어.
-    </p>
-
+    ></p>
 
     <section class="genre-section">
 
@@ -845,13 +623,10 @@
 
     </section>
 
-
     <div
       class="music-list"
       id="musicList"
-    >
-    </div>
-
+    ></div>
 
     <button
       class="random-button"
@@ -861,7 +636,6 @@
       다른 노래 추천
     </button>
 
-
     <button
       class="playlist-button"
       id="playlistButton"
@@ -869,7 +643,6 @@
     >
       MY MUSIC
     </button>
-
 
     <button
       class="back-button"
@@ -881,25 +654,31 @@
 
   </main>
 
+  <script src="./music-data.js"></script>
 
   <script>
-
-    /* =========================================
-       URL에서 기분 가져오기
-    ========================================= */
-
     const params =
       new URLSearchParams(
         window.location.search
       );
 
-    const mood =
+    const requestedMood =
       params.get("mood");
 
+    const currentMood =
+      (
+        requestedMood &&
+        typeof musicData !== "undefined" &&
+        musicData[requestedMood]
+      )
+        ? requestedMood
+        : "행복";
 
-    /* =========================================
-       화면 요소
-    ========================================= */
+    let currentGenre =
+      "ALL";
+
+    let currentMusicList =
+      [];
 
     const selectedMood =
       document.getElementById(
@@ -921,27 +700,17 @@
         "randomButton"
       );
 
+    const playlistButton =
+      document.getElementById(
+        "playlistButton"
+      );
 
-    /* =========================================
-       현재 장르
-    ========================================= */
-
-    let currentGenre = "ALL";
-
-
-    /* =========================================
-       현재 표시된 음악
-    ========================================= */
-
-    let currentMusicList = [];
-
-
-    /* =========================================
-       기분별 이모지
-    ========================================= */
+    const backButton =
+      document.getElementById(
+        "backButton"
+      );
 
     const moodEmoji = {
-
       "행복": "😊",
       "사랑": "💗",
       "슬픔": "😢",
@@ -950,499 +719,173 @@
       "위로": "🥺",
       "신남": "🤩",
       "SHARK": "🦈"
-
     };
-
-
-    /* =========================================
-       기분별 문구
-    ========================================= */
 
     const moodMessage = {
-
       "행복":
-        "행복한 기분에 어울리는 노래를 골라봤어.",
+        "기분을 더 밝게 만들어줄 노래를 골라봤어.",
 
       "사랑":
-        "설레는 기분에 어울리는 노래를 골라봤어.",
+        "설레는 마음에 어울리는 노래를 골라봤어.",
 
       "슬픔":
-        "조금 지친 마음을 달래줄 노래를 골라봤어.",
+        "조용히 감정에 머물 수 있는 노래를 골라봤어.",
 
       "화남":
-        "답답한 기분을 날려줄 노래를 골라봤어.",
+        "답답한 기분을 시원하게 날려줄 노래를 골라봤어.",
 
       "피곤":
-        "편하게 들을 수 있는 노래를 골라봤어.",
+        "힘을 빼고 편하게 들을 수 있는 노래를 골라봤어.",
 
       "위로":
-        "오늘 너에게 필요한 위로의 노래를 골라봤어.",
+        "오늘 너에게 따뜻하게 닿을 노래를 골라봤어.",
 
       "신남":
-        "지금 기분을 더 신나게 만들어줄 노래야.",
+        "지금 에너지를 더 끌어올릴 노래를 골라봤어.",
 
       "SHARK":
-        "바다를 떠올리게 하는 음악을 골라봤어."
-
+        "몽환적인 바다와 새벽 드라이브에 어울리는 노래를 골라봤어."
     };
 
+    let savedSongs = [];
 
-    /* =========================================
-       음악 데이터
-    ========================================= */
+    try {
+      savedSongs =
+        JSON.parse(
+          localStorage.getItem(
+            "sharkPlaylist"
+          ) || "[]"
+        );
 
-    const musicData = {
-
-      "행복": {
-
-        KPOP: [
-          {
-            title: "Dynamite",
-            artist: "BTS"
-          },
-          {
-            title: "Super Shy",
-            artist: "NewJeans"
-          },
-          {
-            title: "After LIKE",
-            artist: "IVE"
-          },
-          {
-            title: "Queencard",
-            artist: "(G)I-DLE"
-          },
-          {
-            title: "Feel My Rhythm",
-            artist: "Red Velvet"
-          }
-        ],
-
-        POP: [
-          {
-            title: "Sunday Morning",
-            artist: "Maroon 5"
-          },
-          {
-            title: "Walking On Sunshine",
-            artist: "Katrina & The Waves"
-          },
-          {
-            title: "Good Time",
-            artist: "Owl City & Carly Rae Jepsen"
-          },
-          {
-            title: "Best Day Of My Life",
-            artist: "American Authors"
-          },
-          {
-            title: "Happy",
-            artist: "Pharrell Williams"
-          }
-        ]
-
-      },
-
-
-      "사랑": {
-
-        KPOP: [
-          {
-            title: "Love wins all",
-            artist: "IU"
-          },
-          {
-            title: "Ditto",
-            artist: "NewJeans"
-          },
-          {
-            title: "I AM",
-            artist: "IVE"
-          },
-          {
-            title: "LOVE DIVE",
-            artist: "IVE"
-          },
-          {
-            title: "Polaroid Love",
-            artist: "ENHYPEN"
-          }
-        ],
-
-        POP: [
-          {
-            title: "Perfect",
-            artist: "Ed Sheeran"
-          },
-          {
-            title: "Until I Found You",
-            artist: "Stephen Sanchez"
-          },
-          {
-            title: "Love Story",
-            artist: "Taylor Swift"
-          },
-          {
-            title: "Adore You",
-            artist: "Harry Styles"
-          },
-          {
-            title: "Just the Way You Are",
-            artist: "Bruno Mars"
-          }
-        ]
-
-      },
-
-
-      "슬픔": {
-
-        KPOP: [
-          {
-            title: "밤편지",
-            artist: "IU"
-          },
-          {
-            title: "Love Poem",
-            artist: "IU"
-          },
-          {
-            title: "Beautiful Goodbye",
-            artist: "Chen"
-          },
-          {
-            title: "To My Youth",
-            artist: "BOL4"
-          },
-          {
-            title: "Lonely",
-            artist: "2NE1"
-          }
-        ],
-
-        POP: [
-          {
-            title: "Let Her Go",
-            artist: "Passenger"
-          },
-          {
-            title: "drivers license",
-            artist: "Olivia Rodrigo"
-          },
-          {
-            title: "Someone You Loved",
-            artist: "Lewis Capaldi"
-          },
-          {
-            title: "when the party's over",
-            artist: "Billie Eilish"
-          },
-          {
-            title: "Another Love",
-            artist: "Tom Odell"
-          }
-        ]
-
-      },
-
-
-      "화남": {
-
-        KPOP: [
-          {
-            title: "God's Menu",
-            artist: "Stray Kids"
-          },
-          {
-            title: "MANIAC",
-            artist: "Stray Kids"
-          },
-          {
-            title: "Guerrilla",
-            artist: "ATEEZ"
-          },
-          {
-            title: "BANG BANG BANG",
-            artist: "BIGBANG"
-          },
-          {
-            title: "MIC Drop",
-            artist: "BTS"
-          }
-        ],
-
-        POP: [
-          {
-            title: "Believer",
-            artist: "Imagine Dragons"
-          },
-          {
-            title: "Natural",
-            artist: "Imagine Dragons"
-          },
-          {
-            title: "Thunder",
-            artist: "Imagine Dragons"
-          },
-          {
-            title: "Centuries",
-            artist: "Fall Out Boy"
-          },
-          {
-            title: "The Phoenix",
-            artist: "Fall Out Boy"
-          }
-        ]
-
-      },
-
-
-      "피곤": {
-
-        KPOP: [
-          {
-            title: "Ditto",
-            artist: "NewJeans"
-          },
-          {
-            title: "밤편지",
-            artist: "IU"
-          },
-          {
-            title: "Love Lee",
-            artist: "AKMU"
-          },
-          {
-            title: "Through the Night",
-            artist: "IU"
-          },
-          {
-            title: "11:11",
-            artist: "TAEYEON"
-          }
-        ],
-
-        POP: [
-          {
-            title: "golden hour",
-            artist: "JVKE"
-          },
-          {
-            title: "Until I Found You",
-            artist: "Stephen Sanchez"
-          },
-          {
-            title: "comethru",
-            artist: "Jeremy Zucker"
-          },
-          {
-            title: "Ocean Eyes",
-            artist: "Billie Eilish"
-          },
-          {
-            title: "The Night We Met",
-            artist: "Lord Huron"
-          }
-        ]
-
-      },
-
-
-      "위로": {
-
-        KPOP: [
-          {
-            title: "밤편지",
-            artist: "IU"
-          },
-          {
-            title: "Love Poem",
-            artist: "IU"
-          },
-          {
-            title: "Eight",
-            artist: "IU"
-          },
-          {
-            title: "To My Youth",
-            artist: "BOL4"
-          },
-          {
-            title: "You Are My Everything",
-            artist: "Gummy"
-          }
-        ],
-
-        POP: [
-          {
-            title: "That's Hilarious",
-            artist: "Charlie Puth"
-          },
-          {
-            title: "Count on Me",
-            artist: "Bruno Mars"
-          },
-          {
-            title: "Fix You",
-            artist: "Coldplay"
-          },
-          {
-            title: "Photograph",
-            artist: "Ed Sheeran"
-          },
-          {
-            title: "Yellow",
-            artist: "Coldplay"
-          }
-        ]
-
-      },
-
-
-      "신남": {
-
-        KPOP: [
-          {
-            title: "APT.",
-            artist: "ROSÉ & Bruno Mars"
-          },
-          {
-            title: "Dynamite",
-            artist: "BTS"
-          },
-          {
-            title: "How Sweet",
-            artist: "NewJeans"
-          },
-          {
-            title: "After LIKE",
-            artist: "IVE"
-          },
-          {
-            title: "Queencard",
-            artist: "(G)I-DLE"
-          }
-        ],
-
-        POP: [
-          {
-            title: "Uptown Funk",
-            artist: "Mark Ronson ft. Bruno Mars"
-          },
-          {
-            title: "Don't Start Now",
-            artist: "Dua Lipa"
-          },
-          {
-            title: "Levitating",
-            artist: "Dua Lipa"
-          },
-          {
-            title: "Blinding Lights",
-            artist: "The Weeknd"
-          },
-          {
-            title: "Cake By The Ocean",
-            artist: "DNCE"
-          }
-        ]
-
-      },
-
-
-      "SHARK": {
-
-        KPOP: [
-          {
-            title: "Wave",
-            artist: "ATEEZ"
-          },
-          {
-            title: "Ocean View",
-            artist: "Rothy"
-          },
-          {
-            title: "Island",
-            artist: "WINNER"
-          },
-          {
-            title: "Summer Hate",
-            artist: "Zico"
-          },
-          {
-            title: "Blue",
-            artist: "BIGBANG"
-          }
-        ],
-
-        POP: [
-          {
-            title: "Ocean Eyes",
-            artist: "Billie Eilish"
-          },
-          {
-            title: "Ocean",
-            artist: "Martin Garrix feat. Khalid"
-          },
-          {
-            title: "Waves",
-            artist: "Dean Lewis"
-          },
-          {
-            title: "Ocean Drive",
-            artist: "Duke Dumont"
-          },
-          {
-            title: "A Drop In The Ocean",
-            artist: "Ron Pope"
-          }
-        ]
-
+      if (!Array.isArray(savedSongs)) {
+        savedSongs = [];
       }
-
-    };
-
-
-    /* =========================================
-       저장된 음악
-    ========================================= */
-
-    let savedSongs =
-      JSON.parse(
-        localStorage.getItem(
-          "sharkPlaylist"
-        ) || "[]"
-      );
-
-
-    /* =========================================
-       YouTube Music 주소
-    ========================================= */
-
-    function getMusicURL(music) {
-
-      const searchText =
-        music.title +
-        " " +
-        music.artist;
-
-      return (
-        "https://music.youtube.com/search?q=" +
-        encodeURIComponent(searchText)
-      );
-
+    }
+    catch (error) {
+      savedSongs = [];
     }
 
+    const HISTORY_KEY =
+      "sharkRecommendationHistoryV4";
 
-    /* =========================================
-       5곡 가져오기
-    ========================================= */
+    const LAST_KEY =
+      "sharkLastRecommendationsV4";
 
-    function getFiveMusic(
+    function loadObject(
+      key
+    ) {
+      try {
+        const value =
+          JSON.parse(
+            sessionStorage.getItem(
+              key
+            ) || "{}"
+          );
+
+        if (
+          value &&
+          typeof value === "object"
+        ) {
+          return value;
+        }
+
+        return {};
+      }
+      catch (error) {
+        return {};
+      }
+    }
+
+    function saveObject(
+      key,
+      value
+    ) {
+      sessionStorage.setItem(
+        key,
+        JSON.stringify(
+          value
+        )
+      );
+    }
+
+    function songKey(
+      music
+    ) {
+      return (
+        music.title
+          .trim()
+          .toLowerCase() +
+        "|||" +
+        music.artist
+          .trim()
+          .toLowerCase()
+      );
+    }
+
+    function uniqueSongs(
+      list
+    ) {
+      const seen =
+        new Set();
+
+      return list.filter(
+        function(music) {
+          const key =
+            songKey(
+              music
+            );
+
+          if (
+            seen.has(
+              key
+            )
+          ) {
+            return false;
+          }
+
+          seen.add(
+            key
+          );
+
+          return true;
+        }
+      );
+    }
+
+    function shuffleArray(
+      array
+    ) {
+      const result =
+        [...array];
+
+      for (
+        let i = result.length - 1;
+        i > 0;
+        i--
+      ) {
+        const j =
+          Math.floor(
+            Math.random() *
+            (i + 1)
+          );
+
+        const temp =
+          result[i];
+
+        result[i] =
+          result[j];
+
+        result[j] =
+          temp;
+      }
+
+      return result;
+    }
+
+    function getGenrePool(
       moodName,
       genreName
     ) {
-
       const moodData =
         musicData[moodName];
 
@@ -1450,85 +893,205 @@
         return [];
       }
 
-
-      let list = [];
-
-
       if (
         genreName === "KPOP"
       ) {
-
-        list =
-          [...(moodData.KPOP || [])];
-
+        return uniqueSongs(
+          moodData.KPOP || []
+        );
       }
 
-      else if (
+      if (
         genreName === "POP"
       ) {
-
-        list =
-          [...(moodData.POP || [])];
-
+        return uniqueSongs(
+          moodData.POP || []
+        );
       }
 
-      else {
-
-        list = [
-          ...(moodData.KPOP || []),
-          ...(moodData.POP || [])
-        ];
-
-      }
-
-
-      list.sort(
-        () => Math.random() - 0.5
-      );
-
-
-      return list.slice(0, 5);
-
+      return uniqueSongs([
+        ...(moodData.KPOP || []),
+        ...(moodData.POP || [])
+      ]);
     }
 
+    function getFiveMusic(
+      moodName,
+      genreName
+    ) {
+      const pool =
+        getGenrePool(
+          moodName,
+          genreName
+        );
 
-    /* =========================================
-       하트 상태 확인
-    ========================================= */
+      if (
+        pool.length === 0
+      ) {
+        return [];
+      }
 
-    function isSaved(music) {
+      const history =
+        loadObject(
+          HISTORY_KEY
+        );
 
-      return savedSongs.some(
-        function(song) {
+      const lastHistory =
+        loadObject(
+          LAST_KEY
+        );
 
-          return (
-            song.title === music.title &&
-            song.artist === music.artist
+      const historyId =
+        moodName +
+        "_" +
+        genreName;
+
+      const seenSongs =
+        new Set(
+          history[historyId] ||
+          []
+        );
+
+      let unseenSongs =
+        pool.filter(
+          function(music) {
+            return (
+              !seenSongs.has(
+                songKey(
+                  music
+                )
+              )
+            );
+          }
+        );
+
+      /*
+        남은 곡이 5곡보다 적으면
+        한 바퀴를 거의 다 본 상태.
+
+        이때 새 사이클을 시작하지만
+        바로 직전 추천곡은 제외한다.
+      */
+
+      if (
+        unseenSongs.length < 5
+      ) {
+        const lastSongs =
+          new Set(
+            lastHistory[
+              historyId
+            ] || []
           );
 
+        const freshPool =
+          pool.filter(
+            function(music) {
+              return (
+                !lastSongs.has(
+                  songKey(
+                    music
+                  )
+                )
+              );
+            }
+          );
+
+        seenSongs.clear();
+
+        unseenSongs =
+          freshPool.length >= 5
+            ? freshPool
+            : [...pool];
+      }
+
+      const selected =
+        shuffleArray(
+          unseenSongs
+        ).slice(
+          0,
+          5
+        );
+
+      selected.forEach(
+        function(music) {
+          seenSongs.add(
+            songKey(
+              music
+            )
+          );
         }
       );
 
+      history[
+        historyId
+      ] =
+        [...seenSongs];
+
+      lastHistory[
+        historyId
+      ] =
+        selected.map(
+          songKey
+        );
+
+      saveObject(
+        HISTORY_KEY,
+        history
+      );
+
+      saveObject(
+        LAST_KEY,
+        lastHistory
+      );
+
+      return selected;
     }
 
+    function getMusicURL(
+      music
+    ) {
+      const searchText =
+        music.title +
+        " " +
+        music.artist;
 
-    /* =========================================
-       음악 목록 표시
-    ========================================= */
+      return (
+        "https://music.youtube.com/search?q=" +
+        encodeURIComponent(
+          searchText
+        )
+      );
+    }
+
+    function isSaved(
+      music
+    ) {
+      return savedSongs.some(
+        function(song) {
+          return (
+            song.title ===
+              music.title &&
+            song.artist ===
+              music.artist
+          );
+        }
+      );
+    }
 
     function renderMusicList(
       musicArray
     ) {
-
       currentMusicList =
         musicArray;
 
-      musicList.innerHTML = "";
-
+      musicList.innerHTML =
+        "";
 
       musicArray.forEach(
-        function(music, index) {
-
+        function(
+          music,
+          index
+        ) {
           const card =
             document.createElement(
               "article"
@@ -1537,7 +1100,6 @@
           card.className =
             "music-card";
 
-
           const top =
             document.createElement(
               "div"
@@ -1545,7 +1107,6 @@
 
           top.className =
             "music-top";
-
 
           const number =
             document.createElement(
@@ -1556,8 +1117,12 @@
             "music-number";
 
           number.textContent =
-            String(index + 1).padStart(2, "0");
-
+            String(
+              index + 1
+            ).padStart(
+              2,
+              "0"
+            );
 
           const info =
             document.createElement(
@@ -1566,7 +1131,6 @@
 
           info.className =
             "music-info";
-
 
           const title =
             document.createElement(
@@ -1579,7 +1143,6 @@
           title.textContent =
             music.title;
 
-
           const artist =
             document.createElement(
               "p"
@@ -1591,14 +1154,21 @@
           artist.textContent =
             music.artist;
 
+          info.appendChild(
+            title
+          );
 
-          info.appendChild(title);
-          info.appendChild(artist);
+          info.appendChild(
+            artist
+          );
 
+          top.appendChild(
+            number
+          );
 
-          top.appendChild(number);
-          top.appendChild(info);
-
+          top.appendChild(
+            info
+          );
 
           const buttonRow =
             document.createElement(
@@ -1607,11 +1177,6 @@
 
           buttonRow.className =
             "button-row";
-
-
-          /* =========================================
-             YouTube Music 버튼
-          ========================================= */
 
           const musicButton =
             document.createElement(
@@ -1622,7 +1187,9 @@
             "music-button";
 
           musicButton.href =
-            getMusicURL(music);
+            getMusicURL(
+              music
+            );
 
           musicButton.target =
             "_blank";
@@ -1632,11 +1199,6 @@
 
           musicButton.textContent =
             "YouTube Music에서 듣기";
-
-
-          /* =========================================
-             하트 버튼
-          ========================================= */
 
           const heartButton =
             document.createElement(
@@ -1649,65 +1211,48 @@
           heartButton.type =
             "button";
 
-          heartButton.setAttribute(
-            "aria-label",
-            "노래 저장"
-          );
-
-
           if (
-            isSaved(music)
+            isSaved(
+              music
+            )
           ) {
-
             heartButton.textContent =
               "♥";
 
             heartButton.classList.add(
               "saved"
             );
-
           }
-
           else {
-
             heartButton.textContent =
               "♡";
-
           }
-
 
           heartButton.addEventListener(
             "click",
             function() {
-
               const existingIndex =
                 savedSongs.findIndex(
                   function(song) {
-
                     return (
-                      song.title === music.title &&
-                      song.artist === music.artist
+                      song.title ===
+                        music.title &&
+                      song.artist ===
+                        music.artist
                     );
-
                   }
                 );
-
 
               if (
                 existingIndex !== -1
               ) {
-
                 savedSongs.splice(
                   existingIndex,
                   1
                 );
-
               }
-
               else {
-
                 savedSongs.push({
-
                   title:
                     music.title,
 
@@ -1715,26 +1260,24 @@
                     music.artist,
 
                   url:
-                    getMusicURL(music)
-
+                    getMusicURL(
+                      music
+                    )
                 });
-
               }
-
 
               localStorage.setItem(
                 "sharkPlaylist",
-                JSON.stringify(savedSongs)
+                JSON.stringify(
+                  savedSongs
+                )
               );
-
 
               renderMusicList(
                 currentMusicList
               );
-
             }
           );
-
 
           buttonRow.appendChild(
             musicButton
@@ -1744,7 +1287,6 @@
             heartButton
           );
 
-
           card.appendChild(
             top
           );
@@ -1753,157 +1295,94 @@
             buttonRow
           );
 
-
           musicList.appendChild(
             card
           );
-
         }
       );
-
     }
 
-
-    /* =========================================
-       음악 새로 추천
-    ========================================= */
-
     function recommendMusic() {
-
       const musicArray =
         getFiveMusic(
-          mood || "행복",
+          currentMood,
           currentGenre
         );
 
       renderMusicList(
         musicArray
       );
-
     }
 
-
-    /* =========================================
-       처음 화면
-    ========================================= */
-
     selectedMood.textContent =
-      moodEmoji[mood] ||
+      moodEmoji[currentMood] ||
       "😊";
 
-
     moodText.textContent =
-      moodMessage[mood] ||
-      "너의 기분에 어울리는 노래를 골라봤어.";
-
+      moodMessage[currentMood] ||
+      "";
 
     recommendMusic();
-
-
-    /* =========================================
-       장르 버튼
-    ========================================= */
 
     const genreButtons =
       document.querySelectorAll(
         ".genre-button"
       );
 
-
     genreButtons.forEach(
       function(button) {
-
         button.addEventListener(
           "click",
           function() {
-
             genreButtons.forEach(
               function(item) {
-
                 item.classList.remove(
                   "active"
                 );
-
               }
             );
-
 
             button.classList.add(
               "active"
             );
 
-
             currentGenre =
               button.dataset.genre;
 
-
             recommendMusic();
-
           }
         );
-
       }
     );
-
-
-    /* =========================================
-       다른 노래 추천
-    ========================================= */
 
     randomButton.addEventListener(
       "click",
       function() {
-
         recommendMusic();
 
         window.scrollTo({
           top: 0,
           behavior: "smooth"
         });
-
       }
     );
 
+    playlistButton.addEventListener(
+      "click",
+      function() {
+        window.location.href =
+          "./playlist.html";
+      }
+    );
 
-    /* =========================================
-       MY MUSIC
-    ========================================= */
-
-    document
-      .getElementById(
-        "playlistButton"
-      )
-      .addEventListener(
-        "click",
-        function() {
-
-          window.location.href =
-            "./playlist.html";
-
-        }
-      );
-
-
-    /* =========================================
-       다시 고르기
-    ========================================= */
-
-    document
-      .getElementById(
-        "backButton"
-      )
-      .addEventListener(
-        "click",
-        function() {
-
-          window.location.href =
-            "./mood.html";
-
-        }
-      );
-
+    backButton.addEventListener(
+      "click",
+      function() {
+        window.location.href =
+          "./mood.html";
+      }
+    );
   </script>
 
 </body>
 </html>
-```
