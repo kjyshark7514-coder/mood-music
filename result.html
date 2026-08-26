@@ -252,23 +252,25 @@
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
     }
+.genre-button {
+  flex: 1;
+  min-width: 0;
 
-    .genre-button {
-      flex: 1;
+  padding: 12px 5px;
 
-      padding: 12px 10px;
+  border: none;
+  border-radius: 13px;
 
-      border: none;
-      border-radius: 13px;
+  background: transparent;
 
-      background: transparent;
+  color: #7f9ca5;
 
-      color: #7f9ca5;
+  font-size: 12px;
+  font-weight: 600;
 
-      font-size: 13px;
-      font-weight: 600;
-
-      cursor: pointer;
+  cursor: pointer;
+}
+ 
 
       transition:
         background 0.2s ease,
@@ -646,7 +648,13 @@
         >
           POP
         </button>
-
+<button
+  class="genre-button"
+  type="button"
+  data-genre="INDIE"
+>
+  INDIE
+</button>
       </div>
 
     </section>
@@ -910,38 +918,47 @@
       return result;
     }
 
-    function getGenrePool(
-      moodName,
-      genreName
-    ) {
-      const moodData =
-        musicData[moodName];
+function getGenrePool(
+  moodName,
+  genreName
+) {
+  const moodData =
+    musicData[moodName];
 
-      if (!moodData) {
-        return [];
-      }
+  if (!moodData) {
+    return [];
+  }
 
-      if (
-        genreName === "KPOP"
-      ) {
-        return uniqueSongs(
-          moodData.KPOP || []
-        );
-      }
+  if (
+    genreName === "KPOP"
+  ) {
+    return uniqueSongs(
+      moodData.KPOP || []
+    );
+  }
 
-      if (
-        genreName === "POP"
-      ) {
-        return uniqueSongs(
-          moodData.POP || []
-        );
-      }
+  if (
+    genreName === "POP"
+  ) {
+    return uniqueSongs(
+      moodData.POP || []
+    );
+  }
 
-      return uniqueSongs([
-        ...(moodData.KPOP || []),
-        ...(moodData.POP || [])
-      ]);
-    }
+  if (
+    genreName === "INDIE"
+  ) {
+    return uniqueSongs(
+      moodData.INDIE || []
+    );
+  }
+
+  return uniqueSongs([
+    ...(moodData.KPOP || []),
+    ...(moodData.POP || []),
+    ...(moodData.INDIE || [])
+  ]);
+}
 
     function getFiveMusic(
       moodName,
