@@ -252,25 +252,24 @@
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
     }
-.genre-button {
-  flex: 1;
-  min-width: 0;
 
-  padding: 12px 5px;
+    .genre-button {
+      flex: 1;
+      min-width: 0;
 
-  border: none;
-  border-radius: 13px;
+      padding: 12px 5px;
 
-  background: transparent;
+      border: none;
+      border-radius: 13px;
 
-  color: #7f9ca5;
+      background: transparent;
 
-  font-size: 12px;
-  font-weight: 600;
+      color: #7f9ca5;
 
-  cursor: pointer;
-}
- 
+      font-size: 12px;
+      font-weight: 600;
+
+      cursor: pointer;
 
       transition:
         background 0.2s ease,
@@ -573,6 +572,12 @@
       .music-card {
         padding: 15px;
       }
+
+      .genre-button {
+        padding-left: 2px;
+        padding-right: 2px;
+        font-size: 11px;
+      }
     }
   </style>
 </head>
@@ -592,6 +597,7 @@
       <div class="logo-dot"></div>
 
     </header>
+
 
     <section class="result-head">
 
@@ -621,6 +627,7 @@
 
     </section>
 
+
     <section class="genre-section">
 
       <div class="genre-row">
@@ -648,28 +655,25 @@
         >
           POP
         </button>
+
         <button
-  class="genre-button"
-  type="button"
-  data-genre="INDIE"
->
-  INDIE
-</button>
-<button
-  class="genre-button"
-  type="button"
-  data-genre="INDIE"
->
-  INDIE
-</button>
+          class="genre-button"
+          type="button"
+          data-genre="INDIE"
+        >
+          INDIE
+        </button>
+
       </div>
 
     </section>
+
 
     <div
       class="music-list"
       id="musicList"
     ></div>
+
 
     <button
       class="action-button random-button"
@@ -679,6 +683,7 @@
       다른 노래 추천
     </button>
 
+
     <button
       class="action-button playlist-button"
       id="playlistButton"
@@ -686,6 +691,7 @@
     >
       MY MUSIC
     </button>
+
 
     <button
       class="action-button back-button"
@@ -697,16 +703,21 @@
 
   </main>
 
+
   <script src="./music-data.js"></script>
 
+
   <script>
+
     const params =
       new URLSearchParams(
         window.location.search
       );
 
+
     const requestedMood =
       params.get("mood");
+
 
     const currentMood =
       (
@@ -717,54 +728,74 @@
         ? requestedMood
         : "행복";
 
+
     let currentGenre =
       "ALL";
 
+
     let currentMusicList =
       [];
+
 
     const selectedMood =
       document.getElementById(
         "selectedMood"
       );
 
+
     const moodText =
       document.getElementById(
         "moodText"
       );
+
 
     const musicList =
       document.getElementById(
         "musicList"
       );
 
+
     const randomButton =
       document.getElementById(
         "randomButton"
       );
+
 
     const playlistButton =
       document.getElementById(
         "playlistButton"
       );
 
+
     const backButton =
       document.getElementById(
         "backButton"
       );
 
+
     const moodEmoji = {
+
       "행복": "😊",
+
       "사랑": "💗",
+
       "슬픔": "😢",
+
       "화남": "😡",
+
       "피곤": "😴",
+
       "위로": "🥺",
+
       "신남": "🤩",
+
       "SHARK": "🦈"
+
     };
 
+
     const moodMessage = {
+
       "행복":
         "기분을 더 밝게 만들어줄 노래를 골라봤어.",
 
@@ -788,11 +819,16 @@
 
       "SHARK":
         "몽환적인 바다와 새벽 드라이브에 어울리는 노래를 골라봤어."
+
     };
 
-    let savedSongs = [];
+
+    let savedSongs =
+      [];
+
 
     try {
+
       savedSongs =
         JSON.parse(
           localStorage.getItem(
@@ -800,24 +836,42 @@
           ) || "[]"
         );
 
-      if (!Array.isArray(savedSongs)) {
-        savedSongs = [];
+
+      if (
+        !Array.isArray(
+          savedSongs
+        )
+      ) {
+
+        savedSongs =
+          [];
+
       }
+
     }
+
     catch (error) {
-      savedSongs = [];
+
+      savedSongs =
+        [];
+
     }
+
 
     const HISTORY_KEY =
-      "sharkRecommendationHistoryV4";
+      "sharkRecommendationHistoryV5";
+
 
     const LAST_KEY =
-      "sharkLastRecommendationsV4";
+      "sharkLastRecommendationsV5";
+
 
     function loadObject(
       key
     ) {
+
       try {
+
         const value =
           JSON.parse(
             sessionStorage.getItem(
@@ -825,188 +879,272 @@
             ) || "{}"
           );
 
+
         if (
           value &&
           typeof value === "object"
         ) {
+
           return value;
+
         }
 
+
         return {};
+
       }
+
       catch (error) {
+
         return {};
+
       }
+
     }
+
 
     function saveObject(
       key,
       value
     ) {
+
       sessionStorage.setItem(
         key,
         JSON.stringify(
           value
         )
       );
+
     }
+
 
     function songKey(
       music
     ) {
+
       return (
         music.title
           .trim()
-          .toLowerCase() +
-        "|||" +
+          .toLowerCase()
+        +
+        "|||"
+        +
         music.artist
           .trim()
           .toLowerCase()
       );
+
     }
+
 
     function uniqueSongs(
       list
     ) {
+
       const seen =
         new Set();
 
+
       return list.filter(
-        function(music) {
+        function(
+          music
+        ) {
+
           const key =
             songKey(
               music
             );
+
 
           if (
             seen.has(
               key
             )
           ) {
+
             return false;
+
           }
+
 
           seen.add(
             key
           );
 
+
           return true;
+
         }
       );
+
     }
+
 
     function shuffleArray(
       array
     ) {
+
       const result =
         [...array];
 
+
       for (
-        let i = result.length - 1;
+        let i =
+          result.length - 1;
+
         i > 0;
+
         i--
       ) {
+
         const j =
           Math.floor(
-            Math.random() *
-            (i + 1)
+            Math.random()
+            *
+            (
+              i + 1
+            )
           );
+
 
         const temp =
           result[i];
 
+
         result[i] =
           result[j];
 
+
         result[j] =
           temp;
+
       }
 
+
       return result;
+
     }
 
-function getGenrePool(
-  moodName,
-  genreName
-) {
-  const moodData =
-    musicData[moodName];
 
-  if (!moodData) {
-    return [];
-  }
+    function getGenrePool(
+      moodName,
+      genreName
+    ) {
 
-  if (
-    genreName === "KPOP"
-  ) {
-    return uniqueSongs(
-      moodData.KPOP || []
-    );
-  }
+      const moodData =
+        musicData[
+          moodName
+        ];
 
-  if (
-    genreName === "POP"
-  ) {
-    return uniqueSongs(
-      moodData.POP || []
-    );
-  }
 
-  if (
-    genreName === "INDIE"
-  ) {
-    return uniqueSongs(
-      moodData.INDIE || []
-    );
-  }
+      if (
+        !moodData
+      ) {
 
-  return uniqueSongs([
-    ...(moodData.KPOP || []),
-    ...(moodData.POP || []),
-    ...(moodData.INDIE || [])
-  ]);
-}
+        return [];
+
+      }
+
+
+      if (
+        genreName === "KPOP"
+      ) {
+
+        return uniqueSongs(
+          moodData.KPOP || []
+        );
+
+      }
+
+
+      if (
+        genreName === "POP"
+      ) {
+
+        return uniqueSongs(
+          moodData.POP || []
+        );
+
+      }
+
+
+      if (
+        genreName === "INDIE"
+      ) {
+
+        return uniqueSongs(
+          moodData.INDIE || []
+        );
+
+      }
+
+
+      return uniqueSongs(
+        [
+          ...(moodData.KPOP || []),
+          ...(moodData.POP || []),
+          ...(moodData.INDIE || [])
+        ]
+      );
+
+    }
+
 
     function getFiveMusic(
       moodName,
       genreName
     ) {
+
       const pool =
         getGenrePool(
           moodName,
           genreName
         );
 
+
       if (
         pool.length === 0
       ) {
+
         return [];
+
       }
+
 
       const history =
         loadObject(
           HISTORY_KEY
         );
 
+
       const lastHistory =
         loadObject(
           LAST_KEY
         );
 
+
       const historyId =
-        moodName +
-        "_" +
+        moodName
+        +
+        "_"
+        +
         genreName;
+
 
       const seenSongs =
         new Set(
-          history[historyId] ||
-          []
+          history[
+            historyId
+          ] || []
         );
+
 
       let unseenSongs =
         pool.filter(
-          function(music) {
+          function(
+            music
+          ) {
+
             return (
               !seenSongs.has(
                 songKey(
@@ -1014,12 +1152,24 @@ function getGenrePool(
                 )
               )
             );
+
           }
         );
 
+
+      const requiredCount =
+        Math.min(
+          5,
+          pool.length
+        );
+
+
       if (
-        unseenSongs.length < 5
+        unseenSongs.length
+        <
+        requiredCount
       ) {
+
         const lastSongs =
           new Set(
             lastHistory[
@@ -1027,9 +1177,13 @@ function getGenrePool(
             ] || []
           );
 
+
         const freshPool =
           pool.filter(
-            function(music) {
+            function(
+              music
+            ) {
+
               return (
                 !lastSongs.has(
                   songKey(
@@ -1037,16 +1191,23 @@ function getGenrePool(
                   )
                 )
               );
+
             }
           );
 
+
         seenSongs.clear();
 
+
         unseenSongs =
-          freshPool.length >= 5
+          freshPool.length
+          >=
+          requiredCount
             ? freshPool
             : [...pool];
+
       }
+
 
       const selected =
         shuffleArray(
@@ -1056,109 +1217,192 @@ function getGenrePool(
           5
         );
 
+
       selected.forEach(
-        function(music) {
+        function(
+          music
+        ) {
+
           seenSongs.add(
             songKey(
               music
             )
           );
+
         }
       );
 
+
       history[
         historyId
-      ] =
-        [...seenSongs];
+      ]
+      =
+      [
+        ...seenSongs
+      ];
+
 
       lastHistory[
         historyId
-      ] =
-        selected.map(
-          songKey
-        );
+      ]
+      =
+      selected.map(
+        songKey
+      );
+
 
       saveObject(
         HISTORY_KEY,
         history
       );
 
+
       saveObject(
         LAST_KEY,
         lastHistory
       );
 
+
       return selected;
+
     }
+
 
     function getMusicURL(
       music
     ) {
+
       const searchText =
-        music.title +
-        " " +
+        music.title
+        +
+        " "
+        +
         music.artist;
 
+
       return (
-        "https://music.youtube.com/search?q=" +
+        "https://music.youtube.com/search?q="
+        +
         encodeURIComponent(
           searchText
         )
       );
+
     }
+
 
     function isSaved(
       music
     ) {
+
       return savedSongs.some(
-        function(song) {
+        function(
+          song
+        ) {
+
           return (
-            song.title ===
-              music.title &&
-            song.artist ===
-              music.artist
+            song.title
+            ===
+            music.title
+            &&
+            song.artist
+            ===
+            music.artist
           );
+
         }
       );
+
     }
+
 
     function renderMusicList(
       musicArray
     ) {
+
       currentMusicList =
         musicArray;
 
+
       musicList.innerHTML =
         "";
+
+
+      if (
+        musicArray.length === 0
+      ) {
+
+        const emptyMessage =
+          document.createElement(
+            "div"
+          );
+
+
+        emptyMessage.style.padding =
+          "30px 12px";
+
+
+        emptyMessage.style.textAlign =
+          "center";
+
+
+        emptyMessage.style.color =
+          "#7f9ca5";
+
+
+        emptyMessage.style.fontSize =
+          "13px";
+
+
+        emptyMessage.textContent =
+          "추천할 노래를 찾지 못했어.";
+
+
+        musicList.appendChild(
+          emptyMessage
+        );
+
+
+        return;
+
+      }
+
 
       musicArray.forEach(
         function(
           music,
           index
         ) {
+
           const card =
             document.createElement(
               "article"
             );
 
+
           card.className =
             "music-card";
+
 
           const top =
             document.createElement(
               "div"
             );
 
+
           top.className =
             "music-top";
+
 
           const number =
             document.createElement(
               "div"
             );
 
+
           number.className =
             "music-number";
+
 
           number.textContent =
             String(
@@ -1168,147 +1412,197 @@ function getGenrePool(
               "0"
             );
 
+
           const info =
             document.createElement(
               "div"
             );
 
+
           info.className =
             "music-info";
+
 
           const title =
             document.createElement(
               "h2"
             );
 
+
           title.className =
             "music-title";
 
+
           title.textContent =
             music.title;
+
 
           const artist =
             document.createElement(
               "p"
             );
 
+
           artist.className =
             "music-artist";
 
+
           artist.textContent =
             music.artist;
+
 
           info.appendChild(
             title
           );
 
+
           info.appendChild(
             artist
           );
+
 
           top.appendChild(
             number
           );
 
+
           top.appendChild(
             info
           );
+
 
           const buttonRow =
             document.createElement(
               "div"
             );
 
+
           buttonRow.className =
             "button-row";
+
 
           const musicButton =
             document.createElement(
               "a"
             );
 
+
           musicButton.className =
             "music-button";
+
 
           musicButton.href =
             getMusicURL(
               music
             );
 
+
           musicButton.target =
             "_blank";
+
 
           musicButton.rel =
             "noopener noreferrer";
 
+
           musicButton.textContent =
             "YouTube Music에서 듣기";
+
 
           const heartButton =
             document.createElement(
               "button"
             );
 
+
           heartButton.className =
             "heart-button";
 
+
           heartButton.type =
             "button";
+
 
           if (
             isSaved(
               music
             )
           ) {
+
             heartButton.textContent =
               "♥";
+
 
             heartButton.classList.add(
               "saved"
             );
+
           }
+
           else {
+
             heartButton.textContent =
               "♡";
+
           }
+
 
           heartButton.addEventListener(
             "click",
             function() {
+
               const existingIndex =
                 savedSongs.findIndex(
-                  function(song) {
+                  function(
+                    song
+                  ) {
+
                     return (
-                      song.title ===
-                        music.title &&
-                      song.artist ===
-                        music.artist
+                      song.title
+                      ===
+                      music.title
+                      &&
+                      song.artist
+                      ===
+                      music.artist
                     );
+
                   }
                 );
+
 
               if (
                 existingIndex !== -1
               ) {
+
                 savedSongs.splice(
                   existingIndex,
                   1
                 );
+
               }
+
               else {
-                savedSongs.push({
-                  title:
-                    music.title,
 
-                  artist:
-                    music.artist,
+                savedSongs.push(
+                  {
 
-                  url:
-                    getMusicURL(
-                      music
-                    )
-                });
+                    title:
+                      music.title,
+
+                    artist:
+                      music.artist,
+
+                    url:
+                      getMusicURL(
+                        music
+                      )
+
+                  }
+                );
+
               }
+
 
               localStorage.setItem(
                 "sharkPlaylist",
@@ -1317,115 +1611,165 @@ function getGenrePool(
                 )
               );
 
+
               renderMusicList(
                 currentMusicList
               );
+
             }
           );
+
 
           buttonRow.appendChild(
             musicButton
           );
 
+
           buttonRow.appendChild(
             heartButton
           );
+
 
           card.appendChild(
             top
           );
 
+
           card.appendChild(
             buttonRow
           );
 
+
           musicList.appendChild(
             card
           );
+
         }
       );
+
     }
 
+
     function recommendMusic() {
+
       const musicArray =
         getFiveMusic(
           currentMood,
           currentGenre
         );
 
+
       renderMusicList(
         musicArray
       );
+
     }
 
+
     selectedMood.textContent =
-      moodEmoji[currentMood] ||
+      moodEmoji[
+        currentMood
+      ]
+      ||
       "😊";
 
+
     moodText.textContent =
-      moodMessage[currentMood] ||
+      moodMessage[
+        currentMood
+      ]
+      ||
       "";
 
+
     recommendMusic();
+
 
     const genreButtons =
       document.querySelectorAll(
         ".genre-button"
       );
 
+
     genreButtons.forEach(
-      function(button) {
+      function(
+        button
+      ) {
+
         button.addEventListener(
           "click",
           function() {
+
             genreButtons.forEach(
-              function(item) {
+              function(
+                item
+              ) {
+
                 item.classList.remove(
                   "active"
                 );
+
               }
             );
+
 
             button.classList.add(
               "active"
             );
 
+
             currentGenre =
               button.dataset.genre;
 
+
             recommendMusic();
+
           }
         );
+
       }
     );
+
 
     randomButton.addEventListener(
       "click",
       function() {
+
         recommendMusic();
 
-        window.scrollTo({
-          top: 0,
-          behavior: "smooth"
-        });
+
+        window.scrollTo(
+          {
+            top: 0,
+            behavior: "smooth"
+          }
+        );
+
       }
     );
+
 
     playlistButton.addEventListener(
       "click",
       function() {
+
         window.location.href =
           "./playlist.html";
+
       }
     );
+
 
     backButton.addEventListener(
       "click",
       function() {
+
         window.location.href =
           "./mood.html";
+
       }
     );
+
   </script>
 
 </body>
