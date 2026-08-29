@@ -1,6 +1,7 @@
-const S = (title, artist) => ({
+const S = (title, artist, videoId = "") => ({
   title,
-  artist
+  artist,
+  videoId
 });
 
 const musicData = {
