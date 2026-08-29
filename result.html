@@ -46,6 +46,7 @@
       position: relative;
 
       width: 100%;
+
       min-height: 100vh;
       min-height: 100dvh;
 
@@ -339,6 +340,17 @@
       -webkit-backdrop-filter: blur(14px);
 
       overflow: hidden;
+
+      cursor: pointer;
+
+      transition:
+        transform 0.15s ease,
+        border-color 0.2s ease,
+        background 0.2s ease;
+    }
+
+    .music-card:active {
+      transform: scale(0.985);
     }
 
     .music-card::before {
@@ -433,6 +445,7 @@
       align-items: center;
       justify-content: center;
 
+      border: none;
       border-radius: 13px;
 
       background:
@@ -449,6 +462,8 @@
 
       font-size: 13px;
       font-weight: 650;
+
+      cursor: pointer;
     }
 
     .heart-button {
@@ -552,10 +567,16 @@
     @media (min-width: 700px) {
       .page {
         padding-left:
-          max(40px, calc((100vw - 520px) / 2));
+          max(
+            40px,
+            calc((100vw - 520px) / 2)
+          );
 
         padding-right:
-          max(40px, calc((100vw - 520px) / 2));
+          max(
+            40px,
+            calc((100vw - 520px) / 2)
+          );
       }
     }
 
@@ -576,6 +597,7 @@
       .genre-button {
         padding-left: 2px;
         padding-right: 2px;
+
         font-size: 11px;
       }
     }
@@ -706,7 +728,6 @@
 
   <script src="./music-data.js"></script>
 
-
   <script>
 
     const params =
@@ -716,17 +737,25 @@
 
 
     const requestedMood =
-      params.get("mood");
+      params.get(
+        "mood"
+      );
 
 
     const currentMood =
       (
-        requestedMood &&
-        typeof musicData !== "undefined" &&
-        musicData[requestedMood]
+        requestedMood
+        &&
+        typeof musicData !== "undefined"
+        &&
+        musicData[
+          requestedMood
+        ]
       )
-        ? requestedMood
-        : "행복";
+        ?
+        requestedMood
+        :
+        "행복";
 
 
     let currentGenre =
@@ -833,7 +862,9 @@
         JSON.parse(
           localStorage.getItem(
             "sharkPlaylist"
-          ) || "[]"
+          )
+          ||
+          "[]"
         );
 
 
@@ -876,12 +907,15 @@
           JSON.parse(
             sessionStorage.getItem(
               key
-            ) || "{}"
+            )
+            ||
+            "{}"
           );
 
 
         if (
-          value &&
+          value
+          &&
           typeof value === "object"
         ) {
 
@@ -923,15 +957,21 @@
     ) {
 
       return (
+
         music.title
           .trim()
           .toLowerCase()
+
         +
+
         "|||"
+
         +
+
         music.artist
           .trim()
           .toLowerCase()
+
       );
 
     }
@@ -946,6 +986,7 @@
 
 
       return list.filter(
+
         function(
           music
         ) {
@@ -975,6 +1016,7 @@
           return true;
 
         }
+
       );
 
     }
@@ -985,25 +1027,33 @@
     ) {
 
       const result =
-        [...array];
+        [
+          ...array
+        ];
 
 
       for (
+
         let i =
           result.length - 1;
 
         i > 0;
 
         i--
+
       ) {
 
         const j =
           Math.floor(
+
             Math.random()
+
             *
+
             (
               i + 1
             )
+
           );
 
 
@@ -1080,11 +1130,17 @@
 
 
       return uniqueSongs(
+
         [
+
           ...(moodData.KPOP || []),
+
           ...(moodData.POP || []),
+
           ...(moodData.INDIE || [])
+
         ]
+
       );
 
     }
@@ -1135,25 +1191,31 @@
         new Set(
           history[
             historyId
-          ] || []
+          ]
+          ||
+          []
         );
 
 
       let unseenSongs =
         pool.filter(
+
           function(
             music
           ) {
 
             return (
+
               !seenSongs.has(
                 songKey(
                   music
                 )
               )
+
             );
 
           }
+
         );
 
 
@@ -1174,25 +1236,31 @@
           new Set(
             lastHistory[
               historyId
-            ] || []
+            ]
+            ||
+            []
           );
 
 
         const freshPool =
           pool.filter(
+
             function(
               music
             ) {
 
               return (
+
                 !lastSongs.has(
                   songKey(
                     music
                   )
                 )
+
               );
 
             }
+
           );
 
 
@@ -1203,8 +1271,12 @@
           freshPool.length
           >=
           requiredCount
-            ? freshPool
-            : [...pool];
+            ?
+            freshPool
+            :
+            [
+              ...pool
+            ];
 
       }
 
@@ -1219,6 +1291,7 @@
 
 
       selected.forEach(
+
         function(
           music
         ) {
@@ -1230,6 +1303,7 @@
           );
 
         }
+
       );
 
 
@@ -1268,38 +1342,156 @@
     }
 
 
-    function getMusicURL(music) {
+    /*
+      별도 videoId 입력 필요 없음.
 
-  if (music.videoId) {
+      1. music.youtube.com만 검색
+      2. URL에 watch가 포함된 결과만 우선 검색
+      3. 제목과 가수를 정확히 검색
+      4. DuckDuckGo의 "\" 기능으로 첫 결과 바로 이동
+    */
 
-    return (
-      "https://music.youtube.com/watch?v="
-      +
-      encodeURIComponent(
-        music.videoId
-      )
-    );
+    function getMusicURL(
+      music
+    ) {
 
-  }
+      const query =
+
+        "\\ "
+
+        +
+
+        "site:music.youtube.com "
+
+        +
+
+        "inurl:watch "
+
+        +
+
+        "\""
+
+        +
+
+        music.title
+
+        +
+
+        "\" "
+
+        +
+
+        "\""
+
+        +
+
+        music.artist
+
+        +
+
+        "\"";
 
 
-  const searchText =
-    music.title
-    +
-    " "
-    +
-    music.artist;
+      return (
+
+        "https://duckduckgo.com/?q="
+
+        +
+
+        encodeURIComponent(
+          query
+        )
+
+        +
+
+        "&kl=kr-kr"
+
+      );
+
+    }
 
 
-  return (
-    "https://music.youtube.com/search?q="
-    +
-    encodeURIComponent(
-      searchText
-    )
-  );
+    /*
+      기존 MY MUSIC에 저장된
+      예전 검색 링크도 새 방식으로 자동 변경
+    */
 
-}
+    function migrateSavedSongs() {
+
+      let changed =
+        false;
+
+
+      savedSongs =
+        savedSongs.map(
+
+          function(
+            song
+          ) {
+
+            if (
+              !song
+              ||
+              !song.title
+              ||
+              !song.artist
+            ) {
+
+              return song;
+
+            }
+
+
+            const newURL =
+              getMusicURL(
+                song
+              );
+
+
+            if (
+              song.url !== newURL
+            ) {
+
+              changed =
+                true;
+
+
+              return {
+
+                ...song,
+
+                url:
+                  newURL
+
+              };
+
+            }
+
+
+            return song;
+
+          }
+
+        );
+
+
+      if (
+        changed
+      ) {
+
+        localStorage.setItem(
+
+          "sharkPlaylist",
+
+          JSON.stringify(
+            savedSongs
+          )
+
+        );
+
+      }
+
+    }
 
 
     function isSaved(
@@ -1307,22 +1499,40 @@
     ) {
 
       return savedSongs.some(
+
         function(
           song
         ) {
 
           return (
+
             song.title
             ===
             music.title
+
             &&
+
             song.artist
             ===
             music.artist
+
           );
 
         }
+
       );
+
+    }
+
+
+    function openMusic(
+      music
+    ) {
+
+      window.location.href =
+        getMusicURL(
+          music
+        );
 
     }
 
@@ -1380,10 +1590,12 @@
 
 
       musicArray.forEach(
+
         function(
           music,
           index
         ) {
+
 
           const card =
             document.createElement(
@@ -1393,6 +1605,39 @@
 
           card.className =
             "music-card";
+
+
+          card.setAttribute(
+            "role",
+            "link"
+          );
+
+
+          card.setAttribute(
+            "tabindex",
+            "0"
+          );
+
+
+          card.setAttribute(
+
+            "aria-label",
+
+            music.title
+
+            +
+
+            " - "
+
+            +
+
+            music.artist
+
+            +
+
+            " YouTube Music에서 바로 듣기"
+
+          );
 
 
           const top =
@@ -1494,7 +1739,7 @@
 
           const musicButton =
             document.createElement(
-              "a"
+              "button"
             );
 
 
@@ -1502,24 +1747,12 @@
             "music-button";
 
 
-          musicButton.href =
-            getMusicURL(
-              music
-            );
+          musicButton.type =
+            "button";
 
 
-          musicButton.target =
-            "_blank";
-
-
-          musicButton.rel =
-            "noopener noreferrer";
-
-
-         musicButton.textContent =
-  music.videoId
-    ? "▶ 바로 재생"
-    : "YouTube Music에서 찾기";;
+          musicButton.textContent =
+            "▶ YouTube Music 바로 재생";
 
 
           const heartButton =
@@ -1534,6 +1767,12 @@
 
           heartButton.type =
             "button";
+
+
+          heartButton.setAttribute(
+            "aria-label",
+            "MY MUSIC 저장"
+          );
 
 
           if (
@@ -1560,27 +1799,60 @@
           }
 
 
-          heartButton.addEventListener(
+          musicButton.addEventListener(
+
             "click",
-            function() {
+
+            function(
+              event
+            ) {
+
+              event.stopPropagation();
+
+
+              openMusic(
+                music
+              );
+
+            }
+
+          );
+
+
+          heartButton.addEventListener(
+
+            "click",
+
+            function(
+              event
+            ) {
+
+              event.stopPropagation();
+
 
               const existingIndex =
                 savedSongs.findIndex(
+
                   function(
                     song
                   ) {
 
                     return (
+
                       song.title
                       ===
                       music.title
+
                       &&
+
                       song.artist
                       ===
                       music.artist
+
                     );
 
                   }
+
                 );
 
 
@@ -1598,6 +1870,7 @@
               else {
 
                 savedSongs.push(
+
                   {
 
                     title:
@@ -1612,16 +1885,20 @@
                       )
 
                   }
+
                 );
 
               }
 
 
               localStorage.setItem(
+
                 "sharkPlaylist",
+
                 JSON.stringify(
                   savedSongs
                 )
+
               );
 
 
@@ -1630,6 +1907,50 @@
               );
 
             }
+
+          );
+
+
+          card.addEventListener(
+
+            "click",
+
+            function() {
+
+              openMusic(
+                music
+              );
+
+            }
+
+          );
+
+
+          card.addEventListener(
+
+            "keydown",
+
+            function(
+              event
+            ) {
+
+              if (
+                event.key === "Enter"
+                ||
+                event.key === " "
+              ) {
+
+                event.preventDefault();
+
+
+                openMusic(
+                  music
+                );
+
+              }
+
+            }
+
           );
 
 
@@ -1658,6 +1979,7 @@
           );
 
         }
+
       );
 
     }
@@ -1679,19 +2001,32 @@
     }
 
 
+    /*
+      기존 MY MUSIC 링크 먼저 자동 변환
+    */
+
+    migrateSavedSongs();
+
+
     selectedMood.textContent =
+
       moodEmoji[
         currentMood
       ]
+
       ||
+
       "😊";
 
 
     moodText.textContent =
+
       moodMessage[
         currentMood
       ]
+
       ||
+
       "";
 
 
@@ -1705,15 +2040,19 @@
 
 
     genreButtons.forEach(
+
       function(
         button
       ) {
 
         button.addEventListener(
+
           "click",
+
           function() {
 
             genreButtons.forEach(
+
               function(
                 item
               ) {
@@ -1723,6 +2062,7 @@
                 );
 
               }
+
             );
 
 
@@ -1738,49 +2078,65 @@
             recommendMusic();
 
           }
+
         );
 
       }
+
     );
 
 
     randomButton.addEventListener(
+
       "click",
+
       function() {
 
         recommendMusic();
 
 
         window.scrollTo(
+
           {
+
             top: 0,
+
             behavior: "smooth"
+
           }
+
         );
 
       }
+
     );
 
 
     playlistButton.addEventListener(
+
       "click",
+
       function() {
 
         window.location.href =
           "./playlist.html";
 
       }
+
     );
 
 
     backButton.addEventListener(
+
       "click",
+
       function() {
 
         window.location.href =
           "./mood.html";
 
       }
+
     );
 
   </script>
