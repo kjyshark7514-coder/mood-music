@@ -2,12 +2,7 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
-
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  >
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SHARK - Music</title>
 
   <style>
@@ -33,7 +28,6 @@
         "Apple SD Gothic Neo",
         "Noto Sans KR",
         sans-serif;
-
       background: #031118;
       color: #ffffff;
     }
@@ -44,9 +38,7 @@
 
     .page {
       position: relative;
-
       width: 100%;
-
       min-height: 100vh;
       min-height: 100dvh;
 
@@ -60,7 +52,6 @@
       align-items: center;
 
       overflow-x: hidden;
-      overflow-y: auto;
 
       background-image:
         linear-gradient(
@@ -78,7 +69,6 @@
 
     .page::before {
       content: "";
-
       position: absolute;
 
       width: 300px;
@@ -89,21 +79,25 @@
 
       border-radius: 50%;
 
-      background:
-        rgba(61, 212, 226, 0.11);
-
+      background: rgba(61, 212, 226, 0.11);
       filter: blur(65px);
 
       pointer-events: none;
     }
 
-    .top {
+    .top,
+    .result-head,
+    .genre-section,
+    .music-list,
+    .action-button {
       position: relative;
       z-index: 2;
 
       width: 100%;
       max-width: 440px;
+    }
 
+    .top {
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -115,11 +109,8 @@
     }
 
     .logo {
-      color: #ffffff;
-
       font-size: 15px;
       font-weight: 700;
-
       letter-spacing: 5px;
     }
 
@@ -128,7 +119,6 @@
       height: 7px;
 
       border-radius: 50%;
-
       background: #6ce8ee;
 
       box-shadow:
@@ -137,27 +127,16 @@
     }
 
     .result-head {
-      position: relative;
-      z-index: 2;
-
-      width: 100%;
-      max-width: 440px;
-
       margin-top: 44px;
     }
 
     .result-title {
       margin: 0;
 
-      color: #ffffff;
-
-      font-size:
-        clamp(30px, 8vw, 42px);
-
+      font-size: clamp(30px, 8vw, 42px);
       line-height: 1.12;
 
       font-weight: 670;
-
       letter-spacing: -2px;
     }
 
@@ -169,7 +148,6 @@
 
       display: flex;
       align-items: center;
-
       gap: 14px;
 
       border:
@@ -200,8 +178,7 @@
 
       border-radius: 18px;
 
-      background:
-        rgba(255, 255, 255, 0.07);
+      background: rgba(255, 255, 255, 0.07);
 
       border:
         1px solid
@@ -216,20 +193,13 @@
     .mood-text {
       margin: 0;
 
-      color:
-        rgba(203, 230, 234, 0.62);
+      color: rgba(203, 230, 234, 0.62);
 
       font-size: 13px;
       line-height: 1.55;
     }
 
     .genre-section {
-      position: relative;
-      z-index: 2;
-
-      width: 100%;
-      max-width: 440px;
-
       margin-top: 24px;
     }
 
@@ -243,8 +213,7 @@
 
       border-radius: 17px;
 
-      background:
-        rgba(255, 255, 255, 0.055);
+      background: rgba(255, 255, 255, 0.055);
 
       border:
         1px solid
@@ -264,18 +233,12 @@
       border-radius: 13px;
 
       background: transparent;
-
       color: #7f9ca5;
 
       font-size: 12px;
       font-weight: 600;
 
       cursor: pointer;
-
-      transition:
-        background 0.2s ease,
-        color 0.2s ease,
-        transform 0.15s ease;
     }
 
     .genre-button.active {
@@ -298,17 +261,10 @@
     }
 
     .music-list {
-      position: relative;
-      z-index: 2;
-
-      width: 100%;
-      max-width: 440px;
-
       margin-top: 17px;
 
       display: flex;
       flex-direction: column;
-
       gap: 11px;
     }
 
@@ -316,7 +272,6 @@
       position: relative;
 
       width: 100%;
-
       padding: 17px;
 
       border-radius: 22px;
@@ -342,11 +297,6 @@
       overflow: hidden;
 
       cursor: pointer;
-
-      transition:
-        transform 0.15s ease,
-        border-color 0.2s ease,
-        background 0.2s ease;
     }
 
     .music-card:active {
@@ -375,7 +325,6 @@
     .music-top {
       display: flex;
       align-items: flex-start;
-
       gap: 13px;
     }
 
@@ -390,9 +339,7 @@
 
       border-radius: 10px;
 
-      background:
-        rgba(108, 232, 238, 0.09);
-
+      background: rgba(108, 232, 238, 0.09);
       color: #6ce8ee;
 
       font-size: 11px;
@@ -411,7 +358,6 @@
 
       font-size: 17px;
       font-weight: 600;
-
       line-height: 1.35;
     }
 
@@ -430,20 +376,14 @@
       margin-top: 15px;
 
       display: flex;
-
       gap: 8px;
     }
 
     .music-button {
       flex: 1;
 
-      min-height: 43px;
-
+      min-height: 46px;
       padding: 10px;
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
 
       border: none;
       border-radius: 13px;
@@ -457,11 +397,8 @@
 
       color: #06202a;
 
-      text-align: center;
-      text-decoration: none;
-
       font-size: 13px;
-      font-weight: 650;
+      font-weight: 700;
 
       cursor: pointer;
     }
@@ -469,7 +406,7 @@
     .heart-button {
       width: 48px;
       min-width: 48px;
-      min-height: 43px;
+      min-height: 46px;
 
       border:
         1px solid
@@ -477,8 +414,7 @@
 
       border-radius: 13px;
 
-      background:
-        rgba(255, 255, 255, 0.055);
+      background: rgba(255, 255, 255, 0.055);
 
       color: #a5c0c7;
 
@@ -488,11 +424,9 @@
     }
 
     .heart-button.saved {
-      background:
-        rgba(108, 232, 238, 0.14);
+      background: rgba(108, 232, 238, 0.14);
 
-      border-color:
-        rgba(108, 232, 238, 0.28);
+      border-color: rgba(108, 232, 238, 0.28);
 
       color: #6ce8ee;
 
@@ -502,18 +436,11 @@
     }
 
     .action-button {
-      position: relative;
-      z-index: 2;
-
-      width: 100%;
-      max-width: 440px;
-
       cursor: pointer;
     }
 
     .random-button {
       margin-top: 17px;
-
       padding: 14px 20px;
 
       border:
@@ -522,8 +449,7 @@
 
       border-radius: 15px;
 
-      background:
-        rgba(255, 255, 255, 0.045);
+      background: rgba(255, 255, 255, 0.045);
 
       color: #a9c2c8;
 
@@ -532,7 +458,6 @@
 
     .playlist-button {
       margin-top: 11px;
-
       padding: 15px 20px;
 
       border:
@@ -541,8 +466,7 @@
 
       border-radius: 16px;
 
-      background:
-        rgba(108, 232, 238, 0.08);
+      background: rgba(108, 232, 238, 0.08);
 
       color: #c6f5f7;
 
@@ -552,32 +476,25 @@
 
     .back-button {
       margin-top: 12px;
-
       padding: 11px 20px;
 
       border: none;
 
       background: transparent;
-
       color: #6f8991;
 
       font-size: 13px;
     }
 
-    @media (min-width: 700px) {
-      .page {
-        padding-left:
-          max(
-            40px,
-            calc((100vw - 520px) / 2)
-          );
+    .empty-message {
+      padding: 30px 12px;
 
-        padding-right:
-          max(
-            40px,
-            calc((100vw - 520px) / 2)
-          );
-      }
+      text-align: center;
+
+      color: #7f9ca5;
+
+      font-size: 13px;
+      line-height: 1.7;
     }
 
     @media (max-width: 380px) {
@@ -595,9 +512,6 @@
       }
 
       .genre-button {
-        padding-left: 2px;
-        padding-right: 2px;
-
         font-size: 11px;
       }
     }
@@ -609,17 +523,10 @@
   <main class="page">
 
     <header class="top">
-
       <div class="top-spacer"></div>
-
-      <div class="logo">
-        SHARK
-      </div>
-
+      <div class="logo">SHARK</div>
       <div class="logo-dot"></div>
-
     </header>
-
 
     <section class="result-head">
 
@@ -630,14 +537,12 @@
       <div class="mood-summary">
 
         <div class="selected-mood-wrap">
-
           <div
             class="selected-mood"
             id="selectedMood"
           >
             😊
           </div>
-
         </div>
 
         <p
@@ -648,7 +553,6 @@
       </div>
 
     </section>
-
 
     <section class="genre-section">
 
@@ -690,12 +594,10 @@
 
     </section>
 
-
     <div
       class="music-list"
       id="musicList"
     ></div>
-
 
     <button
       class="action-button random-button"
@@ -705,7 +607,6 @@
       다른 노래 추천
     </button>
 
-
     <button
       class="action-button playlist-button"
       id="playlistButton"
@@ -713,7 +614,6 @@
     >
       MY MUSIC
     </button>
-
 
     <button
       class="action-button back-button"
@@ -725,22 +625,16 @@
 
   </main>
 
-
   <script src="./music-data.js"></script>
 
   <script>
-
     const params =
       new URLSearchParams(
         window.location.search
       );
 
-
     const requestedMood =
-      params.get(
-        "mood"
-      );
-
+      params.get("mood");
 
     const currentMood =
       (
@@ -748,83 +642,61 @@
         &&
         typeof musicData !== "undefined"
         &&
-        musicData[
-          requestedMood
-        ]
+        musicData[requestedMood]
       )
         ?
         requestedMood
         :
         "행복";
 
-
     let currentGenre =
       "ALL";
 
-
     let currentMusicList =
       [];
-
 
     const selectedMood =
       document.getElementById(
         "selectedMood"
       );
 
-
     const moodText =
       document.getElementById(
         "moodText"
       );
-
 
     const musicList =
       document.getElementById(
         "musicList"
       );
 
-
     const randomButton =
       document.getElementById(
         "randomButton"
       );
-
 
     const playlistButton =
       document.getElementById(
         "playlistButton"
       );
 
-
     const backButton =
       document.getElementById(
         "backButton"
       );
 
-
     const moodEmoji = {
-
       "행복": "😊",
-
       "사랑": "💗",
-
       "슬픔": "😢",
-
       "화남": "😡",
-
       "피곤": "😴",
-
       "위로": "🥺",
-
       "신남": "🤩",
-
       "SHARK": "🦈"
-
     };
 
-
     const moodMessage = {
-
       "행복":
         "기분을 더 밝게 만들어줄 노래를 골라봤어.",
 
@@ -848,16 +720,162 @@
 
       "SHARK":
         "몽환적인 바다와 새벽 드라이브에 어울리는 노래를 골라봤어."
-
     };
 
+    function songKey(
+      music
+    ) {
+      return (
+        String(
+          music.title || ""
+        )
+          .trim()
+          .toLowerCase()
+        +
+        "|||"
+        +
+        String(
+          music.artist || ""
+        )
+          .trim()
+          .toLowerCase()
+      );
+    }
+
+    const DIRECT_TRACKS =
+      new Map([
+        ["butter|||bts", "WMweEpGlu_U"],
+        ["permission to dance|||bts", "CuklIb9d3fI"],
+        ["dynamite|||bts", "gdZLi9oWNZg"],
+
+        ["sunday morning|||maroon 5", "S2Cti12XBw4"],
+        ["sugar|||maroon 5", "09R8_2nJtjg"],
+
+        ["dandelion|||oohyo", "Kaq4LFM47I0"],
+        ["comes and goes|||hyukoh", "ECMc1SB60E0"],
+
+        ["love wins all|||iu", "JleoAppaxi0"],
+        ["밤편지|||iu", "BzYnNdJhZQw"],
+        ["through the night|||iu", "BzYnNdJhZQw"],
+        ["love poem|||iu", "iOKRYIMhaDk"],
+
+        ["attention|||newjeans", "js1CtxSY38I"],
+        ["ditto|||newjeans", "pSUydWEqKwE"],
+
+        ["perfect|||ed sheeran", "2Vv-BfVoq4g"],
+        ["thinking out loud|||ed sheeran", "lp-EO5I60KA"],
+
+        ["bad|||wave to earth", "6Q5xqNkCk7w"],
+        ["seasons|||wave to earth", "CnVVjLOGVoY"],
+
+        ["beautiful goodbye|||chen", "JrOrlhjIYVk"],
+        ["untitled, 2014|||g-dragon", "Nged3LwJsvQ"],
+
+        ["let her go|||passenger", "RBumgq5yVrA"],
+        ["drivers license|||olivia rodrigo", "ZmDBbnmKpqQ"],
+
+        ["기억을 걷는 시간|||nell", "K72ZxP9ZAP4"],
+        ["space song|||beach house", "RBtlPT23PTM"],
+
+        ["god's menu|||stray kids", "TQTlCHxyuu8"],
+        ["maniac|||stray kids", "OvioeS1ZZ7o"],
+
+        ["believer|||imagine dragons", "7wtfhZwyrcc"],
+        ["natural|||imagine dragons", "0I647GU3Jsc"],
+
+        ["do i wanna know?|||arctic monkeys", "bpOSxM0rNPM"],
+        ["seven nation army|||the white stripes", "0J2QdDbelmY"],
+
+        ["golden hour|||jvke", "PEM0Vs8jf1w"],
+        ["comethru|||jeremy zucker", "jO2viLEW-1A"],
+
+        ["instagram|||dean", "wKyMIrBClYw"],
+        ["d (half moon)|||dean", "eelfrHtmk68"],
+
+        ["fix you|||coldplay", "k4V3Mo61fJM"],
+        ["yellow|||coldplay", "yKNxeF4KMsY"],
+
+        ["for lovers who hesitate|||jannabi", "GpQ222I1ULc"],
+
+        ["apt.|||rosé & bruno mars", "ekr2nIex040"],
+        ["uptown funk|||mark ronson feat. bruno mars", "OPf0YbXqDm0"],
+        ["don't start now|||dua lipa", "oygrmJFKYZY"],
+        ["phonecert|||10cm", "mOo8bVzN9M8"],
+
+        ["wave|||ateez", "FIInyEWWW-s"],
+        ["ocean view|||rothy", "5wiW60inhgw"],
+        ["ocean eyes|||billie eilish", "viimfQi_pUw"],
+        ["ocean|||martin garrix feat. khalid", "BDocp-VpCwY"]
+      ]);
+
+    function getVideoId(
+      music
+    ) {
+      if (
+        music
+        &&
+        music.videoId
+      ) {
+        const videoId =
+          String(
+            music.videoId
+          ).trim();
+
+        if (
+          videoId
+        ) {
+          return videoId;
+        }
+      }
+
+      return (
+        DIRECT_TRACKS.get(
+          songKey(
+            music
+          )
+        )
+        ||
+        ""
+      );
+    }
+
+    function hasDirectTrack(
+      music
+    ) {
+      return Boolean(
+        getVideoId(
+          music
+        )
+      );
+    }
+
+    function getMusicURL(
+      music
+    ) {
+      const videoId =
+        getVideoId(
+          music
+        );
+
+      if (
+        !videoId
+      ) {
+        return "";
+      }
+
+      return (
+        "https://music.youtube.com/watch?v="
+        +
+        encodeURIComponent(
+          videoId
+        )
+      );
+    }
 
     let savedSongs =
       [];
 
-
     try {
-
       savedSongs =
         JSON.parse(
           localStorage.getItem(
@@ -867,42 +885,116 @@
           "[]"
         );
 
-
       if (
         !Array.isArray(
           savedSongs
         )
       ) {
-
         savedSongs =
           [];
-
       }
-
     }
-
-    catch (error) {
-
+    catch (
+      error
+    ) {
       savedSongs =
         [];
-
     }
 
+    function migrateSavedSongs() {
+      let changed =
+        false;
+
+      savedSongs =
+        savedSongs.map(
+          function(
+            song
+          ) {
+            if (
+              !song
+              ||
+              !song.title
+              ||
+              !song.artist
+            ) {
+              return song;
+            }
+
+            const videoId =
+              getVideoId(
+                song
+              );
+
+            if (
+              videoId
+            ) {
+              const newURL =
+                getMusicURL(
+                  song
+                );
+
+              if (
+                song.url !== newURL
+                ||
+                song.videoId !== videoId
+              ) {
+                changed =
+                  true;
+
+                return {
+                  ...song,
+                  videoId: videoId,
+                  url: newURL
+                };
+              }
+
+              return song;
+            }
+
+            if (
+              song.url
+              &&
+              !song.url.startsWith(
+                "https://music.youtube.com/watch?v="
+              )
+            ) {
+              changed =
+                true;
+
+              return {
+                ...song,
+                url: ""
+              };
+            }
+
+            return song;
+          }
+        );
+
+      if (
+        changed
+      ) {
+        localStorage.setItem(
+          "sharkPlaylist",
+          JSON.stringify(
+            savedSongs
+          )
+        );
+      }
+    }
+
+    migrateSavedSongs();
 
     const HISTORY_KEY =
-      "sharkRecommendationHistoryV5";
-
+      "sharkRecommendationHistoryDirectV4";
 
     const LAST_KEY =
-      "sharkLastRecommendationsV5";
-
+      "sharkLastRecommendationsDirectV4";
 
     function loadObject(
       key
     ) {
-
       try {
-
         const value =
           JSON.parse(
             sessionStorage.getItem(
@@ -912,272 +1004,191 @@
             "{}"
           );
 
-
-        if (
+        return (
           value
           &&
           typeof value === "object"
-        ) {
-
-          return value;
-
-        }
-
-
-        return {};
-
+        )
+          ?
+          value
+          :
+          {};
       }
-
-      catch (error) {
-
+      catch (
+        error
+      ) {
         return {};
-
       }
-
     }
-
 
     function saveObject(
       key,
       value
     ) {
-
       sessionStorage.setItem(
         key,
         JSON.stringify(
           value
         )
       );
-
     }
-
-
-    function songKey(
-      music
-    ) {
-
-      return (
-
-        music.title
-          .trim()
-          .toLowerCase()
-
-        +
-
-        "|||"
-
-        +
-
-        music.artist
-          .trim()
-          .toLowerCase()
-
-      );
-
-    }
-
 
     function uniqueSongs(
       list
     ) {
-
       const seen =
         new Set();
 
-
-      return list.filter(
-
+      return (
+        list || []
+      ).filter(
         function(
           music
         ) {
-
           const key =
             songKey(
               music
             );
-
 
           if (
             seen.has(
               key
             )
           ) {
-
             return false;
-
           }
-
 
           seen.add(
             key
           );
 
-
           return true;
-
         }
-
       );
-
     }
 
+    function directOnly(
+      list
+    ) {
+      return uniqueSongs(
+        list || []
+      ).filter(
+        hasDirectTrack
+      );
+    }
 
     function shuffleArray(
       array
     ) {
-
       const result =
         [
           ...array
         ];
 
-
       for (
-
         let i =
           result.length - 1;
 
         i > 0;
 
         i--
-
       ) {
-
         const j =
           Math.floor(
-
             Math.random()
-
             *
-
             (
               i + 1
             )
-
           );
 
-
-        const temp =
-          result[i];
-
-
-        result[i] =
-          result[j];
-
-
-        result[j] =
-          temp;
-
+        [
+          result[i],
+          result[j]
+        ]
+        =
+        [
+          result[j],
+          result[i]
+        ];
       }
 
-
       return result;
-
     }
-
 
     function getGenrePool(
       moodName,
       genreName
     ) {
-
       const moodData =
         musicData[
           moodName
         ];
 
-
       if (
         !moodData
       ) {
-
         return [];
-
       }
-
 
       if (
         genreName === "KPOP"
       ) {
-
-        return uniqueSongs(
-          moodData.KPOP || []
+        return directOnly(
+          moodData.KPOP
         );
-
       }
-
 
       if (
         genreName === "POP"
       ) {
-
-        return uniqueSongs(
-          moodData.POP || []
+        return directOnly(
+          moodData.POP
         );
-
       }
-
 
       if (
         genreName === "INDIE"
       ) {
-
-        return uniqueSongs(
-          moodData.INDIE || []
+        return directOnly(
+          moodData.INDIE
         );
-
       }
 
-
-      return uniqueSongs(
-
+      return directOnly(
         [
-
           ...(moodData.KPOP || []),
-
           ...(moodData.POP || []),
-
           ...(moodData.INDIE || [])
-
         ]
-
       );
-
     }
-
 
     function getFiveMusic(
       moodName,
       genreName
     ) {
-
       const pool =
         getGenrePool(
           moodName,
           genreName
         );
 
-
       if (
         pool.length === 0
       ) {
-
         return [];
-
       }
-
 
       const history =
         loadObject(
           HISTORY_KEY
         );
 
-
       const lastHistory =
         loadObject(
           LAST_KEY
         );
-
 
       const historyId =
         moodName
@@ -1185,7 +1196,6 @@
         "_"
         +
         genreName;
-
 
       const seenSongs =
         new Set(
@@ -1196,28 +1206,20 @@
           []
         );
 
-
       let unseenSongs =
         pool.filter(
-
           function(
             music
           ) {
-
             return (
-
               !seenSongs.has(
                 songKey(
                   music
                 )
               )
-
             );
-
           }
-
         );
-
 
       const requiredCount =
         Math.min(
@@ -1225,13 +1227,11 @@
           pool.length
         );
 
-
       if (
         unseenSongs.length
         <
         requiredCount
       ) {
-
         const lastSongs =
           new Set(
             lastHistory[
@@ -1241,45 +1241,32 @@
             []
           );
 
-
         const freshPool =
           pool.filter(
-
             function(
               music
             ) {
-
               return (
-
                 !lastSongs.has(
                   songKey(
                     music
                   )
                 )
-
               );
-
             }
-
           );
-
 
         seenSongs.clear();
 
-
         unseenSongs =
-          freshPool.length
-          >=
-          requiredCount
+          freshPool.length >= requiredCount
             ?
             freshPool
             :
             [
               ...pool
             ];
-
       }
-
 
       const selected =
         shuffleArray(
@@ -1289,23 +1276,17 @@
           5
         );
 
-
       selected.forEach(
-
         function(
           music
         ) {
-
           seenSongs.add(
             songKey(
               music
             )
           );
-
         }
-
       );
-
 
       history[
         historyId
@@ -1315,7 +1296,6 @@
         ...seenSongs
       ];
 
-
       lastHistory[
         historyId
       ]
@@ -1324,424 +1304,121 @@
         songKey
       );
 
-
       saveObject(
         HISTORY_KEY,
         history
       );
-
 
       saveObject(
         LAST_KEY,
         lastHistory
       );
 
-
       return selected;
-
     }
-
-
-    /*
-      const DIRECT_TRACKS = new Map([
-  ["butter|||bts", "WMweEpGlu_U"],
-  ["permission to dance|||bts", "CuklIb9d3fI"],
-  ["dynamite|||bts", "gdZLi9oWNZg"],
-
-  ["sunday morning|||maroon 5", "S2Cti12XBw4"],
-  ["sugar|||maroon 5", "09R8_2nJtjg"],
-
-  ["dandelion|||oohyo", "Kaq4LFM47I0"],
-  ["comes and goes|||hyukoh", "ECMc1SB60E0"],
-
-  ["love wins all|||iu", "JleoAppaxi0"],
-  ["attention|||newjeans", "js1CtxSY38I"],
-
-  ["perfect|||ed sheeran", "2Vv-BfVoq4g"],
-  ["thinking out loud|||ed sheeran", "lp-EO5I60KA"],
-
-  ["bad|||wave to earth", "6Q5xqNkCk7w"],
-  ["seasons|||wave to earth", "CnVVjLOGVoY"],
-
-  ["beautiful goodbye|||chen", "JrOrlhjIYVk"],
-  ["untitled, 2014|||g-dragon", "Nged3LwJsvQ"],
-
-  ["let her go|||passenger", "RBumgq5yVrA"],
-  ["drivers license|||olivia rodrigo", "ZmDBbnmKpqQ"],
-
-  ["기억을 걷는 시간|||nell", "K72ZxP9ZAP4"],
-  ["space song|||beach house", "RBtlPT23PTM"],
-
-  ["god's menu|||stray kids", "TQTlCHxyuu8"],
-  ["maniac|||stray kids", "OvioeS1ZZ7o"],
-
-  ["believer|||imagine dragons", "7wtfhZwyrcc"],
-  ["natural|||imagine dragons", "0I647GU3Jsc"],
-
-  ["do i wanna know?|||arctic monkeys", "bpOSxM0rNPM"],
-  ["seven nation army|||the white stripes", "0J2QdDbelmY"],
-
-  ["ditto|||newjeans", "pSUydWEqKwE"],
-  ["through the night|||iu", "BzYnNdJhZQw"],
-
-  ["golden hour|||jvke", "PEM0Vs8jf1w"],
-  ["comethru|||jeremy zucker", "jO2viLEW-1A"],
-
-  ["instagram|||dean", "wKyMIrBClYw"],
-  ["d (half moon)|||dean", "eelfrHtmk68"],
-
-  ["love poem|||iu", "iOKRYIMhaDk"],
-  ["fix you|||coldplay", "k4V3Mo61fJM"],
-  ["yellow|||coldplay", "yKNxeF4KMsY"],
-
-  ["for lovers who hesitate|||jannabi", "GpQ222I1ULc"],
-
-  ["apt.|||rosé & bruno mars", "ekr2nIex040"],
-  ["uptown funk|||mark ronson feat. bruno mars", "OPf0YbXqDm0"],
-  ["don't start now|||dua lipa", "oygrmJFKYZY"],
-  ["phonecert|||10cm", "mOo8bVzN9M8"],
-
-  ["wave|||ateez", "FIInyEWWW-s"],
-  ["ocean view|||rothy", "5wiW60inhgw"],
-  ["ocean eyes|||billie eilish", "viimfQi_pUw"],
-  ["ocean|||martin garrix feat. khalid", "BDocp-VpCwY"]
-]);
-
-function getVideoId(music) {
-  if (music.videoId) {
-    return String(music.videoId).trim();
-  }
-
-  return DIRECT_TRACKS.get(
-    songKey(music)
-  ) || "";
-}
-
-function hasDirectTrack(music) {
-  return Boolean(
-    getVideoId(music)
-  );
-}
-
-function getMusicURL(music) {
-  const videoId =
-    getVideoId(music);
-
-  if (!videoId) {
-    return "";
-  }
-
-  return (
-    "https:" +
-    "//music.youtube.com/watch?v=" +
-    encodeURIComponent(videoId)
-  );
-}
-
-      const query =
-
-        "\\ "
-
-        +
-
-        "site:music.youtube.com "
-
-        +
-
-        "inurl:watch "
-
-        +
-
-        "\""
-
-        +
-
-        music.title
-
-        +
-
-        "\" "
-
-        +
-
-        "\""
-
-        +
-
-        music.artist
-
-        +
-
-        "\"";
-
-
-      return (
-
-        "https://duckduckgo.com/?q="
-
-        +
-
-        encodeURIComponent(
-          query
-        )
-
-        +
-
-        "&kl=kr-kr"
-
-      );
-
-    }
-
-
-    /*
-      기존 MY MUSIC에 저장된
-      예전 검색 링크도 새 방식으로 자동 변경
-    */
-
-    function migrateSavedSongs() {
-
-      let changed =
-        false;
-
-
-      savedSongs =
-        savedSongs.map(
-
-          function(
-            song
-          ) {
-
-            if (
-              !song
-              ||
-              !song.title
-              ||
-              !song.artist
-            ) {
-
-              return song;
-
-            }
-
-
-            const newURL =
-              getMusicURL(
-                song
-              );
-
-
-            if (
-              song.url !== newURL
-            ) {
-
-              changed =
-                true;
-
-
-              return {
-
-                ...song,
-
-                url:
-                  newURL
-
-              };
-
-            }
-
-
-            return song;
-
-          }
-
-        );
-
-
-      if (
-        changed
-      ) {
-
-        localStorage.setItem(
-
-          "sharkPlaylist",
-
-          JSON.stringify(
-            savedSongs
-          )
-
-        );
-
-      }
-
-    }
-
 
     function isSaved(
       music
     ) {
-
       return savedSongs.some(
-
         function(
           song
         ) {
-
           return (
-
-            song.title
-            ===
-            music.title
-
+            song.title === music.title
             &&
-
-            song.artist
-            ===
-            music.artist
-
+            song.artist === music.artist
           );
-
         }
-
       );
-
     }
-
 
     function openMusic(
       music
     ) {
-
-      window.location.href =
+      const url =
         getMusicURL(
           music
         );
 
-    }
+      if (
+        !url
+      ) {
+        return;
+      }
 
+      window.location.href =
+        url;
+    }
 
     function renderMusicList(
       musicArray
     ) {
-
       currentMusicList =
         musicArray;
-
 
       musicList.innerHTML =
         "";
 
-
       if (
         musicArray.length === 0
       ) {
-
         const emptyMessage =
           document.createElement(
             "div"
           );
 
-
-        emptyMessage.style.padding =
-          "30px 12px";
-
-
-        emptyMessage.style.textAlign =
-          "center";
-
-
-        emptyMessage.style.color =
-          "#7f9ca5";
-
-
-        emptyMessage.style.fontSize =
-          "13px";
-
+        emptyMessage.className =
+          "empty-message";
 
         emptyMessage.textContent =
-          "추천할 노래를 찾지 못했어.";
-
+          "현재 바로 재생 링크가 확인된 곡이 없어.";
 
         musicList.appendChild(
           emptyMessage
         );
 
-
         return;
-
       }
 
-
       musicArray.forEach(
-
         function(
           music,
           index
         ) {
-
-
           const card =
             document.createElement(
               "article"
             );
 
-
           card.className =
             "music-card";
 
-
           card.setAttribute(
             "role",
-            "link"
+            "button"
           );
-
 
           card.setAttribute(
             "tabindex",
             "0"
           );
 
-
-          card.setAttribute(
-
-            "aria-label",
-
-            music.title
-
-            +
-
-            " - "
-
-            +
-
-            music.artist
-
-            +
-
-            " YouTube Music에서 바로 듣기"
-
-          );
-
-
           const top =
             document.createElement(
               "div"
             );
 
-
           top.className =
             "music-top";
-
 
           const number =
             document.createElement(
               "div"
             );
 
-
           number.className =
             "music-number";
-
 
           number.textContent =
             String(
@@ -1751,477 +1428,318 @@ function getMusicURL(music) {
               "0"
             );
 
-
           const info =
             document.createElement(
               "div"
             );
 
-
           info.className =
             "music-info";
-
 
           const title =
             document.createElement(
               "h2"
             );
 
-
           title.className =
             "music-title";
 
-
           title.textContent =
             music.title;
-
 
           const artist =
             document.createElement(
               "p"
             );
 
-
           artist.className =
             "music-artist";
 
-
           artist.textContent =
             music.artist;
-
 
           info.appendChild(
             title
           );
 
-
           info.appendChild(
             artist
           );
-
 
           top.appendChild(
             number
           );
 
-
           top.appendChild(
             info
           );
-
 
           const buttonRow =
             document.createElement(
               "div"
             );
 
-
           buttonRow.className =
             "button-row";
-
 
           const musicButton =
             document.createElement(
               "button"
             );
 
-
           musicButton.className =
             "music-button";
-
 
           musicButton.type =
             "button";
 
-
           musicButton.textContent =
-            "▶ YouTube Music 바로 재생";
-
+            "▶ 바로 재생";
 
           const heartButton =
             document.createElement(
               "button"
             );
 
-
           heartButton.className =
             "heart-button";
 
-
           heartButton.type =
             "button";
-
-
-          heartButton.setAttribute(
-            "aria-label",
-            "MY MUSIC 저장"
-          );
-
 
           if (
             isSaved(
               music
             )
           ) {
-
             heartButton.textContent =
               "♥";
-
 
             heartButton.classList.add(
               "saved"
             );
-
           }
-
           else {
-
             heartButton.textContent =
               "♡";
-
           }
 
-
           musicButton.addEventListener(
-
             "click",
-
             function(
               event
             ) {
-
               event.stopPropagation();
-
 
               openMusic(
                 music
               );
-
             }
-
           );
 
-
           heartButton.addEventListener(
-
             "click",
-
             function(
               event
             ) {
-
               event.stopPropagation();
-
 
               const existingIndex =
                 savedSongs.findIndex(
-
                   function(
                     song
                   ) {
-
                     return (
-
-                      song.title
-                      ===
-                      music.title
-
+                      song.title === music.title
                       &&
-
-                      song.artist
-                      ===
-                      music.artist
-
+                      song.artist === music.artist
                     );
-
                   }
-
                 );
-
 
               if (
                 existingIndex !== -1
               ) {
-
                 savedSongs.splice(
                   existingIndex,
                   1
                 );
-
               }
-
               else {
-
                 savedSongs.push(
-
                   {
-
                     title:
                       music.title,
 
                     artist:
                       music.artist,
 
+                    videoId:
+                      getVideoId(
+                        music
+                      ),
+
                     url:
                       getMusicURL(
                         music
                       )
-
                   }
-
                 );
-
               }
 
-
               localStorage.setItem(
-
                 "sharkPlaylist",
-
                 JSON.stringify(
                   savedSongs
                 )
-
               );
-
 
               renderMusicList(
                 currentMusicList
               );
-
             }
-
           );
 
-
           card.addEventListener(
-
             "click",
-
             function() {
-
               openMusic(
                 music
               );
-
             }
-
           );
 
-
           card.addEventListener(
-
             "keydown",
-
             function(
               event
             ) {
-
               if (
                 event.key === "Enter"
                 ||
                 event.key === " "
               ) {
-
                 event.preventDefault();
-
 
                 openMusic(
                   music
                 );
-
               }
-
             }
-
           );
-
 
           buttonRow.appendChild(
             musicButton
           );
 
-
           buttonRow.appendChild(
             heartButton
           );
-
 
           card.appendChild(
             top
           );
 
-
           card.appendChild(
             buttonRow
           );
 
-
           musicList.appendChild(
             card
           );
-
         }
-
       );
-
     }
 
-
     function recommendMusic() {
-
-      const musicArray =
+      renderMusicList(
         getFiveMusic(
           currentMood,
           currentGenre
-        );
-
-
-      renderMusicList(
-        musicArray
+        )
       );
-
     }
 
-
-    /*
-      기존 MY MUSIC 링크 먼저 자동 변환
-    */
-
-    migrateSavedSongs();
-
-
     selectedMood.textContent =
-
       moodEmoji[
         currentMood
       ]
-
       ||
-
       "😊";
 
-
     moodText.textContent =
-
       moodMessage[
         currentMood
       ]
-
       ||
-
       "";
 
-
     recommendMusic();
-
 
     const genreButtons =
       document.querySelectorAll(
         ".genre-button"
       );
 
-
     genreButtons.forEach(
-
       function(
         button
       ) {
-
         button.addEventListener(
-
           "click",
-
           function() {
-
             genreButtons.forEach(
-
               function(
                 item
               ) {
-
                 item.classList.remove(
                   "active"
                 );
-
               }
-
             );
-
 
             button.classList.add(
               "active"
             );
 
-
             currentGenre =
               button.dataset.genre;
 
-
             recommendMusic();
-
           }
-
         );
-
       }
-
     );
-
 
     randomButton.addEventListener(
-
       "click",
-
       function() {
-
         recommendMusic();
 
-
         window.scrollTo(
-
           {
-
             top: 0,
-
             behavior: "smooth"
-
           }
-
         );
-
       }
-
     );
-
 
     playlistButton.addEventListener(
-
       "click",
-
       function() {
-
         window.location.href =
           "./playlist.html";
-
       }
-
     );
-
 
     backButton.addEventListener(
-
       "click",
-
       function() {
-
         window.location.href =
           "./mood.html";
-
       }
-
     );
-
   </script>
 
 </body>
