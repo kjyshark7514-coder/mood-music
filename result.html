@@ -1268,27 +1268,38 @@
     }
 
 
-    function getMusicURL(
-      music
-    ) {
+    function getMusicURL(music) {
 
-      const searchText =
-        music.title
-        +
-        " "
-        +
-        music.artist;
+  if (music.videoId) {
+
+    return (
+      "https://music.youtube.com/watch?v="
+      +
+      encodeURIComponent(
+        music.videoId
+      )
+    );
+
+  }
 
 
-      return (
-        "https://music.youtube.com/search?q="
-        +
-        encodeURIComponent(
-          searchText
-        )
-      );
+  const searchText =
+    music.title
+    +
+    " "
+    +
+    music.artist;
 
-    }
+
+  return (
+    "https://music.youtube.com/search?q="
+    +
+    encodeURIComponent(
+      searchText
+    )
+  );
+
+}
 
 
     function isSaved(
