@@ -2,12 +2,7 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
-
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  >
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SHARK - My Music</title>
 
   <style>
@@ -33,7 +28,6 @@
         "Apple SD Gothic Neo",
         "Noto Sans KR",
         sans-serif;
-
       background: #031118;
       color: #ffffff;
     }
@@ -44,7 +38,6 @@
 
     .page {
       position: relative;
-
       width: 100%;
       min-height: 100vh;
       min-height: 100dvh;
@@ -77,32 +70,22 @@
 
     .page::before {
       content: "";
-
       position: absolute;
-
       width: 300px;
       height: 300px;
-
       top: 420px;
       right: -170px;
-
       border-radius: 50%;
-
-      background:
-        rgba(61, 212, 226, 0.11);
-
+      background: rgba(61, 212, 226, 0.11);
       filter: blur(65px);
-
       pointer-events: none;
     }
 
     .top {
       position: relative;
       z-index: 2;
-
       width: 100%;
       max-width: 440px;
-
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -115,21 +98,16 @@
 
     .logo {
       color: #ffffff;
-
       font-size: 15px;
       font-weight: 700;
-
       letter-spacing: 5px;
     }
 
     .logo-dot {
       width: 7px;
       height: 7px;
-
       border-radius: 50%;
-
       background: #6ce8ee;
-
       box-shadow:
         0 0 14px
         rgba(108, 232, 238, 0.9);
@@ -138,34 +116,23 @@
     .playlist-head {
       position: relative;
       z-index: 2;
-
       width: 100%;
       max-width: 440px;
-
       margin-top: 44px;
     }
 
     .playlist-title {
       margin: 0;
-
       color: #ffffff;
-
-      font-size:
-        clamp(32px, 8vw, 44px);
-
+      font-size: clamp(32px, 8vw, 44px);
       line-height: 1.12;
-
       font-weight: 670;
-
       letter-spacing: -2px;
     }
 
     .playlist-subtitle {
       margin: 11px 0 0;
-
-      color:
-        rgba(203, 230, 234, 0.58);
-
+      color: rgba(203, 230, 234, 0.58);
       font-size: 14px;
       line-height: 1.6;
     }
@@ -173,32 +140,23 @@
     .play-all-button {
       position: relative;
       z-index: 2;
-
       width: 100%;
       max-width: 440px;
-
       margin-top: 28px;
       padding: 16px 20px;
-
       border: none;
       border-radius: 18px;
-
       background:
         linear-gradient(
           135deg,
           #dffbfb 0%,
           #a8eef2 100%
         );
-
       color: #06202a;
-
       font-size: 14px;
       font-weight: 700;
-
       cursor: pointer;
-
-      transition:
-        transform 0.15s ease;
+      transition: transform 0.15s ease;
     }
 
     .play-all-button:active {
@@ -208,26 +166,17 @@
     .now-playing {
       position: relative;
       z-index: 2;
-
       width: 100%;
       max-width: 440px;
-
       margin-top: 12px;
       padding: 13px 16px;
-
       border:
         1px solid
         rgba(108, 232, 238, 0.15);
-
       border-radius: 15px;
-
-      background:
-        rgba(108, 232, 238, 0.07);
-
+      background: rgba(108, 232, 238, 0.07);
       color: #bcebef;
-
       text-align: center;
-
       font-size: 12px;
       line-height: 1.5;
     }
@@ -235,43 +184,32 @@
     .music-list {
       position: relative;
       z-index: 2;
-
       width: 100%;
       max-width: 440px;
-
       margin-top: 24px;
-
       display: flex;
       flex-direction: column;
-
       gap: 11px;
     }
 
     .music-item {
       width: 100%;
-
       padding: 17px;
-
       border-radius: 22px;
-
       background:
         linear-gradient(
           145deg,
           rgba(255, 255, 255, 0.085),
           rgba(255, 255, 255, 0.035)
         );
-
       border:
         1px solid
         rgba(255, 255, 255, 0.09);
-
       box-shadow:
         0 10px 30px
         rgba(0, 0, 0, 0.16);
-
       backdrop-filter: blur(14px);
       -webkit-backdrop-filter: blur(14px);
-
       transition:
         border 0.2s ease,
         transform 0.2s ease,
@@ -279,12 +217,8 @@
     }
 
     .music-item.selected {
-      border-color:
-        rgba(108, 232, 238, 0.55);
-
-      transform:
-        translateY(-2px);
-
+      border-color: rgba(108, 232, 238, 0.55);
+      transform: translateY(-2px);
       box-shadow:
         0 0 18px
         rgba(108, 232, 238, 0.10);
@@ -292,87 +226,69 @@
 
     .music-info {
       width: 100%;
-
       margin-bottom: 15px;
     }
 
     .music-name {
       margin: 0;
-
       color: #f5fcfd;
-
       font-size: 17px;
       font-weight: 600;
-
       line-height: 1.4;
     }
 
     .music-artist {
       margin: 5px 0 0;
-
       color: #7f9ca5;
-
       font-size: 13px;
       line-height: 1.4;
     }
 
     .music-actions {
       width: 100%;
-
       display: flex;
-
       gap: 8px;
     }
 
     .play-button {
       flex: 1;
-
       min-height: 43px;
-
       padding: 10px;
-
       display: flex;
       align-items: center;
       justify-content: center;
-
+      border: none;
       border-radius: 13px;
-
       background:
         linear-gradient(
           135deg,
           #dffbfb 0%,
           #a8eef2 100%
         );
-
       color: #06202a;
-
-      text-decoration: none;
       text-align: center;
-
       font-size: 13px;
       font-weight: 650;
+      cursor: pointer;
+    }
+
+    .play-button:disabled {
+      cursor: default;
+      opacity: 0.38;
     }
 
     .remove-button {
       width: 48px;
       min-width: 48px;
       min-height: 43px;
-
       border:
         1px solid
         rgba(108, 232, 238, 0.25);
-
       border-radius: 13px;
-
-      background:
-        rgba(108, 232, 238, 0.12);
-
+      background: rgba(108, 232, 238, 0.12);
       color: #6ce8ee;
-
       font-size: 20px;
-
       cursor: pointer;
-
       box-shadow:
         0 0 14px
         rgba(108, 232, 238, 0.10);
@@ -385,67 +301,46 @@
     .empty-message {
       position: relative;
       z-index: 2;
-
       width: 100%;
       max-width: 440px;
-
       margin-top: 32px;
-
       padding: 38px 24px;
-
       border:
         1px solid
         rgba(255, 255, 255, 0.09);
-
       border-radius: 24px;
-
       background:
         linear-gradient(
           145deg,
           rgba(255, 255, 255, 0.08),
           rgba(255, 255, 255, 0.035)
         );
-
       backdrop-filter: blur(14px);
       -webkit-backdrop-filter: blur(14px);
-
       text-align: center;
-
-      color:
-        rgba(203, 230, 234, 0.58);
-
+      color: rgba(203, 230, 234, 0.58);
       font-size: 14px;
       line-height: 1.7;
     }
 
     .empty-heart {
       display: block;
-
       margin-bottom: 14px;
-
       color: #6ce8ee;
-
       font-size: 40px;
     }
 
     .back-button {
       position: relative;
       z-index: 2;
-
       width: 100%;
       max-width: 440px;
-
       margin-top: 18px;
       padding: 12px 20px;
-
       border: none;
-
       background: transparent;
-
       color: #708b93;
-
       font-size: 13px;
-
       cursor: pointer;
     }
 
@@ -453,7 +348,6 @@
       .page {
         padding-left:
           max(40px, calc((100vw - 520px) / 2));
-
         padding-right:
           max(40px, calc((100vw - 520px) / 2));
       }
@@ -481,27 +375,16 @@
   <main class="page">
 
     <header class="top">
-
       <div class="top-spacer"></div>
-
-      <div class="logo">
-        SHARK
-      </div>
-
+      <div class="logo">SHARK</div>
       <div class="logo-dot"></div>
-
     </header>
 
     <section class="playlist-head">
-
-      <h1 class="playlist-title">
-        MY MUSIC
-      </h1>
-
+      <h1 class="playlist-title">MY MUSIC</h1>
       <p class="playlist-subtitle">
         내가 좋아하는 노래만 모아봤어.
       </p>
-
     </section>
 
     <button
@@ -528,10 +411,7 @@
       id="emptyMessage"
       style="display: none;"
     >
-      <span class="empty-heart">
-        ♡
-      </span>
-
+      <span class="empty-heart">♡</span>
       아직 저장한 노래가 없어.<br>
       마음에 드는 노래에<br>
       ♥를 눌러 저장해봐.
@@ -595,85 +475,283 @@
         "backButton"
       );
 
-    function getYouTubeMusicURL(
-      song
-    ) {
-      const searchText =
-        song.title +
-        " " +
-        song.artist;
-
+    function songKey(song) {
       return (
-        "https://music.youtube.com/search?q=" +
-        encodeURIComponent(
-          searchText
+        String(
+          song.title || ""
         )
+          .trim()
+          .toLowerCase()
+        +
+        "|||"
+        +
+        String(
+          song.artist || ""
+        )
+          .trim()
+          .toLowerCase()
       );
     }
 
-    function getSongURL(
-      song
-    ) {
+    const DIRECT_TRACKS =
+      new Map([
+        ["butter|||bts", "WMweEpGlu_U"],
+        ["permission to dance|||bts", "CuklIb9d3fI"],
+        ["dynamite|||bts", "gdZLi9oWNZg"],
+
+        ["sunday morning|||maroon 5", "S2Cti12XBw4"],
+        ["sugar|||maroon 5", "09R8_2nJtjg"],
+
+        ["dandelion|||oohyo", "Kaq4LFM47I0"],
+        ["comes and goes|||hyukoh", "ECMc1SB60E0"],
+
+        ["love wins all|||iu", "JleoAppaxi0"],
+        ["밤편지|||iu", "BzYnNdJhZQw"],
+        ["through the night|||iu", "BzYnNdJhZQw"],
+        ["love poem|||iu", "iOKRYIMhaDk"],
+
+        ["attention|||newjeans", "js1CtxSY38I"],
+        ["ditto|||newjeans", "pSUydWEqKwE"],
+
+        ["perfect|||ed sheeran", "2Vv-BfVoq4g"],
+        ["thinking out loud|||ed sheeran", "lp-EO5I60KA"],
+
+        ["bad|||wave to earth", "6Q5xqNkCk7w"],
+        ["seasons|||wave to earth", "CnVVjLOGVoY"],
+
+        ["beautiful goodbye|||chen", "JrOrlhjIYVk"],
+        ["untitled, 2014|||g-dragon", "Nged3LwJsvQ"],
+
+        ["let her go|||passenger", "RBumgq5yVrA"],
+        ["drivers license|||olivia rodrigo", "ZmDBbnmKpqQ"],
+
+        ["기억을 걷는 시간|||nell", "K72ZxP9ZAP4"],
+        ["space song|||beach house", "RBtlPT23PTM"],
+
+        ["god's menu|||stray kids", "TQTlCHxyuu8"],
+        ["maniac|||stray kids", "OvioeS1ZZ7o"],
+
+        ["believer|||imagine dragons", "7wtfhZwyrcc"],
+        ["natural|||imagine dragons", "0I647GU3Jsc"],
+
+        ["do i wanna know?|||arctic monkeys", "bpOSxM0rNPM"],
+        ["seven nation army|||the white stripes", "0J2QdDbelmY"],
+
+        ["golden hour|||jvke", "PEM0Vs8jf1w"],
+        ["comethru|||jeremy zucker", "jO2viLEW-1A"],
+
+        ["instagram|||dean", "wKyMIrBClYw"],
+        ["d (half moon)|||dean", "eelfrHtmk68"],
+
+        ["fix you|||coldplay", "k4V3Mo61fJM"],
+        ["yellow|||coldplay", "yKNxeF4KMsY"],
+
+        ["for lovers who hesitate|||jannabi", "GpQ222I1ULc"],
+
+        ["apt.|||rosé & bruno mars", "ekr2nIex040"],
+        ["uptown funk|||mark ronson feat. bruno mars", "OPf0YbXqDm0"],
+        ["don't start now|||dua lipa", "oygrmJFKYZY"],
+        ["phonecert|||10cm", "mOo8bVzN9M8"],
+
+        ["wave|||ateez", "FIInyEWWW-s"],
+        ["ocean view|||rothy", "5wiW60inhgw"],
+        ["ocean eyes|||billie eilish", "viimfQi_pUw"],
+        ["ocean|||martin garrix feat. khalid", "BDocp-VpCwY"]
+      ]);
+
+    function extractVideoIdFromDirectURL(url) {
       if (
-        song.url &&
-        typeof song.url === "string"
+        typeof url !== "string"
+        ||
+        !url.startsWith(
+          "https://music.youtube.com/watch?v="
+        )
       ) {
-        return song.url;
+        return "";
       }
 
-      return getYouTubeMusicURL(
-        song
+      try {
+        const parsed =
+          new URL(url);
+
+        if (
+          parsed.hostname !==
+          "music.youtube.com"
+          ||
+          parsed.pathname !==
+          "/watch"
+        ) {
+          return "";
+        }
+
+        return (
+          parsed.searchParams.get("v")
+          ||
+          ""
+        ).trim();
+      }
+      catch (error) {
+        return "";
+      }
+    }
+
+    function getVideoId(song) {
+      if (!song) {
+        return "";
+      }
+
+      if (song.videoId) {
+        const videoId =
+          String(
+            song.videoId
+          ).trim();
+
+        if (videoId) {
+          return videoId;
+        }
+      }
+
+      const urlVideoId =
+        extractVideoIdFromDirectURL(
+          song.url
+        );
+
+      if (urlVideoId) {
+        return urlVideoId;
+      }
+
+      return (
+        DIRECT_TRACKS.get(
+          songKey(song)
+        )
+        ||
+        ""
       );
     }
 
-    function openMusic(
-      song
-    ) {
-      if (!song) {
+    function getSongURL(song) {
+      const videoId =
+        getVideoId(song);
+
+      if (!videoId) {
+        return "";
+      }
+
+      return (
+        "https://music.youtube.com/watch?v="
+        +
+        encodeURIComponent(videoId)
+      );
+    }
+
+    function migrateSavedSongs() {
+      let changed = false;
+
+      savedSongs =
+        savedSongs.map(
+          function(song) {
+            if (
+              !song
+              ||
+              !song.title
+              ||
+              !song.artist
+            ) {
+              return song;
+            }
+
+            const videoId =
+              getVideoId(song);
+
+            const directURL =
+              videoId
+                ?
+                (
+                  "https://music.youtube.com/watch?v="
+                  +
+                  encodeURIComponent(videoId)
+                )
+                :
+                "";
+
+            if (
+              song.videoId !== videoId
+              ||
+              song.url !== directURL
+            ) {
+              changed = true;
+
+              return {
+                ...song,
+                videoId: videoId,
+                url: directURL
+              };
+            }
+
+            return song;
+          }
+        );
+
+      if (changed) {
+        savePlaylist();
+      }
+    }
+
+    function openMusic(song) {
+      const url =
+        getSongURL(song);
+
+      if (!url) {
         return;
       }
 
-      window.open(
-        getSongURL(
-          song
-        ),
-        "_blank",
-        "noopener,noreferrer"
-      );
+      window.location.href =
+        url;
     }
 
     function playFirstSong() {
+      const firstIndex =
+        savedSongs.findIndex(
+          function(song) {
+            return Boolean(
+              getSongURL(song)
+            );
+          }
+        );
+
       if (
-        savedSongs.length === 0
+        firstIndex === -1
       ) {
         return;
       }
 
       const firstSong =
-        savedSongs[0];
+        savedSongs[
+          firstIndex
+        ];
 
       nowPlaying.style.display =
         "block";
 
       nowPlaying.textContent =
-        "▶ " +
-        firstSong.title +
-        " — " +
-        firstSong.artist +
-        "부터 들어볼 수 있어.";
+        "▶ "
+        +
+        firstSong.title
+        +
+        " — "
+        +
+        firstSong.artist;
+
+      highlightSong(
+        firstIndex
+      );
 
       openMusic(
         firstSong
       );
-
-      highlightSong(
-        0
-      );
     }
 
-    function highlightSong(
-      index
-    ) {
+    function highlightSong(index) {
       const items =
         document.querySelectorAll(
           ".music-item"
@@ -701,9 +779,7 @@
       );
     }
 
-    function removeSong(
-      index
-    ) {
+    function removeSong(index) {
       savedSongs.splice(
         index,
         1
@@ -745,8 +821,21 @@
       emptyMessage.style.display =
         "none";
 
+      const hasAnyDirectTrack =
+        savedSongs.some(
+          function(song) {
+            return Boolean(
+              getSongURL(song)
+            );
+          }
+        );
+
       playAllButton.style.display =
-        "block";
+        hasAnyDirectTrack
+          ?
+          "block"
+          :
+          "none";
 
       savedSongs.forEach(
         function(
@@ -809,43 +898,52 @@
 
           const playButton =
             document.createElement(
-              "a"
+              "button"
             );
 
           playButton.className =
             "play-button";
 
-          playButton.href =
-            getSongURL(
-              song
+          playButton.type =
+            "button";
+
+          const url =
+            getSongURL(song);
+
+          if (url) {
+            playButton.textContent =
+              "▶ 바로 재생";
+
+            playButton.addEventListener(
+              "click",
+              function() {
+                highlightSong(
+                  index
+                );
+
+                nowPlaying.style.display =
+                  "block";
+
+                nowPlaying.textContent =
+                  "▶ "
+                  +
+                  song.title
+                  +
+                  " — "
+                  +
+                  song.artist;
+
+                openMusic(song);
+              }
             );
+          }
+          else {
+            playButton.textContent =
+              "직접 링크 없음";
 
-          playButton.target =
-            "_blank";
-
-          playButton.rel =
-            "noopener noreferrer";
-
-          playButton.textContent =
-            "YouTube Music에서 듣기";
-
-          playButton.addEventListener(
-            "click",
-            function() {
-              highlightSong(
-                index
-              );
-
-              nowPlaying.style.display =
-                "block";
-
-              nowPlaying.textContent =
-                "▶ " +
-                song.title +
-                " — " +
-                song.artist;
-            }
-          );
+            playButton.disabled =
+              true;
+          }
 
           const removeButton =
             document.createElement(
@@ -897,6 +995,8 @@
         }
       );
     }
+
+    migrateSavedSongs();
 
     playAllButton.addEventListener(
       "click",
