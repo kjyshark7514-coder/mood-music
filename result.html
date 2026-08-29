@@ -1516,8 +1516,10 @@
             "noopener noreferrer";
 
 
-          musicButton.textContent =
-            "YouTube Music에서 듣기";
+         musicButton.textContent =
+  music.videoId
+    ? "▶ 바로 재생"
+    : "YouTube Music에서 찾기";;
 
 
           const heartButton =
